@@ -61,14 +61,15 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerView: 1,
         spaceBetween: 0,
         loop: true,
-        speed: 600,
+        speed: 800,
         autoplay: {
-            delay: 3500,
+            delay: 4000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
         },
         effect: 'slide',
         grabCursor: true,
+        watchSlidesProgress: true,
         
         // Navigation arrows
         navigation: {
@@ -81,6 +82,9 @@ document.addEventListener('DOMContentLoaded', function () {
             el: '.swiper-pagination',
             clickable: true,
             dynamicBullets: false,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '"></span>';
+            },
         },
         
         // Keyboard control
@@ -92,7 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Lazy loading
         lazy: {
             loadPrevNext: true,
+            loadPrevNextAmount: 2,
         },
+        
+        // Preload images
+        preloadImages: false,
         
         // Accessibility
         a11y: {
@@ -101,25 +109,48 @@ document.addEventListener('DOMContentLoaded', function () {
             paginationBulletMessage: 'Go to slide {{index}}',
         },
         
+        // Smooth transitions
+        on: {
+            init: function () {
+                // Add fade-in effect on initialization
+                this.slides.forEach((slide, index) => {
+                    if (index === 0) {
+                        slide.style.opacity = '1';
+                    }
+                });
+            },
+            slideChangeTransitionStart: function () {
+                // Smooth opacity transition
+                this.slides.forEach(slide => {
+                    if (slide.classList.contains('swiper-slide-active')) {
+                        slide.style.opacity = '1';
+                    }
+                });
+            },
+        },
+        
         // Responsive breakpoints
         breakpoints: {
             // Mobile
             320: {
                 autoplay: {
-                    delay: 4000,
+                    delay: 4500,
                 },
+                speed: 600,
             },
             // Tablet
             768: {
                 autoplay: {
-                    delay: 3500,
+                    delay: 4000,
                 },
+                speed: 750,
             },
             // Desktop
             1024: {
                 autoplay: {
-                    delay: 3500,
+                    delay: 4000,
                 },
+                speed: 800,
             },
         },
     });
