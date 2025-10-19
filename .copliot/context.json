@@ -1,0 +1,86 @@
+{
+  "project": {
+    "name": "Ecommerce Design Templates",
+    "description": "High-quality, responsive eCommerce design templates inspired by Amazon and Flipkart. Optimized for modern UI/UX, accessibility, speed, and scalability."
+  },
+  "frameworks": [
+    "Bootstrap 5.3.8",
+    "HTML5",
+    "CSS3",
+    "JavaScript (Vanilla)",
+    "Optionally: other CSS frameworks or utilities if required for layout, animations, or advanced responsiveness"
+  ],
+  "design_guidelines": {
+    "theme": {
+      "primary": "#ff6a00",
+      "secondary": "#0d6efd",
+      "accent": "#ffc107",
+      "background": "#f8f9fa",
+      "text": "#212529"
+    },
+    "typography": {
+      "font_family": "'Inter', 'Poppins', 'Segoe UI', sans-serif",
+      "heading_weight": "600",
+      "body_weight": "400",
+      "line_height": "1.5"
+    },
+    "structure": [
+      "Header with logo, search, account, wishlist, and cart",
+      "Dynamic hero banner or carousel",
+      "Category grid or slider",
+      "Product cards with hover effects and rating stars",
+      "Deal and featured product sections",
+      "Sidebar or modal cart",
+      "Checkout and order flow pages",
+      "Footer with newsletter, social links, and company info"
+    ],
+    "responsiveness": "Mobile-first; must be fully responsive across mobile, tablet, and desktop. Copilot can define custom breakpoints or use additional responsive utilities if needed."
+  },
+  "performance_rules": {
+    "lazy_load_images": true,
+    "minify_css_js": true,
+    "preload_fonts": true,
+    "use_svg_icons": true,
+    "optimize_assets": true,
+    "defer_non_critical_js": true,
+    "use_cdn_for_libraries": true
+  },
+  "accessibility": {
+    "semantic_html": true,
+    "aria_roles": true,
+    "alt_text_required": true,
+    "keyboard_navigation": true,
+    "color_contrast_compliant": true
+  },
+  "coding_style": {
+    "use_bem_classes": true,
+    "prefer_bootstrap_utilities": true,
+    "comments_required": true,
+    "modular_js": true,
+    "consistent_spacing": true,
+    "defer_non_critical_scripts": true,
+    "use_css_variables_for_theme": true
+  },
+  "ui_ux_guidelines": {
+    "design_should_follow_professional_ui_ux_principles": true,
+    "visual_hierarchy": "Use spacing, typography, and color to create clear visual structure.",
+    "user_focus": "All design should prioritize readability, clarity, and ease of navigation.",
+    "hover_and_focus_states": "Provide smooth hover and focus transitions with consistent animations.",
+    "consistent_spacing_and_alignment": true,
+    "avoid_clutter": true
+  },
+  "copilot_rules": [
+    "Output should resemble high-level eCommerce platforms like Amazon, Flipkart, and Shopify.",
+    "Copilot must ensure the design feels like it was made by a professional UI/UX designer.",
+    "Copilot can use additional frameworks, breakpoints, or layout utilities if it enhances design or performance.",
+    "All generated components must follow the project’s color theme, typography, and BEM class naming.",
+    "All components must be fully responsive, optimized, and accessible.",
+    "Use realistic placeholder content for products, categories, and prices.",
+    "All designs must be optimized for speed: defer JS, lazy load images, preload fonts, and use SVG icons.",
+    "Prefer Bootstrap API or lightweight vanilla JS for dynamic behaviors (cart, modals, dropdowns, search).",
+    "Maintain professional eCommerce design standards: consistent margins, clean typography, balanced color palette.",
+    "Animations should be minimal, smooth, and performance-optimized (use CSS transitions or Bootstrap utilities).",
+    "Ensure accessibility with proper aria-labels, roles, alt tags, and focus states.",
+    "use bootstrap classes if same functionality can be achieved with them"
+  ]
+}
