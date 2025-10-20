@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecommerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header sticky-top">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="row align-items-center">
+                <!-- Menu Icon -->
+                <div class="col-auto">
+                    <button class="btn btn-link p-0 text-dark" title="sidebar open" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                        <i class="bi bi-list header-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Logo -->
+                <div class="col-auto">
+                    <a href="#" class="logo">EBS</a>
+                </div>
+
+                <!-- Delivery Location (Desktop/Tablet Only) -->
+                <div class="col-auto d-none d-lg-block">
+                    <a href="#" class="delivery-location">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="location-text">
+                            <span class="location-label">Deliver to</span>
+                            <span class="location-city fw-semibold">Mumbai 400001</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Search Bar (Desktop/Tablet Only) -->
+                <div class="col d-none d-md-block mx-2 mx-lg-3">
+                    <form class="search-form" role="search">
+                        <div class="search-wrapper search-wrapper-header">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="search" class="search-input" placeholder="Search for Products, Brands and More"
+                                aria-label="Search for Products" autocomplete="off" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Spacer (Mobile Only) -->
+                <div class="col d-md-none"></div>
+
+                <!-- User Info -->
+                <div class="col-auto">
+                    <a href="#" class="user-info">
+                        <i class="bi bi-person-circle header-icon"></i>
+                        <span class="user-name">Login</span>
+                    </a>
+                </div>
+
+                <!-- Wishlist (Desktop Only) -->
+                <div class="col-auto d-none d-lg-block">
+                    <a href="#" class="nav-link-header">
+                        <i class="bi bi-heart header-icon"></i>
+                        <span class="nav-text">Wishlist</span>
+                    </a>
+                </div>
+
+                <!-- Cart Icon with Count -->
+                <div class="col-auto">
+                    <a href="#" class="cart-icon-wrapper">
+                        <i class="bi bi-cart3 header-icon"></i>
+                        <span class="cart-badge">99</span>
+                        <span class="cart-text d-none d-lg-inline">Cart</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <!-- Page Title Section -->
+    <section class="bg-white border-bottom py-3">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="d-flex align-items-center gap-2">
+                <a href="index.html" class="text-decoration-none text-secondary" title="Go to Home">
+                    <i class="bi bi-house-door fs-5"></i>
+                </a>
+                <i class="bi bi-chevron-right text-secondary"></i>
+                <span class="fw-semibold text-dark">All Categories</span>
+            </div>
+        </div>
+    </section>
+    
+     <!-- Search Bar Section (Mobile Only) -->
+    <section class="search-section d-md-none">
+        <div class="container-fluid px-3">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <form class="search-form" role="search">
+                        <div class="search-wrapper">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="search" class="search-input" placeholder="Search for Category"
+                                aria-label="Search for Category" autocomplete="off" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Categories Grid Section -->
+    <section class="py-3 py-md-4 bg-light">
+        <div class="container-fluid px-3 px-md-4">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-header-content">
+                    <h2 class="section-title">Shop by Category</h2>
+                    <p class="section-subtitle">Browse through our wide range of products</p>
+                </div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="row g-3 g-md-4">
+                <!-- Category Card 1: Electronics -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/cd6aca4f61e8ea95.webp" alt="Electronics" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Electronics</h3>
+                            <p class="text-secondary mb-0 small">2,500+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 2: Fashion -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/ec2982e5564fe07c.webp" alt="Fashion" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Fashion</h3>
+                            <p class="text-secondary mb-0 small">5,800+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 3: Mobiles -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/9c64dfa667885ca9.webp" alt="Mobiles" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Mobiles</h3>
+                            <p class="text-secondary mb-0 small">1,200+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 4: Home & Kitchen -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/febcb9896245caf4.webp" alt="Home & Kitchen" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Home & Kitchen</h3>
+                            <p class="text-secondary mb-0 small">3,400+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 5: Beauty -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/2ebb95ec20eae8f1.webp" alt="Beauty" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Beauty</h3>
+                            <p class="text-secondary mb-0 small">1,800+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 6: Appliances -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/3dbe4c89fbf0003d.webp" alt="Appliances" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Appliances</h3>
+                            <p class="text-secondary mb-0 small">980+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 7: Sports -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/9c64dfa667885ca9.webp" alt="Sports" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Sports & Fitness</h3>
+                            <p class="text-secondary mb-0 small">1,500+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 8: Books -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/cd6aca4f61e8ea95.webp" alt="Books" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Books</h3>
+                            <p class="text-secondary mb-0 small">4,200+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 9: Toys -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/ec2982e5564fe07c.webp" alt="Toys" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Toys & Games</h3>
+                            <p class="text-secondary mb-0 small">2,100+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 10: Grocery -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/febcb9896245caf4.webp" alt="Grocery" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Grocery</h3>
+                            <p class="text-secondary mb-0 small">3,800+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 11: Baby Products -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/2ebb95ec20eae8f1.webp" alt="Baby Products" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Baby Products</h3>
+                            <p class="text-secondary mb-0 small">1,600+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 12: Furniture -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/3dbe4c89fbf0003d.webp" alt="Furniture" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Furniture</h3>
+                            <p class="text-secondary mb-0 small">890+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 13: Watches -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/9c64dfa667885ca9.webp" alt="Watches" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Watches</h3>
+                            <p class="text-secondary mb-0 small">950+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 14: Bags & Luggage -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/cd6aca4f61e8ea95.webp" alt="Bags & Luggage" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Bags & Luggage</h3>
+                            <p class="text-secondary mb-0 small">1,400+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 15: Automotive -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/ec2982e5564fe07c.webp" alt="Automotive" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Automotive</h3>
+                            <p class="text-secondary mb-0 small">2,700+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 16: Pet Supplies -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/febcb9896245caf4.webp" alt="Pet Supplies" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Pet Supplies</h3>
+                            <p class="text-secondary mb-0 small">780+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 17: Health & Wellness -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/2ebb95ec20eae8f1.webp" alt="Health & Wellness" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Health & Wellness</h3>
+                            <p class="text-secondary mb-0 small">1,900+ items</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Category Card 18: Stationery -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="#" class="text-decoration-none">
+                        <div class="bg-white rounded-3 shadow-sm p-3 p-md-4 h-100 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden category-card">
+                            <div class="category-image-wrapper mb-2 mb-md-3">
+                                <img src="images/3dbe4c89fbf0003d.webp" alt="Stationery" class="img-fluid" loading="lazy">
+                            </div>
+                            <h3 class="fs-6 fw-medium text-dark mb-1">Stationery</h3>
+                            <p class="text-secondary mb-0 small">1,100+ items</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
