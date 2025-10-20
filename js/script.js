@@ -1,5 +1,23 @@
 // Category Navigation Scroll Functionality
 document.addEventListener('DOMContentLoaded', function () {
+    // Set CSS variable for header height so sticky elements can sit flush below it
+    function setHeaderHeight() {
+        const header = document.querySelector('.header');
+        if (!header) return;
+        const height = header.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', height + 'px');
+    }
+
+    // Run once on load
+    setHeaderHeight();
+
+    // Update on resize and when fonts/images load
+    window.addEventListener('resize', function () {
+        // debounce for performance
+        clearTimeout(window.__setHeaderHeightTO);
+        window.__setHeaderHeightTO = setTimeout(setHeaderHeight, 120);
+    });
+    window.addEventListener('load', setHeaderHeight);
     const scrollContainer = document.getElementById('categoryScroll');
     const scrollLeftBtn = document.getElementById('scrollLeft');
     const scrollRightBtn = document.getElementById('scrollRight');
@@ -214,4 +232,16 @@ document.addEventListener('DOMContentLoaded', function () {
             window.addEventListener('resize', updateScrollButtons);
         }
     });
+
+    // Back to Top Button Smooth Scroll
+    const backToTopLink = document.querySelector('.back-to-top-link');
+    if (backToTopLink) {
+        backToTopLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });

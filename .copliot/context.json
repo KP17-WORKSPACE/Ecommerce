@@ -55,6 +55,8 @@
   "coding_style": {
     "use_bem_classes": true,
     "prefer_bootstrap_utilities": true,
+    "bootstrap_first_approach": "ALWAYS use Bootstrap 5.3.8 utility classes first (spacing: m-*, p-*, g-*, gap-*; layout: d-flex, flex-*, align-items-*, justify-content-*; sizing: w-*, h-*; colors: bg-*, text-*; borders: border-*, rounded-*; shadows: shadow-*; typography: fs-*, fw-*, text-*; display: d-none, d-*-block; position: sticky-top, fixed-*). Only create custom CSS when Bootstrap utilities cannot achieve the desired result.",
+    "custom_css_only_when_needed": "Create custom CSS classes only for: complex component-specific styling, unique hover/focus states, animations, brand-specific colors using CSS variables, or functionality not available in Bootstrap.",
     "comments_required": true,
     "modular_js": true,
     "consistent_spacing": true,
@@ -81,6 +83,7 @@
     "Maintain professional eCommerce design standards: consistent margins, clean typography, balanced color palette.",
     "Animations should be minimal, smooth, and performance-optimized (use CSS transitions or Bootstrap utilities).",
     "Ensure accessibility with proper aria-labels, roles, alt tags, and focus states.",
-    "use bootstrap classes if same functionality can be achieved with them"
+    "CRITICAL: Always prioritize Bootstrap 5.3.8 utility classes over custom CSS. Use custom CSS ONLY when Bootstrap cannot achieve the specific design requirement. Examples: Use 'd-flex gap-2' instead of custom flexbox CSS, 'mb-3 p-4' instead of custom margin/padding, 'bg-white shadow-sm rounded-3' instead of custom background/shadow/border-radius, 'text-primary fw-semibold fs-5' instead of custom color/font-weight/font-size. This reduces CSS bloat and improves maintainability.",
+    "Bootstrap utility classes to maximize: Spacing (m-*, p-*, g-*, gap-*), Flexbox (d-flex, flex-*, align-items-*, justify-content-*), Grid (row, col-*, g-*), Display (d-none, d-*-block, d-*-flex), Sizing (w-*, h-*, mw-*, mh-*), Colors (bg-*, text-*), Borders (border-*, rounded-*), Shadows (shadow-*), Typography (fs-*, fw-*, lh-*, text-*), Position (sticky-top, fixed-*, position-*), Overflow (overflow-*), Visibility (visible, invisible)"
   ]
 }
