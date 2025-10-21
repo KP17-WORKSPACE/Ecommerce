@@ -11,19 +11,6 @@
     "Optionally: other CSS frameworks or utilities if required for layout, animations, or advanced responsiveness"
   ],
   "design_guidelines": {
-    "theme": {
-      "primary": "#ff6a00",
-      "secondary": "#0d6efd",
-      "accent": "#ffc107",
-      "background": "#f8f9fa",
-      "text": "#212529"
-    },
-    "typography": {
-      "font_family": "'Inter', 'Poppins', 'Segoe UI', sans-serif",
-      "heading_weight": "600",
-      "body_weight": "400",
-      "line_height": "1.5"
-    },
     "structure": [
       "Header with logo, search, account, wishlist, and cart",
       "Dynamic hero banner or carousel",
