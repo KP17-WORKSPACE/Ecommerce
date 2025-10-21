@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Electronics - EBS Ecommerce</title>
-    <meta name="description" content="Shop the best electronics products at amazing prices. Find mobiles, laptops, TVs, cameras and more with great deals and discounts.">
+    <meta name="description"
+        content="Shop the best electronics products at amazing prices. Find mobiles, laptops, TVs, cameras and more with great deals and discounts.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -92,11 +93,14 @@
     <section class="bg-white border-bottom py-2">
         <div class="container-fluid px-3 px-md-4">
             <div class="d-flex align-items-center gap-2">
-                <a href="index.html" class="breadcrumb-home text-decoration-none text-secondary d-flex align-items-center" title="Go to Home">
+                <a href="index.html"
+                    class="breadcrumb-home text-decoration-none text-secondary d-flex align-items-center"
+                    title="Go to Home">
                     <i class="bi bi-house-door fs-5"></i>
                 </a>
                 <i class="bi bi-chevron-right text-secondary breadcrumb-separator"></i>
-                <a href="all-categories.html" class="breadcrumb-link text-decoration-none text-secondary small">Categories</a>
+                <a href="all-categories.html"
+                    class="breadcrumb-link text-decoration-none text-secondary small">Categories</a>
                 <i class="bi bi-chevron-right text-secondary breadcrumb-separator"></i>
                 <span class="text-dark fw-semibold small">Electronics</span>
             </div>
@@ -107,7 +111,8 @@
     <section class="mobile-filter-bar d-md-none bg-white border-bottom sticky-top">
         <div class="container-fluid px-0">
             <div class="d-flex">
-                <button class="flex-fill border-0 border-end bg-white py-2 d-flex align-items-center justify-content-center gap-2"
+                <button
+                    class="flex-fill border-0 border-end bg-white py-2 d-flex align-items-center justify-content-center gap-2"
                     type="button" data-bs-toggle="offcanvas" data-bs-target="#filtersOffcanvas">
                     <i class="bi bi-funnel fs-6"></i>
                     <span class="small">Filter</span>
@@ -126,223 +131,255 @@
         <div class="container-fluid px-3 px-md-4">
             <div class="row g-3 g-md-4">
                 <!-- Sidebar Filters (Desktop/Tablet) -->
-                <aside class="col-md-3 col-lg-2 d-none d-md-block">
+                <aside class="col-md-3 col-lg-2 d-none d-md-block mt-2 px-0">
                     <div class="filters-sidebar">
                         <!-- Filter Header -->
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h2 class="fw-semibold fs-5 mb-0">Filters</h2>
-                            <button class="btn btn-link btn-sm text-primary text-decoration-none p-0">Clear All</button>
+                        <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                            <h2 class="fw-semibold fs-6 mb-0 text-uppercase">Filters</h2>
+                            <button class="btn btn-link btn-sm text-primary text-decoration-none p-0 small">Clear
+                                All</button>
                         </div>
 
-                        <!-- Categories Filter -->
-                        <div class="filter-group">
-                            <h3 class="filter-heading">Categories</h3>
-                            <ul class="filter-list">
-                                <li><a href="#" class="filter-link active">All Electronics</a></li>
-                                <li><a href="#" class="filter-link">Mobiles</a></li>
-                                <li><a href="#" class="filter-link">Laptops</a></li>
-                                <li><a href="#" class="filter-link">Tablets</a></li>
-                                <li><a href="#" class="filter-link">TVs</a></li>
-                                <li><a href="#" class="filter-link">Cameras</a></li>
-                                <li><a href="#" class="filter-link">Headphones</a></li>
-                                <li><a href="#" class="filter-link">Speakers</a></li>
-                            </ul>
-                        </div>
+                        <!-- Filters Accordion (Always Open) -->
+                        <div class="accordion accordion-flush" id="filtersAccordion">
 
-                        <!-- Price Filter -->
-                        <div class="filter-group">
-                            <h3 class="filter-heading">Price Range</h3>
-                            <div class="price-range-inputs mb-3">
-                                <div class="row g-2">
-                                    <div class="col-6">
-                                        <input type="number" class="form-control form-control-sm" placeholder="Min" value="0">
-                                    </div>
-                                    <div class="col-6">
-                                        <input type="number" class="form-control form-control-sm" placeholder="Max" value="100000">
+                            <!-- Categories Filter -->
+                            <div class="accordion-item border-0">
+                                <h3 class="accordion-header">
+                                    <button
+                                        class="accordion-button collapsed p-0 pb-2 shadow-none bg-transparent fw-semibold  text-uppercase"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategories"
+                                        aria-expanded="true" aria-controls="collapseCategories">
+                                        Categories
+                                    </button>
+                                </h3>
+                                <div id="collapseCategories" class="accordion-collapse collapse show">
+                                    <div class="accordion-body p-0 pb-3 pt-2">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><a href="#"
+                                                    class="text-decoration-none text-primary fw-semibold">All
+                                                    Electronics</a></li>
+                                            <li class="mb-2"><a href="#"
+                                                    class="text-decoration-none text-secondary">Mobiles</a></li>
+                                            <li class="mb-2"><a href="#"
+                                                    class="text-decoration-none text-secondary">Laptops</a></li>
+                                            <li class="mb-2"><a href="#"
+                                                    class="text-decoration-none text-secondary">Tablets</a></li>
+                                            <li class="mb-2"><a href="#"
+                                                    class="text-decoration-none text-secondary">TVs</a></li>
+                                            <li class="mb-2"><a href="#"
+                                                    class="text-decoration-none text-secondary">Cameras</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <ul class="filter-list">
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="price1">
-                                        <label class="form-check-label" for="price1">Under ₹5,000</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="price2">
-                                        <label class="form-check-label" for="price2">₹5,000 - ₹10,000</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="price3">
-                                        <label class="form-check-label" for="price3">₹10,000 - ₹20,000</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="price4">
-                                        <label class="form-check-label" for="price4">₹20,000 - ₹50,000</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="price5">
-                                        <label class="form-check-label" for="price5">Over ₹50,000</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
 
-                        <!-- Brand Filter -->
-                        <div class="filter-group">
-                            <h3 class="filter-heading">Brand</h3>
-                            <div class="filter-search mb-2">
-                                <input type="text" class="form-control form-control-sm" placeholder="Search brand...">
+                            <!-- Price Range Filter -->
+                            <div class="accordion-item border-0 border-top">
+                                <h3 class="accordion-header">
+                                    <button
+                                        class="accordion-button collapsed p-0 pt-1 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice"
+                                        aria-expanded="true" aria-controls="collapsePrice">
+                                        Price
+                                    </button>
+                                </h3>
+                                <div id="collapsePrice" class="accordion-collapse collapse show">
+                                    <div class="accordion-body p-0 pb-3">
+                                        <div class="row g-2 mb-3">
+                                            <div class="col-6">
+                                                <input type="number" class="form-control form-control-sm"
+                                                    placeholder="Min" value="0">
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" class="form-control form-control-sm"
+                                                    placeholder="Max" value="100000">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="price1">
+                                                <label class="form-check-label small" for="price1">Under ₹5,000</label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="price2">
+                                                <label class="form-check-label small" for="price2">₹5,000 -
+                                                    ₹10,000</label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="price3">
+                                                <label class="form-check-label small" for="price3">₹10,000 -
+                                                    ₹20,000</label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="price4">
+                                                <label class="form-check-label small" for="price4">₹20,000 -
+                                                    ₹50,000</label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="price5">
+                                                <label class="form-check-label small" for="price5">Over ₹50,000</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <ul class="filter-list scrollable-list">
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="brand1">
-                                        <label class="form-check-label" for="brand1">Samsung</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="brand2">
-                                        <label class="form-check-label" for="brand2">Apple</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="brand3">
-                                        <label class="form-check-label" for="brand3">OnePlus</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="brand4">
-                                        <label class="form-check-label" for="brand4">Xiaomi</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="brand5">
-                                        <label class="form-check-label" for="brand5">Sony</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="brand6">
-                                        <label class="form-check-label" for="brand6">LG</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="brand7">
-                                        <label class="form-check-label" for="brand7">Dell</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="brand8">
-                                        <label class="form-check-label" for="brand8">HP</label>
-                                    </div>
-                                </li>
-                            </ul>
-                            <button class="btn btn-link btn-sm text-primary p-0 mt-1">+12 More</button>
-                        </div>
 
-                        <!-- Customer Rating Filter -->
-                        <div class="filter-group">
-                            <h3 class="filter-heading">Customer Rating</h3>
-                            <ul class="filter-list">
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="rating1">
-                                        <label class="form-check-label" for="rating1">
-                                            <i class="bi bi-star-fill text-warning"></i> 4★ & above
-                                        </label>
+                            <!-- Brand Filter -->
+                            <div class="accordion-item border-0 border-top">
+                                <h3 class="accordion-header">
+                                    <button
+                                        class="accordion-button collapsed p-0 pt-3 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrand"
+                                        aria-expanded="true" aria-controls="collapseBrand">
+                                        Brand
+                                    </button>
+                                </h3>
+                                <div id="collapseBrand" class="accordion-collapse collapse show">
+                                    <div class="accordion-body p-0 pb-3">
+                                        <input type="text" class="form-control form-control-sm mb-3"
+                                            placeholder="Search brand...">
+                                        <div class="filter-scrollable-list">
+                                            <div class="d-flex flex-column gap-2">
+                                                <div class="form-check m-0">
+                                                    <input class="form-check-input" type="checkbox" id="brand1">
+                                                    <label class="form-check-label small" for="brand1">Samsung</label>
+                                                </div>
+                                                <div class="form-check m-0">
+                                                    <input class="form-check-input" type="checkbox" id="brand2">
+                                                    <label class="form-check-label small" for="brand2">Apple</label>
+                                                </div>
+                                                <div class="form-check m-0">
+                                                    <input class="form-check-input" type="checkbox" id="brand3">
+                                                    <label class="form-check-label small" for="brand3">OnePlus</label>
+                                                </div>
+                                                <div class="form-check m-0">
+                                                    <input class="form-check-input" type="checkbox" id="brand4">
+                                                    <label class="form-check-label small" for="brand4">Xiaomi</label>
+                                                </div>
+                                                <div class="form-check m-0">
+                                                    <input class="form-check-input" type="checkbox" id="brand5">
+                                                    <label class="form-check-label small" for="brand5">Sony</label>
+                                                </div>
+                                                <div class="form-check m-0">
+                                                    <input class="form-check-input" type="checkbox" id="brand6">
+                                                    <label class="form-check-label small" for="brand6">LG</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="btn btn-link btn-sm text-primary p-0 mt-2 text-decoration-none">+12
+                                            More</button>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="rating2">
-                                        <label class="form-check-label" for="rating2">
-                                            <i class="bi bi-star-fill text-warning"></i> 3★ & above
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                </div>
+                            </div>
 
-                        <!-- Discount Filter -->
-                        <div class="filter-group">
-                            <h3 class="filter-heading">Discount</h3>
-                            <ul class="filter-list">
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="discount1">
-                                        <label class="form-check-label" for="discount1">50% or more</label>
+                            <!-- Customer Rating Filter -->
+                            <div class="accordion-item border-0 border-top">
+                                <h3 class="accordion-header">
+                                    <button
+                                        class="accordion-button collapsed p-0 pt-3 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseRating"
+                                        aria-expanded="true" aria-controls="collapseRating">
+                                        Customer Rating
+                                    </button>
+                                </h3>
+                                <div id="collapseRating" class="accordion-collapse collapse show">
+                                    <div class="accordion-body p-0 pb-3">
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="rating1">
+                                                <label class="form-check-label small" for="rating1">
+                                                    <i class="bi bi-star-fill text-warning"></i> 4★ & above
+                                                </label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="rating2">
+                                                <label class="form-check-label small" for="rating2">
+                                                    <i class="bi bi-star-fill text-warning"></i> 3★ & above
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="discount2">
-                                        <label class="form-check-label" for="discount2">40% or more</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="discount3">
-                                        <label class="form-check-label" for="discount3">30% or more</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="discount4">
-                                        <label class="form-check-label" for="discount4">20% or more</label>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="discount5">
-                                        <label class="form-check-label" for="discount5">10% or more</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                </div>
+                            </div>
 
-                        <!-- Availability Filter -->
-                        <div class="filter-group">
-                            <h3 class="filter-heading">Availability</h3>
-                            <ul class="filter-list">
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="avail1" checked>
-                                        <label class="form-check-label" for="avail1">In Stock</label>
+                            <!-- Discount Filter -->
+                            <div class="accordion-item border-0 border-top">
+                                <h3 class="accordion-header">
+                                    <button
+                                        class="accordion-button collapsed p-0 pt-3 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiscount"
+                                        aria-expanded="true" aria-controls="collapseDiscount">
+                                        Discount
+                                    </button>
+                                </h3>
+                                <div id="collapseDiscount" class="accordion-collapse collapse show">
+                                    <div class="accordion-body p-0 pb-3">
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="discount1">
+                                                <label class="form-check-label small" for="discount1">50% or
+                                                    more</label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="discount2">
+                                                <label class="form-check-label small" for="discount2">40% or
+                                                    more</label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="discount3">
+                                                <label class="form-check-label small" for="discount3">30% or
+                                                    more</label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="discount4">
+                                                <label class="form-check-label small" for="discount4">20% or
+                                                    more</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="avail2">
-                                        <label class="form-check-label" for="avail2">Include Out of Stock</label>
+                                </div>
+                            </div>
+
+                            <!-- Availability Filter -->
+                            <div class="accordion-item border-0 border-top">
+                                <h3 class="accordion-header">
+                                    <button
+                                        class="accordion-button collapsed p-0 pt-3 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseAvailability"
+                                        aria-expanded="true" aria-controls="collapseAvailability">
+                                        Availability
+                                    </button>
+                                </h3>
+                                <div id="collapseAvailability" class="accordion-collapse collapse show">
+                                    <div class="accordion-body p-0 pb-3">
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="avail1" checked>
+                                                <label class="form-check-label small" for="avail1">In Stock</label>
+                                            </div>
+                                            <div class="form-check m-0">
+                                                <input class="form-check-input" type="checkbox" id="avail2">
+                                                <label class="form-check-label small" for="avail2">Include Out of
+                                                    Stock</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </aside>
 
                 <!-- Products Area -->
-                <div class="col-md-9 col-lg-10">
+                <div class="col-md-9 col-lg-10 mt-2 px-2">
                     <!-- Results Header -->
-                    <div class="results-header bg-white rounded-3 shadow-sm p-3 mb-3">
+                    <div class="results-header bg-white rounded-3 shadow-sm p-3 mb-2">
                         <!-- Desktop View -->
                         <div class="d-none d-md-block">
-                            <div class="row align-items-center">
+                            <div class="row align-items-center mb-3">
                                 <div class="col-md-6 mb-2 mb-md-0">
                                     <h1 class="fs-5 fw-semibold mb-1">Electronics</h1>
                                     <p class="text-secondary small mb-0">Showing 1-24 of 2,456 results</p>
@@ -362,17 +399,36 @@
                                 </div>
                             </div>
 
-                            <!-- Active Filters -->
-                            <div class="active-filters mt-3 pt-3 border-top">
-                                <div class="d-flex flex-wrap gap-2 align-items-center">
-                                    <span class="text-secondary small">Applied Filters:</span>
-                                    <span class="badge bg-light text-dark border d-flex align-items-center gap-2">
-                                        In Stock
-                                        <button type="button" class="btn-close btn-close-sm" aria-label="Remove filter"></button>
-                                    </span>
-                                    <button class="btn btn-link btn-sm text-primary text-decoration-none p-0">Clear All</button>
+                            <div class="row pt-3 border-top">
+                                <div class="col-md-8">
+                                    <!-- Active Filters -->
+                                    <div class="active-filters">
+                                        <div class="d-flex flex-wrap gap-2 align-items-center">
+                                            <span class="text-secondary small">Applied Filters:</span>
+                                            <span
+                                                class="badge bg-light text-dark border d-flex align-items-center gap-2">
+                                                In Stock
+                                                <button type="button" class="btn-close btn-close-sm"
+                                                    aria-label="Remove filter"></button>
+                                            </span>
+                                            <button
+                                                class="btn btn-link btn-sm text-primary text-decoration-none p-0">Clear
+                                                All</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <form class="search-form" role="search">
+                                        <div class="search-wrapper">
+                                            <i class="bi bi-search search-icon"></i>
+                                            <input type="search" class="search-input" placeholder="Search in Electronics"
+                                                aria-label="Search for Electronics" autocomplete="off" />
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
+
+
                         </div>
 
                         <!-- Mobile View - Compact with Active Filters -->
@@ -381,7 +437,7 @@
                                 <h1 class="fs-6 fw-semibold mb-0">Electronics</h1>
                                 <p class="text-secondary mb-0 small">2,456 products</p>
                             </div>
-                            
+
                             <!-- Active Filters - Mobile (Horizontal Scroll) -->
                             <div class="mobile-filters-wrapper">
                                 <button class="clear-all-btn">
@@ -392,31 +448,36 @@
                                     <div class="mobile-filters-container">
                                         <span class="active-filter-badge">
                                             Samsung
-                                            <button type="button" class="btn-close-filter" aria-label="Remove Samsung filter">
+                                            <button type="button" class="btn-close-filter"
+                                                aria-label="Remove Samsung filter">
                                                 <i class="bi bi-x"></i>
                                             </button>
                                         </span>
                                         <span class="active-filter-badge">
                                             ₹10,000 - ₹30,000
-                                            <button type="button" class="btn-close-filter" aria-label="Remove price filter">
+                                            <button type="button" class="btn-close-filter"
+                                                aria-label="Remove price filter">
                                                 <i class="bi bi-x"></i>
                                             </button>
                                         </span>
                                         <span class="active-filter-badge">
                                             4★ & above
-                                            <button type="button" class="btn-close-filter" aria-label="Remove rating filter">
+                                            <button type="button" class="btn-close-filter"
+                                                aria-label="Remove rating filter">
                                                 <i class="bi bi-x"></i>
                                             </button>
                                         </span>
                                         <span class="active-filter-badge">
                                             50% or more
-                                            <button type="button" class="btn-close-filter" aria-label="Remove discount filter">
+                                            <button type="button" class="btn-close-filter"
+                                                aria-label="Remove discount filter">
                                                 <i class="bi bi-x"></i>
                                             </button>
                                         </span>
                                         <span class="active-filter-badge">
                                             OnePlus
-                                            <button type="button" class="btn-close-filter" aria-label="Remove OnePlus filter">
+                                            <button type="button" class="btn-close-filter"
+                                                aria-label="Remove OnePlus filter">
                                                 <i class="bi bi-x"></i>
                                             </button>
                                         </span>
@@ -438,7 +499,8 @@
                                     <img src="images/prod1.webp" alt="Product" class="product-image" loading="lazy">
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="product-title">Premium Wireless Headphones with Active Noise Cancellation</h3>
+                                    <h3 class="product-title">Premium Wireless Headphones with Active Noise Cancellation
+                                    </h3>
                                     <div class="product-rating">
                                         <span class="rating-stars">
                                             <i class="bi bi-star-fill"></i> 4.5
@@ -448,7 +510,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹3,999</span>
                                         <span class="price-original">₹7,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>50% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>50%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -465,7 +528,8 @@
                                     <img src="images/prod2.webp" alt="Product" class="product-image" loading="lazy">
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="product-title">Smart Watch Pro with Fitness Tracking & Heart Rate Monitor</h3>
+                                    <h3 class="product-title">Smart Watch Pro with Fitness Tracking & Heart Rate Monitor
+                                    </h3>
                                     <div class="product-rating">
                                         <span class="rating-stars">
                                             <i class="bi bi-star-fill"></i> 4.2
@@ -475,7 +539,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹1,499</span>
                                         <span class="price-original">₹2,499</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>40% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>40%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -502,7 +567,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹899</span>
                                         <span class="price-original">₹1,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>55% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>55%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -519,7 +585,8 @@
                                     <img src="images/prod4.webp" alt="Product" class="product-image" loading="lazy">
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="product-title">Wireless Gaming Mouse RGB with Adjustable DPI Settings</h3>
+                                    <h3 class="product-title">Wireless Gaming Mouse RGB with Adjustable DPI Settings
+                                    </h3>
                                     <div class="product-rating">
                                         <span class="rating-stars">
                                             <i class="bi bi-star-fill"></i> 4.3
@@ -529,7 +596,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹1,299</span>
                                         <span class="price-original">₹2,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>57% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>57%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -546,7 +614,8 @@
                                     <img src="images/prod5.webp" alt="Product" class="product-image" loading="lazy">
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="product-title">4K Action Camera Waterproof Sports Camera with Accessories</h3>
+                                    <h3 class="product-title">4K Action Camera Waterproof Sports Camera with Accessories
+                                    </h3>
                                     <div class="product-rating">
                                         <span class="rating-stars">
                                             <i class="bi bi-star-fill"></i> 4.4
@@ -556,7 +625,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹5,999</span>
                                         <span class="price-original">₹12,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>54% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>54%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -573,7 +643,8 @@
                                     <img src="images/prod6.webp" alt="Product" class="product-image" loading="lazy">
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="product-title">Mechanical Gaming Keyboard RGB Backlit Cherry MX Switches</h3>
+                                    <h3 class="product-title">Mechanical Gaming Keyboard RGB Backlit Cherry MX Switches
+                                    </h3>
                                     <div class="product-rating">
                                         <span class="rating-stars">
                                             <i class="bi bi-star-fill"></i> 4.7
@@ -583,7 +654,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹2,499</span>
                                         <span class="price-original">₹5,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>58% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>58%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -611,7 +683,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹799</span>
                                         <span class="price-original">₹1,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>60% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>60%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -638,7 +711,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹1,199</span>
                                         <span class="price-original">₹2,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>60% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>60%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -665,7 +739,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹1,499</span>
                                         <span class="price-original">₹3,499</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>57% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>57%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -692,7 +767,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹999</span>
                                         <span class="price-original">₹2,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>67% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>67%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -719,7 +795,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹6,999</span>
                                         <span class="price-original">₹12,999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>46% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>46%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -746,7 +823,8 @@
                                     <div class="product-price">
                                         <span class="price-current">₹399</span>
                                         <span class="price-original">₹999</span>
-                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>60% off</span>
+                                        <span class="price-discount"><i class="bi bi-arrow-down-short"></i>60%
+                                            off</span>
                                     </div>
                                     <div class="product-delivery free">Free delivery</div>
                                 </div>
@@ -758,7 +836,8 @@
                     <nav aria-label="Products pagination" class="mt-4">
                         <ul class="pagination justify-content-center flex-wrap">
                             <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true" aria-label="Previous page">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
+                                    aria-label="Previous page">
                                     <i class="bi bi-chevron-left"></i>
                                 </a>
                             </li>
@@ -784,113 +863,182 @@
     <!-- Mobile Filters Offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="filtersOffcanvas" aria-labelledby="filtersOffcanvasLabel">
         <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title fw-semibold" id="filtersOffcanvasLabel">Filters</h5>
+            <h5 class="offcanvas-title fw-semibold text-uppercase small" id="filtersOffcanvasLabel">Filters</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body p-0">
-            <div class="filters-sidebar p-3">
-                <!-- Same filter content as desktop sidebar -->
-                <div class="filter-group">
-                    <h3 class="filter-heading">Categories</h3>
-                    <ul class="filter-list">
-                        <li><a href="#" class="filter-link active">All Electronics</a></li>
-                        <li><a href="#" class="filter-link">Mobiles</a></li>
-                        <li><a href="#" class="filter-link">Laptops</a></li>
-                        <li><a href="#" class="filter-link">Tablets</a></li>
-                        <li><a href="#" class="filter-link">TVs</a></li>
-                        <li><a href="#" class="filter-link">Cameras</a></li>
-                    </ul>
+        <div class="offcanvas-body p-3">
+            <!-- Filters Accordion (Mobile) -->
+            <div class="accordion accordion-flush" id="mobileFiltersAccordion">
+
+                <!-- Categories Filter -->
+                <div class="accordion-item border-0">
+                    <h3 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed p-0 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#mobileCategories"
+                            aria-expanded="true" aria-controls="mobileCategories">
+                            Categories
+                        </button>
+                    </h3>
+                    <div id="mobileCategories" class="accordion-collapse collapse show">
+                        <div class="accordion-body p-0 pb-3">
+                            <ul class="list-unstyled mb-0 small">
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-primary fw-semibold">All
+                                        Electronics</a></li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Mobiles</a>
+                                </li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Laptops</a>
+                                </li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Tablets</a>
+                                </li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">TVs</a></li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Cameras</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="filter-group">
-                    <h3 class="filter-heading">Price Range</h3>
-                    <div class="price-range-inputs mb-3">
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <input type="number" class="form-control form-control-sm" placeholder="Min" value="0">
+                <!-- Price Range Filter -->
+                <div class="accordion-item border-0 border-top">
+                    <h3 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed p-0 pt-3 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#mobilePrice" aria-expanded="true"
+                            aria-controls="mobilePrice">
+                            Price
+                        </button>
+                    </h3>
+                    <div id="mobilePrice" class="accordion-collapse collapse show">
+                        <div class="accordion-body p-0 pb-3">
+                            <div class="row g-2 mb-3">
+                                <div class="col-6">
+                                    <input type="number" class="form-control form-control-sm" placeholder="Min"
+                                        value="0">
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control form-control-sm" placeholder="Max"
+                                        value="100000">
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <input type="number" class="form-control form-control-sm" placeholder="Max" value="100000">
+                            <div class="d-flex flex-column gap-2">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="price-m1">
+                                    <label class="form-check-label small" for="price-m1">Under ₹5,000</label>
+                                </div>
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="price-m2">
+                                    <label class="form-check-label small" for="price-m2">₹5,000 - ₹10,000</label>
+                                </div>
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="price-m3">
+                                    <label class="form-check-label small" for="price-m3">₹10,000 - ₹20,000</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="filter-group">
-                    <h3 class="filter-heading">Brand</h3>
-                    <div class="filter-search mb-2">
-                        <input type="text" class="form-control form-control-sm" placeholder="Search brand...">
+                <!-- Brand Filter -->
+                <div class="accordion-item border-0 border-top">
+                    <h3 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed p-0 pt-3 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#mobileBrand" aria-expanded="true"
+                            aria-controls="mobileBrand">
+                            Brand
+                        </button>
+                    </h3>
+                    <div id="mobileBrand" class="accordion-collapse collapse show">
+                        <div class="accordion-body p-0 pb-3">
+                            <input type="text" class="form-control form-control-sm mb-3" placeholder="Search brand...">
+                            <div class="d-flex flex-column gap-2">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="brand-m1">
+                                    <label class="form-check-label small" for="brand-m1">Samsung</label>
+                                </div>
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="brand-m2">
+                                    <label class="form-check-label small" for="brand-m2">Apple</label>
+                                </div>
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="brand-m3">
+                                    <label class="form-check-label small" for="brand-m3">OnePlus</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="filter-list">
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="brand-m1">
-                                <label class="form-check-label" for="brand-m1">Samsung</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="brand-m2">
-                                <label class="form-check-label" for="brand-m2">Apple</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="brand-m3">
-                                <label class="form-check-label" for="brand-m3">OnePlus</label>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
 
-                <div class="filter-group">
-                    <h3 class="filter-heading">Customer Rating</h3>
-                    <ul class="filter-list">
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rating-m1">
-                                <label class="form-check-label" for="rating-m1">
-                                    <i class="bi bi-star-fill text-warning"></i> 4★ & above
-                                </label>
+                <!-- Customer Rating Filter -->
+                <div class="accordion-item border-0 border-top">
+                    <h3 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed p-0 pt-3 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#mobileRating" aria-expanded="true"
+                            aria-controls="mobileRating">
+                            Customer Rating
+                        </button>
+                    </h3>
+                    <div id="mobileRating" class="accordion-collapse collapse show">
+                        <div class="accordion-body p-0 pb-3">
+                            <div class="d-flex flex-column gap-2">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="rating-m1">
+                                    <label class="form-check-label small" for="rating-m1">
+                                        <i class="bi bi-star-fill text-warning"></i> 4★ & above
+                                    </label>
+                                </div>
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="rating-m2">
+                                    <label class="form-check-label small" for="rating-m2">
+                                        <i class="bi bi-star-fill text-warning"></i> 3★ & above
+                                    </label>
+                                </div>
                             </div>
-                        </li>
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rating-m2">
-                                <label class="form-check-label" for="rating-m2">
-                                    <i class="bi bi-star-fill text-warning"></i> 3★ & above
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="filter-group">
-                    <h3 class="filter-heading">Discount</h3>
-                    <ul class="filter-list">
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="discount-m1">
-                                <label class="form-check-label" for="discount-m1">50% or more</label>
+                <!-- Discount Filter -->
+                <div class="accordion-item border-0 border-top">
+                    <h3 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed p-0 pt-3 pb-2 shadow-none bg-transparent fw-semibold small text-uppercase"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#mobileDiscount"
+                            aria-expanded="true" aria-controls="mobileDiscount">
+                            Discount
+                        </button>
+                    </h3>
+                    <div id="mobileDiscount" class="accordion-collapse collapse show">
+                        <div class="accordion-body p-0 pb-3">
+                            <div class="d-flex flex-column gap-2">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="discount-m1">
+                                    <label class="form-check-label small" for="discount-m1">50% or more</label>
+                                </div>
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="discount-m2">
+                                    <label class="form-check-label small" for="discount-m2">40% or more</label>
+                                </div>
+                                <div class="form-check m-0">
+                                    <input class="form-check-input" type="checkbox" id="discount-m3">
+                                    <label class="form-check-label small" for="discount-m3">30% or more</label>
+                                </div>
                             </div>
-                        </li>
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="discount-m2">
-                                <label class="form-check-label" for="discount-m2">40% or more</label>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
         <div class="offcanvas-footer border-top p-3">
             <div class="row g-2">
                 <div class="col-6">
-                    <button class="btn btn-outline-secondary w-100">Clear All</button>
+                    <button class="btn btn-outline-secondary w-100 small">Clear All</button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-primary w-100" data-bs-dismiss="offcanvas">Apply</button>
+                    <button class="btn btn-primary w-100 small" data-bs-dismiss="offcanvas">Apply</button>
                 </div>
             </div>
         </div>
@@ -935,9 +1083,9 @@
             </a>
         </div>
 
-        <div class="footer-main">
+        <div class="footer-main py-4 py-md-5">
             <div class="container-fluid px-3 px-md-4">
-                <div class="row g-4 g-md-5">
+                <div class="row g-4">
                     <div class="col-6 col-md-3">
                         <h3 class="footer-heading">Get to Know Us</h3>
                         <ul class="footer-links">
@@ -973,10 +1121,11 @@
             </div>
         </div>
 
-        <div class="footer-bottom">
+        <div class="footer-bottom py-3 py-md-4">
             <div class="container-fluid px-3 px-md-4">
                 <div class="text-center">
-                    <p class="mb-0 text-secondary small">© 2025 EBS.com, Inc. or its affiliates. All rights reserved.</p>
+                    <p class="mb-0 text-secondary small">© 2025 EBS.com, Inc. or its affiliates. All rights reserved.
+                    </p>
                 </div>
             </div>
         </div>
