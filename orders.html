@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Orders - EBS Ecommerce</title>
+    <meta name="description" content="View and track all your orders. Check order status, delivery details, and manage returns.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header sticky-top">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="row align-items-center">
+                <!-- Menu Icon -->
+                <div class="col-auto">
+                    <button class="btn btn-link p-0 text-dark" title="sidebar open" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                        <i class="bi bi-list header-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Logo -->
+                <div class="col-auto">
+                    <a href="index.html" class="logo">EBS</a>
+                </div>
+
+                <!-- Delivery Location (Desktop/Tablet Only) -->
+                <div class="col-auto d-none d-lg-block">
+                    <a href="#" class="delivery-location">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="location-text">
+                            <span class="location-label">Deliver to</span>
+                            <span class="location-city fw-semibold">Mumbai 400001</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Search Bar (Desktop/Tablet Only) -->
+                <div class="col d-none d-md-block mx-2 mx-lg-3">
+                    <form class="search-form" role="search">
+                        <div class="search-wrapper search-wrapper-header">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="search" class="search-input" placeholder="Search for Products, Brands and More" aria-label="Search for Products" autocomplete="off" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Spacer (Mobile Only) -->
+                <div class="col d-md-none"></div>
+
+                <!-- User Info -->
+                <div class="col-auto">
+                    <a href="#" class="user-info">
+                        <i class="bi bi-person-circle header-icon"></i>
+                        <span class="user-name">John Doe</span>
+                    </a>
+                </div>
+
+                <!-- Wishlist (Desktop Only) -->
+                <div class="col-auto d-none d-lg-block">
+                    <a href="#" class="nav-link-header">
+                        <i class="bi bi-heart header-icon"></i>
+                        <span class="nav-text">Wishlist</span>
+                    </a>
+                </div>
+
+                <!-- Cart Icon with Count -->
+                <div class="col-auto">
+                    <a href="#" class="cart-link">
+                        <i class="bi bi-cart3 header-icon"></i>
+                        <span class="nav-text d-none d-lg-inline">Cart</span>
+                        <span class="cart-count">3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div class="mobile-search-bar d-md-none">
+            <form class="search-form" role="search">
+                <div class="search-wrapper search-wrapper-header">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="search" class="search-input" placeholder="Search for Products" aria-label="Search for Products" autocomplete="off" />
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="orders-page">
+        <div class="container py-3 py-md-4">
+            <!-- Page Header -->
+            <div class="row mb-3 mb-md-4">
+                <div class="col-12">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 gap-md-3">
+                        <div>
+                            <h1 class="orders-page-title mb-1">My Orders</h1>
+                            <p class="text-muted mb-0 small">View and manage all your orders</p>
+                        </div>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-funnel me-1"></i>Filter
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" data-filter="all">All Orders</a></li>
+                                    <li><a class="dropdown-item" href="#" data-filter="delivered">Delivered</a></li>
+                                    <li><a class="dropdown-item" href="#" data-filter="in-transit">In Transit</a></li>
+                                    <li><a class="dropdown-item" href="#" data-filter="processing">Processing</a></li>
+                                    <li><a class="dropdown-item" href="#" data-filter="cancelled">Cancelled</a></li>
+                                </ul>
+                            </div>
+                            <input type="search" class="form-control form-control-sm" placeholder="Search orders..." style="width: 200px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Stats (Desktop) -->
+            <div class="row g-2 g-md-3 mb-3 mb-md-4 d-none d-md-flex">
+                <div class="col-md-3">
+                    <div class="order-stat-card">
+                        <div class="order-stat-icon bg-primary-subtle">
+                            <i class="bi bi-box-seam text-primary"></i>
+                        </div>
+                        <div>
+                            <div class="order-stat-value">24</div>
+                            <div class="order-stat-label">Total Orders</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="order-stat-card">
+                        <div class="order-stat-icon bg-success-subtle">
+                            <i class="bi bi-check-circle text-success"></i>
+                        </div>
+                        <div>
+                            <div class="order-stat-value">18</div>
+                            <div class="order-stat-label">Delivered</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="order-stat-card">
+                        <div class="order-stat-icon bg-warning-subtle">
+                            <i class="bi bi-truck text-warning"></i>
+                        </div>
+                        <div>
+                            <div class="order-stat-value">4</div>
+                            <div class="order-stat-label">In Transit</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="order-stat-card">
+                        <div class="order-stat-icon bg-danger-subtle">
+                            <i class="bi bi-x-circle text-danger"></i>
+                        </div>
+                        <div>
+                            <div class="order-stat-value">2</div>
+                            <div class="order-stat-label">Cancelled</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders List -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- Order Card 1 - In Transit -->
+                    <div class="order-card" data-status="in-transit">
+                        <div class="order-card-header">
+                            <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+                                <div class="d-flex flex-wrap gap-2 gap-md-4 align-items-start">
+                                    <div>
+                                        <div class="order-label">Order ID</div>
+                                        <div class="order-value">#ORD-2024-10241</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Order Date</div>
+                                        <div class="order-value">Oct 15, 2024</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Total</div>
+                                        <div class="order-value fw-semibold">₹2,499</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-2">
+                                    <span class="order-status-badge status-in-transit">
+                                        <i class="bi bi-truck me-1"></i>In Transit
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-card-body">
+                            <div class="order-item">
+                                <div class="d-flex gap-3">
+                                    <div class="order-item-image">
+                                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop" alt="Wireless Headphones" loading="lazy">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="order-item-title">Premium Wireless Noise Cancelling Headphones</h3>
+                                        <div class="order-item-meta">
+                                            <span>Qty: 1</span>
+                                            <span class="text-muted">•</span>
+                                            <span>Color: Black</span>
+                                        </div>
+                                        <div class="order-item-price">₹2,499</div>
+                                    </div>
+                                </div>
+                                <div class="order-item-actions">
+                                    <button class="btn btn-sm btn-outline-primary">Track Order</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Delivery Timeline -->
+                            <div class="delivery-timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-icon">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Order Confirmed</div>
+                                        <div class="timeline-date">Oct 15, 10:30 AM</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item completed">
+                                    <div class="timeline-icon">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Shipped</div>
+                                        <div class="timeline-date">Oct 16, 02:15 PM</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item active">
+                                    <div class="timeline-icon">
+                                        <i class="bi bi-truck"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Out for Delivery</div>
+                                        <div class="timeline-date">Expected today by 6:00 PM</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon">
+                                        <i class="bi bi-box-seam"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Delivered</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Card 2 - Delivered -->
+                    <div class="order-card" data-status="delivered">
+                        <div class="order-card-header">
+                            <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+                                <div class="d-flex flex-wrap gap-2 gap-md-4 align-items-start">
+                                    <div>
+                                        <div class="order-label">Order ID</div>
+                                        <div class="order-value">#ORD-2024-10189</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Order Date</div>
+                                        <div class="order-value">Oct 5, 2024</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Total</div>
+                                        <div class="order-value fw-semibold">₹4,299</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Delivered On</div>
+                                        <div class="order-value text-success">Oct 8, 2024</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-2">
+                                    <span class="order-status-badge status-delivered">
+                                        <i class="bi bi-check-circle me-1"></i>Delivered
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-card-body">
+                            <div class="order-item">
+                                <div class="d-flex gap-3">
+                                    <div class="order-item-image">
+                                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=300&h=300&fit=crop" alt="Smart Watch" loading="lazy">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="order-item-title">Premium Fitness Smart Watch with Heart Rate Monitor</h3>
+                                        <div class="order-item-meta">
+                                            <span>Qty: 1</span>
+                                            <span class="text-muted">•</span>
+                                            <span>Color: Silver</span>
+                                        </div>
+                                        <div class="order-item-price">₹4,299</div>
+                                        <div class="mt-2">
+                                            <span class="badge bg-success-subtle text-success border border-success small">
+                                                <i class="bi bi-star-fill me-1"></i>Rate this product
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-item-actions">
+                                    <button class="btn btn-sm btn-primary mb-2">Buy Again</button>
+                                    <button class="btn btn-sm btn-outline-secondary mb-2">Write Review</button>
+                                    <button class="btn btn-sm btn-outline-danger">Return/Exchange</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Card 3 - Processing -->
+                    <div class="order-card" data-status="processing">
+                        <div class="order-card-header">
+                            <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+                                <div class="d-flex flex-wrap gap-2 gap-md-4 align-items-start">
+                                    <div>
+                                        <div class="order-label">Order ID</div>
+                                        <div class="order-value">#ORD-2024-10301</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Order Date</div>
+                                        <div class="order-value">Oct 20, 2024</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Total</div>
+                                        <div class="order-value fw-semibold">₹8,997</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-2">
+                                    <span class="order-status-badge status-processing">
+                                        <i class="bi bi-hourglass-split me-1"></i>Processing
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-card-body">
+                            <!-- Multiple Items -->
+                            <div class="order-item">
+                                <div class="d-flex gap-3">
+                                    <div class="order-item-image">
+                                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=300&fit=crop" alt="Sunglasses" loading="lazy">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="order-item-title">Designer Polarized Sunglasses UV Protection</h3>
+                                        <div class="order-item-meta">
+                                            <span>Qty: 2</span>
+                                            <span class="text-muted">•</span>
+                                            <span>Color: Black, Brown</span>
+                                        </div>
+                                        <div class="order-item-price">₹2,999 × 2 = ₹5,998</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="order-item border-top">
+                                <div class="d-flex gap-3">
+                                    <div class="order-item-image">
+                                        <img src="https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=300&h=300&fit=crop" alt="Leather Wallet" loading="lazy">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="order-item-title">Genuine Leather Bi-Fold Wallet with RFID Protection</h3>
+                                        <div class="order-item-meta">
+                                            <span>Qty: 1</span>
+                                            <span class="text-muted">•</span>
+                                            <span>Color: Brown</span>
+                                        </div>
+                                        <div class="order-item-price">₹2,999</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="order-item-actions border-top pt-3">
+                                <button class="btn btn-sm btn-outline-danger">Cancel Order</button>
+                            </div>
+
+                            <div class="alert alert-info border-0 mb-0 mt-3 small">
+                                <i class="bi bi-info-circle me-2"></i>
+                                Your order is being processed and will be shipped within 1-2 business days.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Card 4 - Cancelled -->
+                    <div class="order-card" data-status="cancelled">
+                        <div class="order-card-header">
+                            <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+                                <div class="d-flex flex-wrap gap-2 gap-md-4 align-items-start">
+                                    <div>
+                                        <div class="order-label">Order ID</div>
+                                        <div class="order-value">#ORD-2024-10145</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Order Date</div>
+                                        <div class="order-value">Sep 28, 2024</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Total</div>
+                                        <div class="order-value fw-semibold">₹1,599</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Refund Status</div>
+                                        <div class="order-value text-success">Processed</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-2">
+                                    <span class="order-status-badge status-cancelled">
+                                        <i class="bi bi-x-circle me-1"></i>Cancelled
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-card-body">
+                            <div class="order-item">
+                                <div class="d-flex gap-3">
+                                    <div class="order-item-image">
+                                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop" alt="Watch" loading="lazy">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="order-item-title">Classic Analog Wrist Watch - Stainless Steel</h3>
+                                        <div class="order-item-meta">
+                                            <span>Qty: 1</span>
+                                            <span class="text-muted">•</span>
+                                            <span>Color: Gold</span>
+                                        </div>
+                                        <div class="order-item-price text-decoration-line-through">₹1,599</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-warning border-0 mb-0 mt-3 small">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                Order cancelled by user. Refund of ₹1,599 has been processed to your original payment method.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Card 5 - Delivered (Older) -->
+                    <div class="order-card" data-status="delivered">
+                        <div class="order-card-header">
+                            <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+                                <div class="d-flex flex-wrap gap-2 gap-md-4 align-items-start">
+                                    <div>
+                                        <div class="order-label">Order ID</div>
+                                        <div class="order-value">#ORD-2024-10098</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Order Date</div>
+                                        <div class="order-value">Sep 15, 2024</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Total</div>
+                                        <div class="order-value fw-semibold">₹12,499</div>
+                                    </div>
+                                    <div>
+                                        <div class="order-label">Delivered On</div>
+                                        <div class="order-value text-success">Sep 18, 2024</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-2">
+                                    <span class="order-status-badge status-delivered">
+                                        <i class="bi bi-check-circle me-1"></i>Delivered
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-card-body">
+                            <div class="order-item">
+                                <div class="d-flex gap-3">
+                                    <div class="order-item-image">
+                                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=300&h=300&fit=crop" alt="Sneakers" loading="lazy">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="order-item-title">Premium Running Shoes - Lightweight & Breathable</h3>
+                                        <div class="order-item-meta">
+                                            <span>Qty: 1</span>
+                                            <span class="text-muted">•</span>
+                                            <span>Size: UK 9</span>
+                                            <span class="text-muted">•</span>
+                                            <span>Color: White/Blue</span>
+                                        </div>
+                                        <div class="order-item-price">₹12,499</div>
+                                        <div class="mt-2">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="product-rating">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <span class="badge bg-success small">Reviewed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-item-actions">
+                                    <button class="btn btn-sm btn-primary">Buy Again</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Empty State (Hidden by default - shown when no orders match filter) -->
+                    <div class="empty-state d-none" id="emptyState">
+                        <div class="text-center py-5">
+                            <div class="empty-state-icon">
+                                <i class="bi bi-inbox"></i>
+                            </div>
+                            <h3 class="empty-state-title">No orders found</h3>
+                            <p class="empty-state-text">You haven't placed any orders yet or no orders match your filter.</p>
+                            <a href="products.html" class="btn btn-primary mt-3">Start Shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <nav aria-label="Orders pagination">
+                        <ul class="pagination justify-content-center mb-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                    <i class="bi bi-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="bi bi-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-4 py-md-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <h5 class="footer-title">About</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h5 class="footer-title">Help</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h5 class="footer-title">Policy</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h5 class="footer-title">Social</h5>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center small text-secondary">
+                <p class="mb-0">&copy; 2024 EBS Ecommerce. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Qfq6qt68lYssxvU9WXk+6bBv+k3DVUY1bI4XE4f+3CKoN2D6OzRkfKYzQkN90b3j"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
