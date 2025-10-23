@@ -1,76 +1,18 @@
 {
-  "project": {
-    "name": "Ecommerce Design Templates",
-    "description": "High-quality, responsive eCommerce design templates inspired by Amazon and Flipkart. Optimized for modern UI/UX, accessibility, speed, and scalability."
-  },
-  "frameworks": [
-    "Bootstrap 5.3.8",
-    "HTML5",
-    "CSS3",
-    "JavaScript (Vanilla)",
-    "Optionally: other CSS frameworks or utilities if required for layout, animations, or advanced responsiveness"
-  ],
-  "design_guidelines": {
-    "structure": [
-      "Header with logo, search, account, wishlist, and cart",
-      "Dynamic hero banner or carousel",
-      "Category grid or slider",
-      "Product cards with hover effects and rating stars",
-      "Deal and featured product sections",
-      "Sidebar or modal cart",
-      "Checkout and order flow pages",
-      "Footer with newsletter, social links, and company info"
-    ],
-    "responsiveness": "Mobile-first; must be fully responsive across mobile, tablet, and desktop. Copilot can define custom breakpoints or use additional responsive utilities if needed."
-  },
-  "performance_rules": {
-    "lazy_load_images": true,
-    "minify_css_js": true,
-    "preload_fonts": true,
-    "use_svg_icons": true,
-    "optimize_assets": true,
-    "defer_non_critical_js": true,
-    "use_cdn_for_libraries": true
-  },
-  "accessibility": {
-    "semantic_html": true,
-    "aria_roles": true,
-    "alt_text_required": true,
-    "keyboard_navigation": true,
-    "color_contrast_compliant": true
-  },
-  "coding_style": {
-    "use_bem_classes": true,
-    "prefer_bootstrap_utilities": true,
-    "bootstrap_first_approach": "ALWAYS use Bootstrap 5.3.8 utility classes first (spacing: m-*, p-*, g-*, gap-*; layout: d-flex, flex-*, align-items-*, justify-content-*; sizing: w-*, h-*; colors: bg-*, text-*; borders: border-*, rounded-*; shadows: shadow-*; typography: fs-*, fw-*, text-*; display: d-none, d-*-block; position: sticky-top, fixed-*). Only create custom CSS when Bootstrap utilities cannot achieve the desired result.",
-    "custom_css_only_when_needed": "Create custom CSS classes only for: complex component-specific styling, unique hover/focus states, animations, brand-specific colors using CSS variables, or functionality not available in Bootstrap.",
-    "comments_required": true,
-    "modular_js": true,
-    "consistent_spacing": true,
-    "defer_non_critical_scripts": true,
-    "use_css_variables_for_theme": true
-  },
-  "ui_ux_guidelines": {
-    "design_should_follow_professional_ui_ux_principles": true,
-    "visual_hierarchy": "Use spacing, typography, and color to create clear visual structure.",
-    "user_focus": "All design should prioritize readability, clarity, and ease of navigation.",
-    "hover_and_focus_states": "Provide smooth hover and focus transitions with consistent animations.",
-    "consistent_spacing_and_alignment": true,
-    "avoid_clutter": true
-  },
-  "copilot_rules": [
-    "Output should resemble high-level eCommerce platforms like Amazon, Flipkart, and Shopify.",
-    "Copilot must ensure the design feels like it was made by a professional UI/UX designer.",
-    "Copilot can use additional frameworks, breakpoints, or layout utilities if it enhances design or performance.",
-    "All generated components must follow the project’s color theme, typography, and BEM class naming.",
-    "All components must be fully responsive, optimized, and accessible.",
-    "Use realistic placeholder content for products, categories, and prices.",
-    "All designs must be optimized for speed: defer JS, lazy load images, preload fonts, and use SVG icons.",
-    "Prefer Bootstrap API or lightweight vanilla JS for dynamic behaviors (cart, modals, dropdowns, search).",
-    "Maintain professional eCommerce design standards: consistent margins, clean typography, balanced color palette.",
-    "Animations should be minimal, smooth, and performance-optimized (use CSS transitions or Bootstrap utilities).",
-    "Ensure accessibility with proper aria-labels, roles, alt tags, and focus states.",
-    "CRITICAL: Always prioritize Bootstrap 5.3.8 utility classes over custom CSS. Use custom CSS ONLY when Bootstrap cannot achieve the specific design requirement. Examples: Use 'd-flex gap-2' instead of custom flexbox CSS, 'mb-3 p-4' instead of custom margin/padding, 'bg-white shadow-sm rounded-3' instead of custom background/shadow/border-radius, 'text-primary fw-semibold fs-5' instead of custom color/font-weight/font-size. This reduces CSS bloat and improves maintainability.",
-    "Bootstrap utility classes to maximize: Spacing (m-*, p-*, g-*, gap-*), Flexbox (d-flex, flex-*, align-items-*, justify-content-*), Grid (row, col-*, g-*), Display (d-none, d-*-block, d-*-flex), Sizing (w-*, h-*, mw-*, mh-*), Colors (bg-*, text-*), Borders (border-*, rounded-*), Shadows (shadow-*), Typography (fs-*, fw-*, lh-*, text-*), Position (sticky-top, fixed-*, position-*), Overflow (overflow-*), Visibility (visible, invisible)"
+  "version": 1,
+  "context": [
+    {
+      "purpose": "ui-design",
+      "instructions": [
+        "Design and generate UI similar to Amazon and Flipkart ecommerce layouts but adapted to the project's existing theme.",
+        "Use strictly Bootstrap 5.3.8 components as the primary framework.",
+        "Only use custom CSS when absolutely necessary to enhance or extend Bootstrap.",
+        "You may use plain HTML, CSS, JavaScript, or external libraries compatible with Bootstrap 5.3.8.",
+        "Ensure full responsiveness across all devices and screen sizes.",
+        "Apply proper font sizing, spacing, and color palette consistent with the existing site theme.",
+        "Follow clean, modern UI/UX guidelines and accessibility standards (WCAG, visual hierarchy, readability).",
+        "Do not add or assume any design elements, libraries, or features beyond what is described in these rules."
+      ]
+    }
   ]
 }

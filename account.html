@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecommerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header sticky-top">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="row align-items-center">
+                <!-- Menu Icon -->
+                <div class="col-auto">
+                    <button class="btn btn-link p-0 text-dark" title="sidebar open" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                        <i class="bi bi-list header-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Logo -->
+                <div class="col-auto">
+                    <a href="#" class="logo">EBS</a>
+                </div>
+
+                <!-- Delivery Location (Desktop/Tablet Only) -->
+                <div class="col-auto d-none d-lg-block">
+                    <a href="#" class="delivery-location">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="location-text">
+                            <span class="location-label">Deliver to</span>
+                            <span class="location-city fw-semibold">Mumbai 400001</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Search Bar (Desktop/Tablet Only) -->
+                <div class="col d-none d-md-block mx-2 mx-lg-3">
+                    <form class="search-form" role="search">
+                        <div class="search-wrapper search-wrapper-header">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="search" class="search-input" placeholder="Search for Products, Brands and More"
+                                aria-label="Search for Products" autocomplete="off" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Spacer (Mobile Only) -->
+                <div class="col d-md-none"></div>
+
+                <!-- User Info -->
+                <div class="col-auto">
+                    <a href="#" class="user-info">
+                        <i class="bi bi-person-circle header-icon"></i>
+                        <span class="user-name">Login</span>
+                    </a>
+                </div>
+
+                <!-- Wishlist (Desktop Only) -->
+                <div class="col-auto d-none d-lg-block">
+                    <a href="#" class="nav-link-header">
+                        <i class="bi bi-heart header-icon"></i>
+                        <span class="nav-text">Wishlist</span>
+                    </a>
+                </div>
+
+                <!-- Cart Icon with Count -->
+                <div class="col-auto">
+                    <a href="#" class="cart-icon-wrapper">
+                        <i class="bi bi-cart3 header-icon"></i>
+                        <span class="cart-badge">99</span>
+                        <span class="cart-text d-none d-lg-inline">Cart</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Account Page Container -->
+    <main class="account-page">
+        <div class="container-fluid container-lg py-3 py-md-4">
+            <div class="row g-3 g-lg-4">
+                <!-- Sidebar Navigation -->
+                <div class="col-lg-3">
+                    <div class="account-sidebar">
+                        <!-- User Profile Card -->
+                        <div class="account-user-card">
+                            <div class="user-avatar">
+                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=146eb4&color=fff&size=80" 
+                                     alt="John Doe" loading="lazy">
+                            </div>
+                            <div class="user-info">
+                                <div class="user-greeting">Hello,</div>
+                                <div class="user-name">John Doe</div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Menu -->
+                        <nav class="account-nav">
+                            <!-- My Orders -->
+                            <div class="account-nav-section">
+                                <a href="#orders" class="account-nav-header">
+                                    <i class="bi bi-box-seam"></i>
+                                    <span>MY ORDERS</span>
+                                </a>
+                            </div>
+
+                            <!-- Account Settings -->
+                            <div class="account-nav-section">
+                                <div class="account-nav-header">
+                                    <i class="bi bi-person"></i>
+                                    <span>ACCOUNT SETTINGS</span>
+                                </div>
+                                <ul class="account-nav-list">
+                                    <li><a href="#profile" class="account-nav-link active">Profile Information</a></li>
+                                    <li><a href="#addresses" class="account-nav-link">Manage Addresses</a></li>
+                                    <li><a href="#pan" class="account-nav-link">PAN Card Information</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Payments -->
+                            <div class="account-nav-section">
+                                <div class="account-nav-header">
+                                    <i class="bi bi-credit-card"></i>
+                                    <span>PAYMENTS</span>
+                                </div>
+                                <ul class="account-nav-list">
+                                    <li><a href="#gift-cards" class="account-nav-link">Gift Cards</a></li>
+                                    <li><a href="#saved-upi" class="account-nav-link">Saved UPI</a></li>
+                                    <li><a href="#saved-cards" class="account-nav-link">Saved Cards</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- My Stuff -->
+                            <div class="account-nav-section">
+                                <div class="account-nav-header">
+                                    <i class="bi bi-folder"></i>
+                                    <span>MY STUFF</span>
+                                </div>
+                                <ul class="account-nav-list">
+                                    <li><a href="#coupons" class="account-nav-link">My Coupons</a></li>
+                                    <li><a href="#reviews" class="account-nav-link">My Reviews & Ratings</a></li>
+                                    <li><a href="#notifications" class="account-nav-link">All Notifications</a></li>
+                                    <li><a href="#wishlist" class="account-nav-link">My Wishlist</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Logout -->
+                            <div class="account-nav-section">
+                                <a href="#logout" class="account-nav-header text-danger">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>LOGOUT</span>
+                                </a>
+                            </div>
+                        </nav>
+
+                        <!-- FAQ Section -->
+                        <div class="account-help-card">
+                            <div class="help-card-icon">
+                                <i class="bi bi-question-circle"></i>
+                            </div>
+                            <div class="help-card-content">
+                                <h4>Frequently Asked Questions</h4>
+                                <p>Get answers to common questions</p>
+                                <a href="#" class="btn-link-primary">View FAQs →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="col-lg-9">
+                    <!-- Personal Information Section -->
+                    <section id="profile" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">Personal Information</h2>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-pencil"></i> Edit
+                            </button>
+                        </div>
+
+                        <div class="account-card">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="account-info-item">
+                                        <label class="account-info-label">First Name</label>
+                                        <div class="account-info-value">John</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="account-info-item">
+                                        <label class="account-info-label">Last Name</label>
+                                        <div class="account-info-value">Doe</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="account-info-item">
+                                        <label class="account-info-label">Gender</label>
+                                        <div class="account-info-value">Male</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="account-info-item">
+                                        <label class="account-info-label">Date of Birth</label>
+                                        <div class="account-info-value">15/08/1990</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Email Address Section -->
+                    <section class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">Email Address</h2>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-pencil"></i> Edit
+                            </button>
+                        </div>
+
+                        <div class="account-card">
+                            <div class="account-info-item">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <div class="account-info-value mb-1">john.doe@example.com</div>
+                                        <div class="account-info-badge">
+                                            <i class="bi bi-check-circle-fill text-success"></i>
+                                            <span class="text-success">Verified</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Mobile Number Section -->
+                    <section class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">Mobile Number</h2>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-pencil"></i> Edit
+                            </button>
+                        </div>
+
+                        <div class="account-card">
+                            <div class="account-info-item">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <div class="account-info-value mb-1">+91 98765 43210</div>
+                                        <div class="account-info-badge">
+                                            <i class="bi bi-check-circle-fill text-success"></i>
+                                            <span class="text-success">Verified</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Manage Addresses Section -->
+                    <section id="addresses" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">Manage Addresses</h2>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-plus-lg"></i> Add New Address
+                            </button>
+                        </div>
+
+                        <div class="row g-3">
+                            <!-- Address Card 1 (Default) -->
+                            <div class="col-md-6">
+                                <div class="address-card">
+                                    <div class="address-card-header">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="address-type-badge">Home</span>
+                                            <span class="badge bg-primary">Default</span>
+                                        </div>
+                                        <div class="address-actions">
+                                            <button class="btn-icon" title="Edit">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn-icon" title="Delete">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="address-card-body">
+                                        <div class="address-name">John Doe</div>
+                                        <div class="address-text">
+                                            123, Marine Drive, Nariman Point<br>
+                                            Mumbai, Maharashtra - 400001<br>
+                                            India
+                                        </div>
+                                        <div class="address-phone">
+                                            <i class="bi bi-telephone"></i> +91 98765 43210
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Address Card 2 (Work) -->
+                            <div class="col-md-6">
+                                <div class="address-card">
+                                    <div class="address-card-header">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="address-type-badge">Work</span>
+                                        </div>
+                                        <div class="address-actions">
+                                            <button class="btn-icon" title="Edit">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn-icon" title="Delete">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="address-card-body">
+                                        <div class="address-name">John Doe</div>
+                                        <div class="address-text">
+                                            Tech Tower, Bandra Kurla Complex<br>
+                                            Mumbai, Maharashtra - 400051<br>
+                                            India
+                                        </div>
+                                        <div class="address-phone">
+                                            <i class="bi bi-telephone"></i> +91 98765 43210
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add New Address Card -->
+                            <div class="col-md-6">
+                                <div class="address-card address-card-add">
+                                    <button class="btn-add-address">
+                                        <i class="bi bi-plus-circle"></i>
+                                        <span>Add New Address</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- PAN Card Information -->
+                    <section id="pan" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">PAN Card Information</h2>
+                        </div>
+
+                        <div class="account-card">
+                            <div class="pan-info-empty">
+                                <i class="bi bi-credit-card-2-front"></i>
+                                <h4>Add PAN Card Details</h4>
+                                <p>Add your PAN card details for a hassle-free checkout experience</p>
+                                <button class="btn btn-primary">Add PAN Card</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Gift Cards -->
+                    <section id="gift-cards" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">Gift Cards</h2>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-plus-lg"></i> Add Gift Card
+                            </button>
+                        </div>
+
+                        <div class="account-card">
+                            <div class="empty-state">
+                                <i class="bi bi-gift"></i>
+                                <h4>No Gift Cards Available</h4>
+                                <p>You don't have any gift cards added yet</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Saved UPI -->
+                    <section id="saved-upi" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">Saved UPI</h2>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-plus-lg"></i> Add UPI ID
+                            </button>
+                        </div>
+
+                        <div class="row g-3">
+                            <!-- UPI Card 1 -->
+                            <div class="col-md-6">
+                                <div class="payment-card">
+                                    <div class="payment-card-header">
+                                        <div class="payment-icon">
+                                            <i class="bi bi-bank"></i>
+                                        </div>
+                                        <div class="payment-actions">
+                                            <button class="btn-icon" title="Remove">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="payment-card-body">
+                                        <div class="payment-detail">johndoe@paytm</div>
+                                        <div class="payment-badge">
+                                            <i class="bi bi-check-circle-fill text-success"></i>
+                                            <span>Verified</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- UPI Card 2 -->
+                            <div class="col-md-6">
+                                <div class="payment-card">
+                                    <div class="payment-card-header">
+                                        <div class="payment-icon">
+                                            <i class="bi bi-bank"></i>
+                                        </div>
+                                        <div class="payment-actions">
+                                            <button class="btn-icon" title="Remove">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="payment-card-body">
+                                        <div class="payment-detail">johndoe@oksbi</div>
+                                        <div class="payment-badge">
+                                            <i class="bi bi-check-circle-fill text-success"></i>
+                                            <span>Verified</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Saved Cards -->
+                    <section id="saved-cards" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">Saved Credit/Debit Cards</h2>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-plus-lg"></i> Add Card
+                            </button>
+                        </div>
+
+                        <div class="row g-3">
+                            <!-- Card 1 -->
+                            <div class="col-md-6">
+                                <div class="payment-card card-visa">
+                                    <div class="payment-card-header">
+                                        <div class="payment-icon">
+                                            <i class="bi bi-credit-card"></i>
+                                        </div>
+                                        <div class="payment-actions">
+                                            <button class="btn-icon" title="Remove">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="payment-card-body">
+                                        <div class="card-type">Visa Credit Card</div>
+                                        <div class="payment-detail">**** **** **** 1234</div>
+                                        <div class="card-expiry">Expires: 12/25</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="col-md-6">
+                                <div class="payment-card card-mastercard">
+                                    <div class="payment-card-header">
+                                        <div class="payment-icon">
+                                            <i class="bi bi-credit-card"></i>
+                                        </div>
+                                        <div class="payment-actions">
+                                            <button class="btn-icon" title="Remove">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="payment-card-body">
+                                        <div class="card-type">Mastercard Debit Card</div>
+                                        <div class="payment-detail">**** **** **** 5678</div>
+                                        <div class="card-expiry">Expires: 06/26</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- My Coupons -->
+                    <section id="coupons" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">My Coupons</h2>
+                        </div>
+
+                        <div class="row g-3">
+                            <!-- Coupon 1 -->
+                            <div class="col-md-6">
+                                <div class="coupon-card">
+                                    <div class="coupon-badge-corner">10% OFF</div>
+                                    <div class="coupon-code">SAVE10</div>
+                                    <div class="coupon-description">Get 10% off on orders above ₹1,000</div>
+                                    <div class="coupon-validity">
+                                        <i class="bi bi-clock"></i> Valid till: 31 Dec 2025
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100 mt-3">Apply Now</button>
+                                </div>
+                            </div>
+
+                            <!-- Coupon 2 -->
+                            <div class="col-md-6">
+                                <div class="coupon-card">
+                                    <div class="coupon-badge-corner">₹200 OFF</div>
+                                    <div class="coupon-code">FIRST200</div>
+                                    <div class="coupon-description">Flat ₹200 off on your first order</div>
+                                    <div class="coupon-validity">
+                                        <i class="bi bi-clock"></i> Valid till: 15 Nov 2025
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100 mt-3">Apply Now</button>
+                                </div>
+                            </div>
+
+                            <!-- Coupon 3 -->
+                            <div class="col-md-6">
+                                <div class="coupon-card">
+                                    <div class="coupon-badge-corner">FREE SHIP</div>
+                                    <div class="coupon-code">FREESHIP</div>
+                                    <div class="coupon-description">Free shipping on all orders</div>
+                                    <div class="coupon-validity">
+                                        <i class="bi bi-clock"></i> Valid till: 30 Nov 2025
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm w-100 mt-3">Apply Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- My Reviews & Ratings -->
+                    <section id="reviews" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">My Reviews & Ratings</h2>
+                        </div>
+
+                        <div class="reviews-list">
+                            <!-- Review 1 -->
+                            <div class="review-item">
+                                <div class="review-product">
+                                    <img src="https://via.placeholder.com/80" alt="Product" loading="lazy">
+                                    <div class="review-product-info">
+                                        <h4 class="review-product-name">Premium Wireless Headphones</h4>
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span class="review-rating-text">4.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <div class="review-title">Great sound quality!</div>
+                                    <div class="review-text">
+                                        The sound quality is amazing and the battery lasts very long. Highly recommended
+                                        for music lovers.
+                                    </div>
+                                    <div class="review-meta">
+                                        <span><i class="bi bi-calendar"></i> Reviewed on 15 Oct 2025</span>
+                                        <button class="btn-link-secondary">Edit</button>
+                                        <button class="btn-link-danger">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="review-item">
+                                <div class="review-product">
+                                    <img src="https://via.placeholder.com/80" alt="Product" loading="lazy">
+                                    <div class="review-product-info">
+                                        <h4 class="review-product-name">Smart Watch Series 7</h4>
+                                        <div class="review-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <span class="review-rating-text">5.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <div class="review-title">Excellent smartwatch!</div>
+                                    <div class="review-text">
+                                        Best smartwatch I've ever used. The fitness tracking is accurate and the display
+                                        is stunning.
+                                    </div>
+                                    <div class="review-meta">
+                                        <span><i class="bi bi-calendar"></i> Reviewed on 08 Oct 2025</span>
+                                        <button class="btn-link-secondary">Edit</button>
+                                        <button class="btn-link-danger">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- All Notifications -->
+                    <section id="notifications" class="account-section">
+                        <div class="account-section-header">
+                            <h2 class="account-section-title">All Notifications</h2>
+                            <button class="btn btn-outline-secondary btn-sm">Mark all as read</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notification 1 (Unread) -->
+                            <div class="notification-item notification-unread">
+                                <div class="notification-icon notification-icon-success">
+                                    <i class="bi bi-check-circle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-title">Order Delivered Successfully</div>
+                                    <div class="notification-text">Your order #ORD-2025-1234 has been delivered</div>
+                                    <div class="notification-time">2 hours ago</div>
+                                </div>
+                                <div class="notification-dot"></div>
+                            </div>
+
+                            <!-- Notification 2 (Unread) -->
+                            <div class="notification-item notification-unread">
+                                <div class="notification-icon notification-icon-info">
+                                    <i class="bi bi-truck"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-title">Order Out for Delivery</div>
+                                    <div class="notification-text">Your order #ORD-2025-1235 is out for delivery</div>
+                                    <div class="notification-time">5 hours ago</div>
+                                </div>
+                                <div class="notification-dot"></div>
+                            </div>
+
+                            <!-- Notification 3 (Read) -->
+                            <div class="notification-item">
+                                <div class="notification-icon notification-icon-warning">
+                                    <i class="bi bi-tag"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-title">New Coupon Available</div>
+                                    <div class="notification-text">You have a new coupon: SAVE20 - Get 20% off</div>
+                                    <div class="notification-time">1 day ago</div>
+                                </div>
+                            </div>
+
+                            <!-- Notification 4 (Read) -->
+                            <div class="notification-item">
+                                <div class="notification-icon notification-icon-primary">
+                                    <i class="bi bi-box"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-title">Order Confirmed</div>
+                                    <div class="notification-text">Your order #ORD-2025-1234 has been confirmed</div>
+                                    <div class="notification-time">3 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+   
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Back to Top Button -->
+        <div class="back-to-top">
+            <a href="#" class="back-to-top-link">
+                <i class="bi bi-arrow-up"></i>
+                <span>Back to top</span>
+            </a>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="footer-main py-4 py-md-5">
+            <div class="container-fluid px-3 px-md-4">
+                <div class="row g-4">
+                    <!-- Column 1: About -->
+                    <div class="col-6 col-md-3">
+                        <h3 class="footer-heading">Get to Know Us</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press Releases</a></li>
+                            <li><a href="#">EBS Science</a></li>
+                            <li><a href="#">Gift a Smile</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: Connect with Us -->
+                    <div class="col-6 col-md-3">
+                        <h3 class="footer-heading">Connect with Us</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">YouTube</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Make Money -->
+                    <div class="col-6 col-md-3">
+                        <h3 class="footer-heading">Make Money with Us</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Sell on EBS</a></li>
+                            <li><a href="#">Become an Affiliate</a></li>
+                            <li><a href="#">Fulfilment by EBS</a></li>
+                            <li><a href="#">Advertise Your Products</a></li>
+                            <li><a href="#">EBS Pay on Merchants</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Let Us Help You -->
+                    <div class="col-6 col-md-3">
+                        <h3 class="footer-heading">Let Us Help You</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Your Account</a></li>
+                            <li><a href="#">Returns Centre</a></li>
+                            <li><a href="#">100% Purchase Protection</a></li>
+                            <li><a href="#">EBS App Download</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section (Mobile & Tablet) -->
+                <div class="footer-newsletter d-md-none mt-4">
+                    <h3 class="footer-heading mb-3">Stay Updated</h3>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email"
+                                aria-label="Email address" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Secondary Links -->
+        <div class="footer-secondary py-3 py-md-4">
+            <div class="container-fluid px-3 px-md-4">
+                <div class="row g-3">
+                    <!-- Payment Methods -->
+                    <div class="col-12 col-md-4">
+                        <h4 class="footer-subheading">Payment Methods</h4>
+                        <div class="payment-methods">
+                            <span class="badge bg-light text-dark border me-2 mb-2">Credit Card</span>
+                            <span class="badge bg-light text-dark border me-2 mb-2">Debit Card</span>
+                            <span class="badge bg-light text-dark border me-2 mb-2">UPI</span>
+                            <span class="badge bg-light text-dark border me-2 mb-2">Net Banking</span>
+                            <span class="badge bg-light text-dark border me-2 mb-2">Wallets</span>
+                            <span class="badge bg-light text-dark border me-2 mb-2">COD</span>
+                        </div>
+                    </div>
+
+                    <!-- Popular Categories -->
+                    <div class="col-12 col-md-4">
+                        <h4 class="footer-subheading">Popular Categories</h4>
+                        <div class="footer-tags">
+                            <a href="#" class="footer-tag">Electronics</a>
+                            <a href="#" class="footer-tag">Fashion</a>
+                            <a href="#" class="footer-tag">Mobiles</a>
+                            <a href="#" class="footer-tag">Home & Kitchen</a>
+                            <a href="#" class="footer-tag">Beauty</a>
+                            <a href="#" class="footer-tag">Appliances</a>
+                            <a href="#" class="footer-tag">Furniture</a>
+                            <a href="#" class="footer-tag">Books</a>
+                        </div>
+                    </div>
+
+                    <!-- Customer Service -->
+                    <div class="col-12 col-md-4">
+                        <h4 class="footer-subheading">Customer Service</h4>
+                        <div class="d-flex flex-column gap-2">
+                            <a href="#"
+                                class="text-decoration-none text-secondary small d-flex align-items-center gap-2">
+                                <i class="bi bi-telephone"></i>
+                                <span>1800-123-4567 (Toll Free)</span>
+                            </a>
+                            <a href="#"
+                                class="text-decoration-none text-secondary small d-flex align-items-center gap-2">
+                                <i class="bi bi-envelope"></i>
+                                <span>support@ebs.com</span>
+                            </a>
+                            <div class="text-secondary small d-flex align-items-center gap-2">
+                                <i class="bi bi-clock"></i>
+                                <span>24/7 Customer Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Policy Links -->
+        <div class="footer-policy py-3">
+            <div class="container-fluid px-3 px-md-4">
+                <div class="d-flex flex-wrap justify-content-center gap-3 gap-md-4">
+                    <a href="#" class="footer-policy-link">Conditions of Use</a>
+                    <a href="#" class="footer-policy-link">Privacy Notice</a>
+                    <a href="#" class="footer-policy-link">Interest-Based Ads</a>
+                    <a href="#" class="footer-policy-link">Terms & Conditions</a>
+                    <a href="#" class="footer-policy-link">Return Policy</a>
+                    <a href="#" class="footer-policy-link">Shipping Policy</a>
+                    <a href="#" class="footer-policy-link">Cookie Policy</a>
+                    <a href="#" class="footer-policy-link">Sitemap</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom py-3 py-md-4">
+            <div class="container-fluid px-3 px-md-4">
+                <div class="row align-items-center g-3">
+                    <div class="col-12 col-md-6 text-center text-md-start">
+                        <div class="footer-logo mb-2">
+                            <a href="#" class="text-decoration-none">
+                                <span class="fw-bold fs-4 text-primary">EBS</span>
+                            </a>
+                        </div>
+                        <p class="mb-0 text-secondary small">
+                            © 2025 EBS.com, Inc. or its affiliates. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-3">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+  
+</body>
+
+</html>
