@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout - Ecommerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header sticky-top">
+        <div class="container-fluid px-2 px-md-4">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-auto">
+                    <a href="index.html" class="logo">EBS</a>
+                </div>
+
+                <!-- Checkout Title (Desktop) -->
+                <div class="col d-none d-lg-block">
+                    <h1 class="checkout-page-title">Checkout</h1>
+                </div>
+
+                <!-- Secure Badge -->
+                <div class="col-auto">
+                    <div class="secure-badge">
+                        <i class="bi bi-shield-fill-check"></i>
+                        <span class="d-none d-sm-inline">Secure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Step Indicator -->
+    <div class="mobile-step-indicator d-lg-none" id="mobileStepIndicator">
+        <div class="container-fluid px-2">
+            <div class="step-header-mobile">
+                <button class="btn-back d-none" id="backBtn" onclick="goBackStep()" aria-label="Go back">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+                <div class="step-content-header">
+                    <div class="step-number-badge">
+                        <span id="currentStepNum">1</span>/2
+                    </div>
+                    <div class="step-title-group">
+                        <h2 class="step-title-main" id="stepTitle">Select Delivery Address</h2>
+                        <p class="step-subtitle" id="stepSubtitle">Choose where you want the order delivered</p>
+                    </div>
+                </div>
+            </div>
+            <div class="step-progress">
+                <div class="step-progress-bar" id="stepProgressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Page -->
+    <main class="checkout-page">
+        <div class="container-fluid px-2 px-md-3 px-lg-4">
+            <div class="row g-2 g-md-3">
+
+                <!-- Left Column - Address Selection (Desktop: 8, Mobile: 12) -->
+                <div class="col-lg-8" id="addressSection">
+
+                    <!-- Delivery Address Section -->
+                    <div class="checkout-section">
+                        <div class="summary-header d-none d-lg-block">
+                            <h3 class="summary-title">DELIVERY ADDRESS</h3>
+
+                        </div>
+                        <div class="section-content">
+
+                            <!-- Continue Button (Mobile Only) -->
+                            <div class="section-action d-lg-none">
+                                <button class="btn btn-primary btn-lg w-100 btn-continue" onclick="continueToSummary()">
+                                    <span>Continue</span>
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+
+                            <!-- Address Cards Grid -->
+                            <div class="address-grid">
+
+                                <!-- Address Card 1 -->
+                                <div class="address-card selected">
+                                    <input type="radio" name="address" id="addr1" checked class="address-radio">
+                                    <label for="addr1" class="address-label">
+                                        <div class="address-header">
+                                            <div>
+                                                <span class="address-type-badge home">
+                                                    <i class="bi bi-house-fill"></i> Home
+                                                </span>
+                                                <span class="badge bg-primary ms-1">Default</span>
+                                            </div>
+                                            <button type="button" class="btn-edit"><i class="bi bi-pencil"></i></button>
+                                        </div>
+                                        <div class="address-body">
+                                            <div class="address-name">Kunal Yadav Pandharkar</div>
+                                            <div class="address-text">
+                                                123, Marine Drive, Nariman Point<br>
+                                                Mumbai, Maharashtra - 400001
+                                            </div>
+                                            <div class="address-contact">
+                                                <i class="bi bi-telephone-fill"></i> +91 98765 43210
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <!-- Address Card 2 -->
+                                <div class="address-card">
+                                    <input type="radio" name="address" id="addr2" class="address-radio">
+                                    <label for="addr2" class="address-label">
+                                        <div class="address-header">
+                                            <div>
+                                                <span class="address-type-badge work">
+                                                    <i class="bi bi-briefcase-fill"></i> Work
+                                                </span>
+                                            </div>
+                                            <button type="button" class="btn-edit"><i class="bi bi-pencil"></i></button>
+                                        </div>
+                                        <div class="address-body">
+                                            <div class="address-name">Kunal Yadav Pandharkar</div>
+                                            <div class="address-text">
+                                                Tech Tower, Bandra Kurla Complex<br>
+                                                Mumbai, Maharashtra - 400051
+                                            </div>
+                                            <div class="address-contact">
+                                                <i class="bi bi-telephone-fill"></i> +91 98765 43210
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <!-- Add New Address Card -->
+                                <div class="address-card add-address" data-bs-toggle="modal"
+                                    data-bs-target="#addAddressModal">
+                                    <div class="add-address-content">
+                                        <div class="add-address-icon">
+                                            <i class="bi bi-plus-circle"></i>
+                                        </div>
+                                        <div class="add-address-text">Add New Address</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column - Order Summary -->
+                <div class="col-lg-4" id="summarySection">
+
+                    <!-- Order Summary Card -->
+                    <div class="order-summary-card">
+                        <div class="summary-header">
+                            <h3 class="summary-title">Order Summary</h3>
+                            <span class="summary-items">2 Items</span>
+                        </div>
+
+                        <!-- Products List -->
+                        <div class="summary-products">
+                            <div class="summary-product">
+                                <img src="images/prod1.webp" alt="Product" class="checkout-product-img">
+                                <div class="product-details">
+                                    <div class="product-name">Premium Wireless Headphones</div>
+                                    <div class="product-meta">Qty: 1</div>
+                                </div>
+                                <div class="product-price">₹2,999</div>
+                            </div>
+                            <div class="summary-product">
+                                <img src="images/prod2.webp" alt="Product" class="checkout-product-img">
+                                <div class="product-details">
+                                    <div class="product-name">Smart Watch Series 7</div>
+                                    <div class="product-meta">Qty: 1</div>
+                                </div>
+                                <div class="product-price">₹12,999</div>
+                            </div>
+                        </div>
+
+                        <hr class="summary-divider">
+
+                        <!-- Price Details -->
+                        <div class="price-details">
+                            <div class="price-item">
+                                <span>Price (2 items)</span>
+                                <span>₹15,998</span>
+                            </div>
+                            <div class="price-item discount">
+                                <span>Discount</span>
+                                <span>−₹1,000</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Delivery Charges</span>
+                                <span class="free-text">FREE</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Packaging Fee</span>
+                                <span>₹99</span>
+                            </div>
+                        </div>
+
+                        <hr class="summary-divider">
+
+                        <!-- Total Amount -->
+                        <div class="total-amount">
+                            <span>Total Amount</span>
+                            <span>₹15,097</span>
+                        </div>
+
+                        <!-- Savings Badge -->
+                        <div class="savings-info">
+                            <i class="bi bi-patch-check-fill"></i>
+                            <span>You saved ₹1,000 on this order!</span>
+                        </div>
+
+                        <!-- Safe & Secure -->
+                        <div class="secure-info">
+                            <i class="bi bi-shield-fill-check"></i>
+                            <div>
+                                <div class="secure-title">Safe & Secure Payments</div>
+                                <div class="secure-text">100% Payment Protection</div>
+                            </div>
+                        </div>
+
+                        <!-- Place Order Button (Desktop Always Visible, Mobile After Address) -->
+                        <div class="summary-action">
+                            <button class="btn btn-success btn-lg w-100 btn-place-order" onclick="placeOrder()">
+                                <i class="bi bi-lock-fill me-2"></i>
+                                <span>Place Order Securely</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Address Modal -->
+    <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addAddressModalLabel">Add New Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addAddressForm">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="fullName" class="form-label">Full Name <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="fullName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mobile" class="form-label">Mobile Number <span
+                                        class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="mobile" placeholder="+91 98765 43210"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="pincode" class="form-label">Pincode <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="pincode" maxlength="6" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="address" class="form-label">Address <span
+                                        class="text-danger">*</span></label>
+                                <textarea class="form-control" id="address" rows="2" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label for="locality" class="form-label">Locality / Area <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="locality" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="city" class="form-label">City <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="city" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="state" class="form-label">State <span class="text-danger">*</span></label>
+                                <select class="form-select" id="state" required>
+                                    <option value="">Select State</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="addressType" class="form-label">Address Type <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select" id="addressType" required>
+                                    <option value="Home">Home</option>
+                                    <option value="Work">Work</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="addAddressForm" class="btn btn-primary">
+                        <i class="bi bi-check-lg"></i> Save Address
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Mobile step management
+        let currentMobileStep = 1;
+
+        // Go back to previous step (Mobile)
+        function goBackStep() {
+            if (currentMobileStep === 2) {
+                // From summary back to address
+                document.getElementById('summarySection').style.display = 'none';
+                document.getElementById('addressSection').style.display = 'block';
+
+                // Update step indicator
+                currentMobileStep = 1;
+                document.getElementById('currentStepNum').textContent = '1';
+                document.getElementById('stepTitle').textContent = 'Select Delivery Address';
+                document.getElementById('stepSubtitle').textContent = 'Choose where you want the order delivered';
+                document.getElementById('stepProgressBar').style.width = '50%';
+                document.getElementById('backBtn').classList.add('d-none');
+
+                // Scroll to top with smooth animation
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Continue to Summary (Mobile Only)
+        function continueToSummary() {
+            // Check if address is selected
+            const selectedAddress = document.querySelector('input[name="address"]:checked');
+            if (!selectedAddress) {
+                showMobileAlert('Please select a delivery address', 'warning');
+                return;
+            }
+
+            // Add transition animation
+            document.getElementById('addressSection').style.opacity = '0';
+
+            setTimeout(() => {
+                // Hide address section
+                document.getElementById('addressSection').style.display = 'none';
+
+                // Show summary section
+                document.getElementById('summarySection').classList.remove('d-lg-block');
+                document.getElementById('summarySection').classList.add('d-block');
+                document.getElementById('summarySection').style.opacity = '0';
+
+                // Update mobile step indicator
+                currentMobileStep = 2;
+                document.getElementById('currentStepNum').textContent = '2';
+                document.getElementById('stepTitle').textContent = 'Review Order';
+                document.getElementById('stepSubtitle').textContent = 'Verify items and total amount';
+                document.getElementById('stepProgressBar').style.width = '100%';
+                document.getElementById('backBtn').classList.remove('d-none');
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Fade in summary
+                setTimeout(() => {
+                    document.getElementById('summarySection').style.opacity = '1';
+                }, 50);
+            }, 300);
+        }
+
+        // Place Order
+        function placeOrder() {
+            // Check if on mobile and still on address step
+            if (window.innerWidth < 992 && currentMobileStep === 1) {
+                showMobileAlert('Please select address and continue to review your order', 'info');
+                return;
+            }
+
+            const selectedAddress = document.querySelector('input[name="address"]:checked');
+            if (!selectedAddress) {
+                showMobileAlert('Please select a delivery address', 'warning');
+                return;
+            }
+
+            // Show processing with animation
+            const btn = event.target.closest('button');
+            const originalHTML = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Processing...';
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+                showMobileAlert('Order placed successfully!', 'success');
+                // In production: window.location.href = 'order-confirmation.html';
+            }, 2000);
+        }
+
+        // Mobile Alert (Better than browser alert)
+        function showMobileAlert(message, type = 'info') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `mobile-alert mobile-alert-${type}`;
+            alertDiv.innerHTML = `
+                <div class="mobile-alert-content">
+                    <i class="bi bi-${type === 'success' ? 'check-circle-fill' : type === 'warning' ? 'exclamation-triangle-fill' : 'info-circle-fill'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(alertDiv);
+
+            setTimeout(() => alertDiv.classList.add('show'), 10);
+            setTimeout(() => {
+                alertDiv.classList.remove('show');
+                setTimeout(() => alertDiv.remove(), 300);
+            }, 3000);
+        }
+
+        // Address Selection - Visual Feedback with Animation
+        document.querySelectorAll('.address-card:not(.add-address)').forEach(card => {
+            card.addEventListener('click', function () {
+                // Remove animation class from all
+                document.querySelectorAll('.address-card').forEach(c => {
+                    c.classList.remove('selected', 'address-selected-animation');
+                });
+
+                // Add to current
+                this.classList.add('selected', 'address-selected-animation');
+                this.querySelector('input[type="radio"]').checked = true;
+
+                // Remove animation class after animation completes
+                setTimeout(() => {
+                    this.classList.remove('address-selected-animation');
+                }, 300);
+            });
+        });
+
+        // Form Validation
+        document.getElementById('addAddressForm')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Simple validation
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('is-invalid');
+                } else {
+                    field.classList.remove('is-invalid');
+                }
+            });
+
+            if (isValid) {
+                showMobileAlert('Address added successfully!', 'success');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('addAddressModal'));
+                modal.hide();
+                this.reset();
+            }
+        });
+
+        // Pincode validation
+        document.getElementById('pincode')?.addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 6);
+        });
+
+        // Initialize - Set up mobile view
+        document.addEventListener('DOMContentLoaded', function () {
+            function setupMobileView() {
+                if (window.innerWidth < 992) {
+                    // Mobile: Hide summary initially
+                    document.getElementById('summarySection').style.display = 'none';
+                    document.getElementById('addressSection').style.opacity = '1';
+                    currentMobileStep = 1;
+                    document.getElementById('backBtn').classList.add('d-none');
+                } else {
+                    // Desktop: Show both always
+                    document.getElementById('addressSection').style.display = 'block';
+                    document.getElementById('addressSection').style.opacity = '1';
+                    document.getElementById('summarySection').style.display = 'block';
+                    document.getElementById('summarySection').style.opacity = '1';
+                }
+            }
+
+            setupMobileView();
+
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    if (window.innerWidth >= 992) {
+                        // Desktop: Reset and show both
+                        document.getElementById('addressSection').style.display = 'block';
+                        document.getElementById('addressSection').style.opacity = '1';
+                        document.getElementById('summarySection').style.display = 'block';
+                        document.getElementById('summarySection').style.opacity = '1';
+                        document.getElementById('summarySection').classList.remove('d-block');
+                        document.getElementById('summarySection').classList.add('d-lg-block');
+                    }
+                }, 250);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

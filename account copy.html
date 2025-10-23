@@ -89,13 +89,135 @@
         </div>
     </header>
 
+    <!-- Sidebar Menu (Offcanvas) -->
+    <div class="offcanvas offcanvas-start sidebar-menu" tabindex="-1" id="sidebarMenu">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <div class="sidebar-user">
+                <i class="bi bi-person-circle sidebar-user-icon"></i>
+                <div class="sidebar-user-info">
+                    <span class="sidebar-greeting">Hello, Kunal</span>
+                    <a href="account.html" class="sidebar-login-link">View Account</a>
+                </div>
+            </div>
+            <button type="button" class="sidebar-close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar Body -->
+        <div class="offcanvas-body sidebar-body p-0">
+            <!-- Trending Section -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-header">
+                    <i class="bi bi-lightning-fill"></i>
+                    <span>Trending</span>
+                </div>
+                <ul class="sidebar-menu-list">
+                    <li>
+                        <a href="products.html" class="sidebar-menu-item">
+                            <i class="bi bi-fire"></i>
+                            <span>Best Sellers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="products.html" class="sidebar-menu-item">
+                            <i class="bi bi-star-fill"></i>
+                            <span>New Releases</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="products.html" class="sidebar-menu-item">
+                            <i class="bi bi-gift-fill"></i>
+                            <span>Today's Deals</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Shop by Category -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-header">
+                    <i class="bi bi-grid-3x3-gap-fill"></i>
+                    <span>Shop by Category</span>
+                </div>
+                <ul class="sidebar-menu-list">
+                    <li>
+                        <a href="#electronicsSubmenu" class="sidebar-menu-item sidebar-menu-item-expandable collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="bi bi-laptop"></i>
+                            <span>Electronics</span>
+                            <i class="bi bi-chevron-down sidebar-menu-arrow"></i>
+                        </a>
+                        <ul class="sidebar-submenu collapse" id="electronicsSubmenu">
+                            <li><a href="products.html" class="sidebar-submenu-item">Mobiles & Tablets</a></li>
+                            <li><a href="products.html" class="sidebar-submenu-item">Laptops & Computers</a></li>
+                            <li><a href="products.html" class="sidebar-submenu-item">TV & Audio</a></li>
+                            <li><a href="products.html" class="sidebar-submenu-item">Cameras</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#fashionSubmenu" class="sidebar-menu-item sidebar-menu-item-expandable collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="bi bi-bag-fill"></i>
+                            <span>Fashion</span>
+                            <i class="bi bi-chevron-down sidebar-menu-arrow"></i>
+                        </a>
+                        <ul class="sidebar-submenu collapse" id="fashionSubmenu">
+                            <li><a href="products.html" class="sidebar-submenu-item">Men's Clothing</a></li>
+                            <li><a href="products.html" class="sidebar-submenu-item">Women's Clothing</a></li>
+                            <li><a href="products.html" class="sidebar-submenu-item">Kids' Fashion</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="products.html" class="sidebar-menu-item">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Home & Kitchen</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Help & Settings -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-header">
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Help & Settings</span>
+                </div>
+                <ul class="sidebar-menu-list">
+                    <li>
+                        <a href="account.html" class="sidebar-menu-item">
+                            <i class="bi bi-person"></i>
+                            <span>Your Account</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="orders.html" class="sidebar-menu-item">
+                            <i class="bi bi-box-seam"></i>
+                            <span>Your Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-menu-item">
+                            <i class="bi bi-heart"></i>
+                            <span>Your Wishlist</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-menu-item">
+                            <i class="bi bi-headset"></i>
+                            <span>Customer Service</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <!-- Account Page Container -->
     <main class="account-page">
         <div class="container-fluid px-3 px-lg-4 py-3 py-md-4">
             <!-- Page Header -->
             <div class="account-page-header">
-                <h1 class="account-page-title fw-semibold">My Account</h1>
+                <h1 class="account-page-title">My Account</h1>
                 <div class="account-user-welcome ">
                     <span>Hello, <strong>Kunal Yadav Pandharkar</strong></span>
                 </div>
@@ -152,10 +274,10 @@
             </div>
 
             <!-- Main Content Grid -->
-            <div class="row g-2 g-md-2 mt-2">
+            <div class="row g-3 g-md-4 mt-2">
                 <!-- Left Column - Quick Actions -->
-                <div class="col-lg-6">
-
+                <div class="col-lg-8">
+                    
                     <!-- Profile Information Section -->
                     <section class="account-card" id="profile-section">
                         <div class="account-card-header">
@@ -212,22 +334,16 @@
                                 <form id="profile-form">
                                     <div class="row g-3">
                                         <div class="col-md-6">
-                                            <label for="fullName" class="form-label">Full Name <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="fullName"
-                                                value="Kunal Yadav Pandharkar" required>
+                                            <label for="fullName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="fullName" value="Kunal Yadav Pandharkar" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="email" class="form-label">Email Address <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="email" class="form-control" id="email"
-                                                value="kunal.pandharkar@example.com" required>
+                                            <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="email" value="kunal.pandharkar@example.com" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="mobile" class="form-label">Mobile Number <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="tel" class="form-control" id="mobile" value="+91 98765 43210"
-                                                required>
+                                            <label for="mobile" class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                                            <input type="tel" class="form-control" id="mobile" value="+91 98765 43210" required>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="gender" class="form-label">Gender</label>
@@ -243,16 +359,14 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="alternateMobile" class="form-label">Alternate Mobile</label>
-                                            <input type="tel" class="form-control" id="alternateMobile"
-                                                value="+91 98765 00000">
+                                            <input type="tel" class="form-control" id="alternateMobile" value="+91 98765 00000">
                                         </div>
                                         <div class="col-12">
                                             <div class="d-flex gap-2">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="bi bi-check-lg"></i> Save Changes
                                                 </button>
-                                                <button type="button" class="btn btn-outline-secondary"
-                                                    onclick="toggleProfileEdit()">
+                                                <button type="button" class="btn btn-outline-secondary" onclick="toggleProfileEdit()">
                                                     <i class="bi bi-x-lg"></i> Cancel
                                                 </button>
                                             </div>
@@ -267,8 +381,7 @@
                     <section class="account-card mt-3" id="addresses-section">
                         <div class="account-card-header">
                             <h2 class="account-card-title">Your Addresses</h2>
-                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#addAddressModal">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal">
                                 <i class="bi bi-plus-lg"></i> Add New Address
                             </button>
                         </div>
@@ -283,26 +396,21 @@
                                                 <span class="badge bg-primary">Default</span>
                                             </div>
                                             <div class="dropdown">
-                                                <button class="btn-icon-dropdown" data-bs-toggle="dropdown"
-                                                    aria-label="Address options">
+                                                <button class="btn-icon-dropdown" data-bs-toggle="dropdown" aria-label="Address options">
                                                     <i class="bi bi-three-dots-vertical"></i>
                                                 </button>
                                                 <ul class="dropdown-menu dropdown-menu-end">
                                                     <li>
-                                                        <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#editAddressModal">
+                                                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editAddressModal">
                                                             <i class="bi bi-pencil"></i> Edit
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item text-danger" href="#"
-                                                            onclick="return confirm('Are you sure you want to delete this address?')">
+                                                        <a class="dropdown-item text-danger" href="#" onclick="return confirm('Are you sure you want to delete this address?')">
                                                             <i class="bi bi-trash"></i> Delete
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
                                                     <li>
                                                         <a class="dropdown-item" href="#">
                                                             <i class="bi bi-star"></i> Set as Default
@@ -323,8 +431,7 @@
                                             </div>
                                         </div>
                                         <div class="address-full-actions">
-                                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal"
-                                                data-bs-target="#editAddressModal">
+                                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#editAddressModal">
                                                 <i class="bi bi-pencil"></i> Edit Address
                                             </button>
                                         </div>
@@ -339,26 +446,21 @@
                                                 <h4 class="address-full-type">Work</h4>
                                             </div>
                                             <div class="dropdown">
-                                                <button class="btn-icon-dropdown" data-bs-toggle="dropdown"
-                                                    aria-label="Address options">
+                                                <button class="btn-icon-dropdown" data-bs-toggle="dropdown" aria-label="Address options">
                                                     <i class="bi bi-three-dots-vertical"></i>
                                                 </button>
                                                 <ul class="dropdown-menu dropdown-menu-end">
                                                     <li>
-                                                        <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#editAddressModal">
+                                                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editAddressModal">
                                                             <i class="bi bi-pencil"></i> Edit
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item text-danger" href="#"
-                                                            onclick="return confirm('Are you sure you want to delete this address?')">
+                                                        <a class="dropdown-item text-danger" href="#" onclick="return confirm('Are you sure you want to delete this address?')">
                                                             <i class="bi bi-trash"></i> Delete
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
                                                     <li>
                                                         <a class="dropdown-item" href="#">
                                                             <i class="bi bi-star"></i> Set as Default
@@ -380,8 +482,7 @@
                                             </div>
                                         </div>
                                         <div class="address-full-actions">
-                                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal"
-                                                data-bs-target="#editAddressModal">
+                                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#editAddressModal">
                                                 <i class="bi bi-pencil"></i> Edit Address
                                             </button>
                                         </div>
@@ -390,8 +491,7 @@
 
                                 <!-- Add New Address Card (Visual Placeholder) -->
                                 <div class="col-md-6">
-                                    <div class="address-add-card" data-bs-toggle="modal"
-                                        data-bs-target="#addAddressModal">
+                                    <div class="address-add-card" data-bs-toggle="modal" data-bs-target="#addAddressModal">
                                         <div class="address-add-content">
                                             <i class="bi bi-plus-circle address-add-icon"></i>
                                             <div class="address-add-text">Add New Address</div>
@@ -401,14 +501,6 @@
                             </div>
                         </div>
                     </section>
-
-
-
-
-                  
-                </div>
-
-                <div class="col-lg-6">
 
                     <!-- Recent Orders Section -->
                     <section class="account-card">
@@ -428,7 +520,7 @@
                                         <span class="order-date">Delivered on Oct 15, 2025</span>
                                     </div>
                                 </div>
-
+                              
                             </div>
 
                             <!-- Order Item 2 -->
@@ -443,12 +535,82 @@
                                         <span class="order-status status-transit">Arriving Oct 25</span>
                                     </div>
                                 </div>
-
+                               
                             </div>
                         </div>
                     </section>
 
-                      <!-- Payment Methods -->
+                    <!-- Addresses Section -->
+                    <section class="account-card mt-3">
+                        <div class="account-card-header">
+                            <h2 class="account-card-title">Your Addresses</h2>
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-plus-lg"></i> Add
+                            </button>
+                        </div>
+                        <div class="account-card-body">
+                            <div class="row g-3">
+                                <!-- Address 1 -->
+                                <div class="col-md-6">
+                                    <div class="address-mini-card">
+                                        <div class="address-mini-header">
+                                            <div>
+                                                <strong>Kunal Yadav Pandharkar</strong>
+                                                <span class="badge bg-primary ms-2">Default</span>
+                                            </div>
+                                            <div class="dropdown">
+                                                <button class="btn-icon-dropdown" data-bs-toggle="dropdown" aria-label="Address options" title="Address options">
+                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#"><i class="bi bi-pencil"></i>
+                                                            Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i>
+                                                            Remove</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i
+                                                                class="bi bi-check-circle"></i> Set as Default</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="address-mini-body">
+                                            123, Marine Drive, Nariman Point<br>
+                                            Mumbai, Maharashtra - 400001<br>
+                                            Phone: +91 98765 43210
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Address 2 -->
+                                <div class="col-md-6">
+                                    <div class="address-mini-card">
+                                        <div class="address-mini-header">
+                                            <strong>Kunal Yadav Pandharkar (Work)</strong>
+                                            <div class="dropdown">
+                                                <button class="btn-icon-dropdown" data-bs-toggle="dropdown" aria-label="Address options" title="Address options">
+                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#"><i class="bi bi-pencil"></i>
+                                                            Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i>
+                                                            Remove</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i
+                                                                class="bi bi-check-circle"></i> Set as Default</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="address-mini-body">
+                                            Tech Tower, Bandra Kurla Complex<br>
+                                            Mumbai, Maharashtra - 400051<br>
+                                            Phone: +91 98765 43210
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Payment Methods -->
                     <section class="account-card mt-3">
                         <div class="account-card-header">
                             <h2 class="account-card-title">Payment Methods</h2>
@@ -496,17 +658,126 @@
                             </div>
                         </div>
                     </section>
-
                 </div>
 
+                <!-- Right Column - Account Info & Settings -->
+                <div class="col-lg-4">
+                    <!-- Account Information Card -->
+                    <section class="account-card">
+                        <div class="account-card-header">
+                            <h2 class="account-card-title">Account Settings</h2>
+                        </div>
+                        <div class="account-card-body p-0">
+                            <div class="account-settings-list">
+                                <a href="#" class="account-settings-item">
+                                    <div class="settings-item-icon">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                    <div class="settings-item-content">
+                                        <div class="settings-item-title">Profile Information</div>
+                                        <div class="settings-item-subtitle">Edit your name, email & mobile</div>
+                                    </div>
+                                    <i class="bi bi-chevron-right settings-item-arrow"></i>
+                                </a>
 
+                                <a href="#" class="account-settings-item">
+                                    <div class="settings-item-icon">
+                                        <i class="bi bi-shield-lock"></i>
+                                    </div>
+                                    <div class="settings-item-content">
+                                        <div class="settings-item-title">Login & Security</div>
+                                        <div class="settings-item-subtitle">Password and authentication</div>
+                                    </div>
+                                    <i class="bi bi-chevron-right settings-item-arrow"></i>
+                                </a>
+
+                                <a href="#" class="account-settings-item">
+                                    <div class="settings-item-icon">
+                                        <i class="bi bi-bell"></i>
+                                    </div>
+                                    <div class="settings-item-content">
+                                        <div class="settings-item-title">Notifications</div>
+                                        <div class="settings-item-subtitle">Manage notification preferences</div>
+                                    </div>
+                                    <i class="bi bi-chevron-right settings-item-arrow"></i>
+                                </a>
+
+                                <a href="#" class="account-settings-item">
+                                    <div class="settings-item-icon">
+                                        <i class="bi bi-globe"></i>
+                                    </div>
+                                    <div class="settings-item-content">
+                                        <div class="settings-item-title">Language & Region</div>
+                                        <div class="settings-item-subtitle">English (India)</div>
+                                    </div>
+                                    <i class="bi bi-chevron-right settings-item-arrow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Quick Links -->
+                    <section class="account-card mt-3">
+                        <div class="account-card-header">
+                            <h2 class="account-card-title">Quick Links</h2>
+                        </div>
+                        <div class="account-card-body p-0">
+                            <div class="quick-links-list">
+                                <a href="#" class="quick-link-item">
+                                    <i class="bi bi-chat-dots"></i>
+                                    <span>Customer Support</span>
+                                </a>
+                                <a href="#" class="quick-link-item">
+                                    <i class="bi bi-question-circle"></i>
+                                    <span>FAQs</span>
+                                </a>
+                                <a href="#" class="quick-link-item">
+                                    <i class="bi bi-file-text"></i>
+                                    <span>Terms & Conditions</span>
+                                </a>
+                                <a href="#" class="quick-link-item">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span>Privacy Policy</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Account Stats Card -->
+                    <section class="account-card mt-3">
+                        <div class="account-card-body">
+                            <div class="account-stats">
+                                <div class="account-stat-item">
+                                    <div class="account-stat-value">12</div>
+                                    <div class="account-stat-label">Total Orders</div>
+                                </div>
+                                <div class="account-stat-divider"></div>
+                                <div class="account-stat-item">
+                                    <div class="account-stat-value">5</div>
+                                    <div class="account-stat-label">Wishlist Items</div>
+                                </div>
+                                <div class="account-stat-divider"></div>
+                                <div class="account-stat-item">
+                                    <div class="account-stat-value">3</div>
+                                    <div class="account-stat-label">Active Coupons</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Logout Button -->
+                    <section class="mt-3">
+                        <button class="btn btn-outline-danger w-100">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </button>
+                    </section>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Add Address Modal -->
-    <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -517,39 +788,31 @@
                     <form id="addAddressForm">
                         <div class="row g-3">
                             <div class="col-12">
-                                <label for="addFullName" class="form-label">Full Name <span
-                                        class="text-danger">*</span></label>
+                                <label for="addFullName" class="form-label">Full Name <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="addFullName" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="addMobile" class="form-label">Mobile Number <span
-                                        class="text-danger">*</span></label>
-                                <input type="tel" class="form-control" id="addMobile" placeholder="+91 98765 43210"
-                                    required>
+                                <label for="addMobile" class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="addMobile" placeholder="+91 98765 43210" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="addPincode" class="form-label">Pincode <span
-                                        class="text-danger">*</span></label>
+                                <label for="addPincode" class="form-label">Pincode <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="addPincode" maxlength="6" required>
                             </div>
                             <div class="col-12">
-                                <label for="addAddress" class="form-label">Address (House No, Building, Street) <span
-                                        class="text-danger">*</span></label>
+                                <label for="addAddress" class="form-label">Address (House No, Building, Street) <span class="text-danger">*</span></label>
                                 <textarea class="form-control" id="addAddress" rows="2" required></textarea>
                             </div>
                             <div class="col-12">
-                                <label for="addLocality" class="form-label">Locality / Area <span
-                                        class="text-danger">*</span></label>
+                                <label for="addLocality" class="form-label">Locality / Area <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="addLocality" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="addCity" class="form-label">City / District <span
-                                        class="text-danger">*</span></label>
+                                <label for="addCity" class="form-label">City / District <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="addCity" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="addState" class="form-label">State <span
-                                        class="text-danger">*</span></label>
+                                <label for="addState" class="form-label">State <span class="text-danger">*</span></label>
                                 <select class="form-select" id="addState" required>
                                     <option value="">Select State</option>
                                     <option value="Maharashtra">Maharashtra</option>
@@ -565,16 +828,14 @@
                             </div>
                             <div class="col-12">
                                 <label for="addLandmark" class="form-label">Landmark (Optional)</label>
-                                <input type="text" class="form-control" id="addLandmark"
-                                    placeholder="E.g. Near Metro Station">
+                                <input type="text" class="form-control" id="addLandmark" placeholder="E.g. Near Metro Station">
                             </div>
                             <div class="col-md-6">
                                 <label for="addAlternateMobile" class="form-label">Alternate Mobile (Optional)</label>
                                 <input type="tel" class="form-control" id="addAlternateMobile">
                             </div>
                             <div class="col-md-6">
-                                <label for="addAddressType" class="form-label">Address Type <span
-                                        class="text-danger">*</span></label>
+                                <label for="addAddressType" class="form-label">Address Type <span class="text-danger">*</span></label>
                                 <select class="form-select" id="addAddressType" required>
                                     <option value="Home">Home</option>
                                     <option value="Work">Work</option>
@@ -603,8 +864,7 @@
     </div>
 
     <!-- Edit Address Modal -->
-    <div class="modal fade" id="editAddressModal" tabindex="-1" aria-labelledby="editAddressModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="editAddressModal" tabindex="-1" aria-labelledby="editAddressModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -615,42 +875,31 @@
                     <form id="editAddressForm">
                         <div class="row g-3">
                             <div class="col-12">
-                                <label for="editFullName" class="form-label">Full Name <span
-                                        class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="editFullName" value="Kunal Yadav Pandharkar"
-                                    required>
+                                <label for="editFullName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="editFullName" value="Kunal Yadav Pandharkar" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="editMobile" class="form-label">Mobile Number <span
-                                        class="text-danger">*</span></label>
+                                <label for="editMobile" class="form-label">Mobile Number <span class="text-danger">*</span></label>
                                 <input type="tel" class="form-control" id="editMobile" value="+91 98765 43210" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="editPincode" class="form-label">Pincode <span
-                                        class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="editPincode" value="400001" maxlength="6"
-                                    required>
+                                <label for="editPincode" class="form-label">Pincode <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="editPincode" value="400001" maxlength="6" required>
                             </div>
                             <div class="col-12">
-                                <label for="editAddress" class="form-label">Address (House No, Building, Street) <span
-                                        class="text-danger">*</span></label>
-                                <textarea class="form-control" id="editAddress" rows="2"
-                                    required>123, Marine Drive, Nariman Point</textarea>
+                                <label for="editAddress" class="form-label">Address (House No, Building, Street) <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="editAddress" rows="2" required>123, Marine Drive, Nariman Point</textarea>
                             </div>
                             <div class="col-12">
-                                <label for="editLocality" class="form-label">Locality / Area <span
-                                        class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="editLocality" value="Nariman Point"
-                                    required>
+                                <label for="editLocality" class="form-label">Locality / Area <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="editLocality" value="Nariman Point" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="editCity" class="form-label">City / District <span
-                                        class="text-danger">*</span></label>
+                                <label for="editCity" class="form-label">City / District <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="editCity" value="Mumbai" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="editState" class="form-label">State <span
-                                        class="text-danger">*</span></label>
+                                <label for="editState" class="form-label">State <span class="text-danger">*</span></label>
                                 <select class="form-select" id="editState" required>
                                     <option value="">Select State</option>
                                     <option value="Maharashtra" selected>Maharashtra</option>
@@ -673,8 +922,7 @@
                                 <input type="tel" class="form-control" id="editAlternateMobile">
                             </div>
                             <div class="col-md-6">
-                                <label for="editAddressType" class="form-label">Address Type <span
-                                        class="text-danger">*</span></label>
+                                <label for="editAddressType" class="form-label">Address Type <span class="text-danger">*</span></label>
                                 <select class="form-select" id="editAddressType" required>
                                     <option value="Home" selected>Home</option>
                                     <option value="Work">Work</option>
@@ -701,120 +949,6 @@
             </div>
         </div>
     </div>
-
-
-    <script>
-        // Toggle Profile Edit Mode
-        function toggleProfileEdit() {
-            const profileView = document.getElementById('profile-view');
-            const profileEdit = document.getElementById('profile-edit');
-            const editBtn = document.querySelector('#profile-section .btn-outline-primary');
-
-            if (profileView.style.display === 'none') {
-                profileView.style.display = 'block';
-                profileEdit.style.display = 'none';
-                editBtn.innerHTML = '<i class="bi bi-pencil"></i> Edit';
-            } else {
-                profileView.style.display = 'none';
-                profileEdit.style.display = 'block';
-                editBtn.innerHTML = '<i class="bi bi-x-lg"></i> Cancel';
-            }
-        }
-
-        // Handle Profile Form Submission
-        document.getElementById('profile-form')?.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form values
-            const fullName = document.getElementById('fullName').value;
-            const email = document.getElementById('email').value;
-            const mobile = document.getElementById('mobile').value;
-            const gender = document.getElementById('gender').options[document.getElementById('gender').selectedIndex].text;
-            const dob = new Date(document.getElementById('dob').value).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            });
-            const alternateMobile = document.getElementById('alternateMobile').value;
-
-            // Update profile view
-            document.querySelectorAll('.profile-info-value')[0].textContent = fullName;
-            document.querySelectorAll('.profile-info-value')[1].textContent = email;
-            document.querySelectorAll('.profile-info-value')[2].textContent = mobile;
-            document.querySelectorAll('.profile-info-value')[3].textContent = gender;
-            document.querySelectorAll('.profile-info-value')[4].textContent = dob;
-            document.querySelectorAll('.profile-info-value')[5].textContent = alternateMobile || 'Not provided';
-
-            // Update welcome message
-            document.querySelector('.account-user-welcome strong').textContent = fullName;
-
-            // Show success message
-            showToast('Profile updated successfully!', 'success');
-
-            // Toggle back to view mode
-            toggleProfileEdit();
-        });
-
-        // Handle Add Address Form Submission
-        document.getElementById('addAddressForm')?.addEventListener('submit', function (e) {
-            e.preventDefault();
-            showToast('Address added successfully!', 'success');
-            bootstrap.Modal.getInstance(document.getElementById('addAddressModal')).hide();
-            this.reset();
-        });
-
-        // Handle Edit Address Form Submission
-        document.getElementById('editAddressForm')?.addEventListener('submit', function (e) {
-            e.preventDefault();
-            showToast('Address updated successfully!', 'success');
-            bootstrap.Modal.getInstance(document.getElementById('editAddressModal')).hide();
-        });
-
-        // Toast Notification Function
-        function showToast(message, type = 'success') {
-            // Create toast container if it doesn't exist
-            let toastContainer = document.getElementById('toast-container');
-            if (!toastContainer) {
-                toastContainer = document.createElement('div');
-                toastContainer.id = 'toast-container';
-                toastContainer.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999;';
-                document.body.appendChild(toastContainer);
-            }
-
-            // Create toast
-            const toast = document.createElement('div');
-            toast.className = `alert alert-${type} alert-dismissible fade show`;
-            toast.style.cssText = 'min-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
-            toast.innerHTML = `
-                ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            `;
-
-            toastContainer.appendChild(toast);
-
-            // Auto remove after 3 seconds
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 150);
-            }, 3000);
-        }
-
-        // Pincode validation
-        document.querySelectorAll('[id$="Pincode"]').forEach(input => {
-            input.addEventListener('input', function (e) {
-                this.value = this.value.replace(/\D/g, '').slice(0, 6);
-            });
-        });
-
-        // Mobile number validation
-        document.querySelectorAll('[id$="Mobile"]').forEach(input => {
-            input.addEventListener('input', function (e) {
-                // Allow +, digits, spaces, and hyphens
-                this.value = this.value.replace(/[^\d+\s-]/g, '');
-            });
-        });
-    </script>
-
 
     <!-- Footer -->
     <footer class="footer">
@@ -1003,11 +1137,125 @@
         </div>
     </footer>
 
+ 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+        // Toggle Profile Edit Mode
+        function toggleProfileEdit() {
+            const profileView = document.getElementById('profile-view');
+            const profileEdit = document.getElementById('profile-edit');
+            const editBtn = document.querySelector('#profile-section .btn-outline-primary');
+
+            if (profileView.style.display === 'none') {
+                profileView.style.display = 'block';
+                profileEdit.style.display = 'none';
+                editBtn.innerHTML = '<i class="bi bi-pencil"></i> Edit';
+            } else {
+                profileView.style.display = 'none';
+                profileEdit.style.display = 'block';
+                editBtn.innerHTML = '<i class="bi bi-x-lg"></i> Cancel';
+            }
+        }
+
+        // Handle Profile Form Submission
+        document.getElementById('profile-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const gender = document.getElementById('gender').options[document.getElementById('gender').selectedIndex].text;
+            const dob = new Date(document.getElementById('dob').value).toLocaleDateString('en-GB', { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric' 
+            });
+            const alternateMobile = document.getElementById('alternateMobile').value;
+
+            // Update profile view
+            document.querySelectorAll('.profile-info-value')[0].textContent = fullName;
+            document.querySelectorAll('.profile-info-value')[1].textContent = email;
+            document.querySelectorAll('.profile-info-value')[2].textContent = mobile;
+            document.querySelectorAll('.profile-info-value')[3].textContent = gender;
+            document.querySelectorAll('.profile-info-value')[4].textContent = dob;
+            document.querySelectorAll('.profile-info-value')[5].textContent = alternateMobile || 'Not provided';
+
+            // Update welcome message
+            document.querySelector('.account-user-welcome strong').textContent = fullName;
+
+            // Show success message
+            showToast('Profile updated successfully!', 'success');
+
+            // Toggle back to view mode
+            toggleProfileEdit();
+        });
+
+        // Handle Add Address Form Submission
+        document.getElementById('addAddressForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('Address added successfully!', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('addAddressModal')).hide();
+            this.reset();
+        });
+
+        // Handle Edit Address Form Submission
+        document.getElementById('editAddressForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('Address updated successfully!', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('editAddressModal')).hide();
+        });
+
+        // Toast Notification Function
+        function showToast(message, type = 'success') {
+            // Create toast container if it doesn't exist
+            let toastContainer = document.getElementById('toast-container');
+            if (!toastContainer) {
+                toastContainer = document.createElement('div');
+                toastContainer.id = 'toast-container';
+                toastContainer.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999;';
+                document.body.appendChild(toastContainer);
+            }
+
+            // Create toast
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type} alert-dismissible fade show`;
+            toast.style.cssText = 'min-width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+            toast.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+
+            toastContainer.appendChild(toast);
+
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 150);
+            }, 3000);
+        }
+
+        // Pincode validation
+        document.querySelectorAll('[id$="Pincode"]').forEach(input => {
+            input.addEventListener('input', function(e) {
+                this.value = this.value.replace(/\D/g, '').slice(0, 6);
+            });
+        });
+
+        // Mobile number validation
+        document.querySelectorAll('[id$="Mobile"]').forEach(input => {
+            input.addEventListener('input', function(e) {
+                // Allow +, digits, spaces, and hyphens
+                this.value = this.value.replace(/[^\d+\s-]/g, '');
+            });
+        });
+    </script>
 
 </body>
 
