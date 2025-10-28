@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - EBS Ecommerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header sticky-top">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="row align-items-center">
+                <!-- Menu Icon -->
+                <div class="col-auto">
+                    <button class="btn btn-link p-0 text-dark" title="sidebar open" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                        <i class="bi bi-list header-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Logo -->
+                <div class="col-auto">
+                    <a href="index.html" class="logo">EBS</a>
+                </div>
+
+                <!-- Delivery Location (Desktop/Tablet Only) -->
+                <div class="col-auto d-none d-lg-block">
+                    <a href="#" class="delivery-location">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="location-text">
+                            <span class="location-label">Deliver to</span>
+                            <span class="location-city fw-semibold">Mumbai 400001</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Search Bar (Desktop/Tablet Only) -->
+                <div class="col d-none d-md-block mx-2 mx-lg-3">
+                    <form class="search-form" role="search">
+                        <div class="search-wrapper search-wrapper-header">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="search" class="search-input" placeholder="Search for Products, Brands and More"
+                                aria-label="Search for Products" autocomplete="off" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Spacer (Mobile Only) -->
+                <div class="col d-md-none"></div>
+
+                <!-- User Info -->
+                <div class="col-auto">
+                    <a href="login.html" class="user-info">
+                        <i class="bi bi-person-circle header-icon"></i>
+                        <span class="user-name">Login</span>
+                    </a>
+                </div>
+
+                <!-- Wishlist (Desktop Only) -->
+                <div class="col-auto d-none d-lg-block">
+                    <a href="#" class="nav-link-header">
+                        <i class="bi bi-heart header-icon"></i>
+                        <span class="nav-text">Wishlist</span>
+                    </a>
+                </div>
+
+                <!-- Cart Icon with Count -->
+                <div class="col-auto">
+                    <a href="cart.html" class="cart-icon-wrapper">
+                        <i class="bi bi-cart3 header-icon"></i>
+                        <span class="cart-badge">0</span>
+                        <span class="cart-text d-none d-lg-inline">Cart</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Menu (Offcanvas) -->
+    <div class="offcanvas offcanvas-start sidebar-menu" tabindex="-1" id="sidebarMenu">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <div class="sidebar-user">
+                <i class="bi bi-person-circle sidebar-user-icon"></i>
+                <div class="sidebar-user-info">
+                    <span class="sidebar-greeting">Hello, Guest</span>
+                    <a href="login.html" class="sidebar-login-link">Login / Sign Up</a>
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <!-- Sidebar Body -->
+        <div class="offcanvas-body p-0">
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-nav-link">
+                    <i class="bi bi-house-door"></i>
+                    <span>Home</span>
+                </a>
+                <a href="products.html" class="sidebar-nav-link">
+                    <i class="bi bi-grid"></i>
+                    <span>All Products</span>
+                </a>
+                <a href="all-categories.html" class="sidebar-nav-link">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Categories</span>
+                </a>
+                <a href="orders.html" class="sidebar-nav-link">
+                    <i class="bi bi-bag-check"></i>
+                    <span>My Orders</span>
+                </a>
+                <a href="account.html" class="sidebar-nav-link">
+                    <i class="bi bi-person"></i>
+                    <span>My Account</span>
+                </a>
+                <a href="about.html" class="sidebar-nav-link active">
+                    <i class="bi bi-info-circle"></i>
+                    <span>About Us</span>
+                </a>
+                <a href="contact.html" class="sidebar-nav-link">
+                    <i class="bi bi-envelope"></i>
+                    <span>Contact Us</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="about-hero-badge ">
+                        <i class="bi bi-award-fill"></i>
+                        <span>India's Most Trusted E-Commerce Platform</span>
+                    </div>
+                    <h1 class="about-hero-title animate-fade-in">About EBS Ecommerce</h1>
+                    <p class="about-hero-subtitle animate-fade-in">Your Trusted Online Shopping Destination</p>
+                    <p class="about-hero-text animate-fade-in">
+                        Since our inception, we've been committed to providing customers with an exceptional online shopping 
+                        experience. We combine cutting-edge technology with personalized service to bring you the best 
+                        products at competitive prices. With millions of satisfied customers, we're redefining the way India shops online.
+                    </p>
+                    <div class="about-hero-stats">
+                        <div class="stat-item animate-count">
+                            <div class="stat-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <h3 class="stat-number" data-target="10000000">10M+</h3>
+                            <p class="stat-label">Happy Customers</p>
+                        </div>
+                        <div class="stat-item animate-count">
+                            <div class="stat-icon">
+                                <i class="bi bi-box-seam-fill"></i>
+                            </div>
+                            <h3 class="stat-number" data-target="50000">50K+</h3>
+                            <p class="stat-label">Products</p>
+                        </div>
+                        <div class="stat-item animate-count">
+                            <div class="stat-icon">
+                                <i class="bi bi-shop"></i>
+                            </div>
+                            <h3 class="stat-number" data-target="500">500+</h3>
+                            <p class="stat-label">Brands</p>
+                        </div>
+                        <div class="stat-item animate-count">
+                            <div class="stat-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <h3 class="stat-number" data-target="20000">20K+</h3>
+                            <p class="stat-label">Pin Codes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-hero-image">
+                        <div class="about-image-decoration"></div>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" 
+                             alt="About EBS Ecommerce" class="img-fluid rounded-3">
+                        <div class="about-image-badge">
+                            <i class="bi bi-shield-check"></i>
+                            <span>100% Secure Shopping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="about-story">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-badge">
+                    <i class="bi bi-bookmark-star"></i>
+                    <span>Our Journey</span>
+                </div>
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-subtitle">How We Started and Where We're Going</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="story-card">
+                        <div class="story-number">01</div>
+                        <div class="story-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h3 class="story-title">Our Beginning</h3>
+                        <p class="story-text">
+                            Founded in 2020, EBS Ecommerce started with a simple vision: to make quality products 
+                            accessible to everyone, everywhere. What began as a small startup with just 5 team members 
+                            has grown into one of India's most trusted online shopping platforms, serving millions of 
+                            customers across the country. Our journey is a testament to the trust our customers place in us.
+                        </p>
+                        <div class="story-timeline">
+                            <span class="timeline-year">2020</span>
+                            <span class="timeline-separator"></span>
+                            <span class="timeline-event">Company Founded</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="story-card">
+                        <div class="story-number">02</div>
+                        <div class="story-icon">
+                            <i class="bi bi-rocket-takeoff"></i>
+                        </div>
+                        <h3 class="story-title">Our Mission</h3>
+                        <p class="story-text">
+                            Our mission is to transform the way India shops online by offering an extensive range of 
+                            authentic products, exceptional customer service, and seamless shopping experiences. We're 
+                            committed to empowering small businesses, creating opportunities for growth, and building 
+                            a sustainable ecosystem that benefits everyone - from sellers to customers.
+                        </p>
+                        <div class="story-timeline">
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-separator"></span>
+                            <span class="timeline-event">Serving 10M+ Customers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="about-values">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-badge">
+                    <i class="bi bi-gem"></i>
+                    <span>What We Stand For</span>
+                </div>
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-subtitle">The Principles That Guide Everything We Do</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-number">01</div>
+                        <div class="value-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4 class="value-title">Trust & Transparency</h4>
+                        <p class="value-text">
+                            We believe in building long-term relationships with our customers through complete transparency 
+                            and authenticity in everything we do.
+                        </p>
+                        <div class="value-badge">
+                            <i class="bi bi-star-fill"></i>
+                            <span>100% Authentic</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-number">02</div>
+                        <div class="value-icon">
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <h4 class="value-title">Premium Quality</h4>
+                        <p class="value-text">
+                            Every product on our platform undergoes rigorous quality checks to ensure you receive 
+                            only the best products.
+                        </p>
+                        <div class="value-badge">
+                            <i class="bi bi-patch-check-fill"></i>
+                            <span>Quality Assured</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-number">03</div>
+                        <div class="value-icon">
+                            <i class="bi bi-lightning"></i>
+                        </div>
+                        <h4 class="value-title">Innovation First</h4>
+                        <p class="value-text">
+                            We continuously innovate to provide faster delivery, better prices, and enhanced 
+                            shopping experiences.
+                        </p>
+                        <div class="value-badge">
+                            <i class="bi bi-rocket-takeoff-fill"></i>
+                            <span>Tech-Driven</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-number">04</div>
+                        <div class="value-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4 class="value-title">Customer First</h4>
+                        <p class="value-text">
+                            Your satisfaction is our top priority. We're here to ensure your shopping experience 
+                            is seamless and delightful.
+                        </p>
+                        <div class="value-badge">
+                            <i class="bi bi-headset"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="about-features">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle">What Makes Us Different</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h4 class="feature-title">Fast Delivery</h4>
+                        <p class="feature-text">
+                            Get your orders delivered to your doorstep within 2-5 business days across India.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4 class="feature-title">Secure Payments</h4>
+                        <p class="feature-text">
+                            Shop with confidence using our secure payment gateway with multiple payment options.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </div>
+                        <h4 class="feature-title">Easy Returns</h4>
+                        <p class="feature-text">
+                            Not satisfied? Return products within 7 days with our hassle-free return policy.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h4 class="feature-title">24/7 Support</h4>
+                        <p class="feature-text">
+                            Our customer support team is available round the clock to assist you with any queries.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <i class="bi bi-award"></i>
+                        </div>
+                        <h4 class="feature-title">Authentic Products</h4>
+                        <p class="feature-text">
+                            We guarantee 100% authentic products from verified sellers and authorized brands.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <i class="bi bi-tag"></i>
+                        </div>
+                        <h4 class="feature-title">Best Prices</h4>
+                        <p class="feature-text">
+                            Get the best deals and discounts on a wide range of products across categories.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="about-team">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Meet Our Leadership</h2>
+                <p class="section-subtitle">The People Behind Our Success</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://ui-avatars.com/api/?name=Rajesh+Kumar&background=146eb4&color=fff&size=200" 
+                                 alt="Rajesh Kumar" class="img-fluid">
+                        </div>
+                        <h4 class="team-name">Rajesh Kumar</h4>
+                        <p class="team-role">CEO & Founder</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=146eb4&color=fff&size=200" 
+                                 alt="Priya Sharma" class="img-fluid">
+                        </div>
+                        <h4 class="team-name">Priya Sharma</h4>
+                        <p class="team-role">Chief Technology Officer</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://ui-avatars.com/api/?name=Amit+Patel&background=146eb4&color=fff&size=200" 
+                                 alt="Amit Patel" class="img-fluid">
+                        </div>
+                        <h4 class="team-name">Amit Patel</h4>
+                        <p class="team-role">Chief Operating Officer</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://ui-avatars.com/api/?name=Sneha+Reddy&background=146eb4&color=fff&size=200" 
+                                 alt="Sneha Reddy" class="img-fluid">
+                        </div>
+                        <h4 class="team-name">Sneha Reddy</h4>
+                        <p class="team-role">Head of Customer Experience</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+        <div class="container">
+            <div class="cta-content text-center">
+                <h2 class="cta-title">Ready to Start Shopping?</h2>
+                <p class="cta-text">Explore millions of products from trusted sellers across India</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn btn-primary btn-lg">Browse Products</a>
+                    <a href="contact.html" class="btn btn-outline-primary btn-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">About EBS</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Help</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Payments</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Cancellation & Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Policy</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Connect With Us</h5>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EBS Ecommerce. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.story-card, .value-card, .feature-card, .team-card');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Counter animation for stats
+            const counterElements = document.querySelectorAll('.stat-number');
+            const observerCounter = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const text = target.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        const suffix = text.replace(/[0-9]/g, '');
+                        
+                        let current = 0;
+                        const increment = number / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= number) {
+                                target.textContent = number.toLocaleString() + suffix;
+                                clearInterval(timer);
+                            } else {
+                                target.textContent = Math.floor(current).toLocaleString() + suffix;
+                            }
+                        }, 30);
+                        
+                        observerCounter.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counterElements.forEach(el => observerCounter.observe(el));
+        });
+    </script>
+</body>
+
+</html>

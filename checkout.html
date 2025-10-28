@@ -66,96 +66,118 @@
     </div>
 
     <!-- Checkout Page -->
-    <main class="checkout-page">
-        <div class="container-fluid px-2 px-md-3 px-lg-4">
-            <div class="row g-2 g-md-3">
+    <main class="checkout-main-page">
+        <div class="container-fluid px-0 px-lg-3 py-lg-3">
+            <div class="row g-0 g-lg-3">
 
                 <!-- Left Column - Address Selection (Desktop: 8, Mobile: 12) -->
-                <div class="col-lg-8" id="addressSection">
+                <div class="col-lg-8 checkout-left-col" id="addressSection">
 
                     <!-- Delivery Address Section -->
-                    <div class="checkout-section">
-                        <div class="summary-header d-none d-lg-block">
-                            <h3 class="summary-title">DELIVERY ADDRESS</h3>
-
-                        </div>
-                        <div class="section-content">
-
-                            <!-- Continue Button (Mobile Only) -->
-                            <div class="section-action d-lg-none">
-                                <button class="btn btn-primary btn-lg w-100 btn-continue" onclick="continueToSummary()">
-                                    <span>Continue</span>
-                                    <i class="bi bi-arrow-right ms-2"></i>
-                                </button>
+                    <div class="checkout-section-card">
+                        <div class="checkout-section-header">
+                            <div class="checkout-section-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
                             </div>
+                            <div class="checkout-section-title-wrap">
+                                <h3 class="checkout-section-title">Delivery Address</h3>
+                                <p class="checkout-section-subtitle">Select delivery location</p>
+                            </div>
+                        </div>
+                        <div class="checkout-section-body">
 
                             <!-- Address Cards Grid -->
-                            <div class="address-grid">
+                            <div class="checkout-address-grid">
 
                                 <!-- Address Card 1 -->
-                                <div class="address-card selected">
-                                    <input type="radio" name="address" id="addr1" checked class="address-radio">
-                                    <label for="addr1" class="address-label">
-                                        <div class="address-header">
-                                            <div>
-                                                <span class="address-type-badge home">
-                                                    <i class="bi bi-house-fill"></i> Home
-                                                </span>
-                                                <span class="badge bg-primary ms-1">Default</span>
+                                <div class="checkout-address-card checkout-address-selected">
+                                    <input type="radio" name="address" id="addr1" checked class="checkout-address-radio">
+                                    <label for="addr1" class="checkout-address-label">
+                                        <div class="checkout-radio-indicator">
+                                            <div class="checkout-radio-custom">
+                                                <div class="checkout-radio-inner"></div>
                                             </div>
-                                            <button type="button" class="btn-edit"><i class="bi bi-pencil"></i></button>
                                         </div>
-                                        <div class="address-body">
-                                            <div class="address-name">Kunal Yadav Pandharkar</div>
-                                            <div class="address-text">
-                                                123, Marine Drive, Nariman Point<br>
-                                                Mumbai, Maharashtra - 400001
+                                        <div class="checkout-address-content">
+                                            <div class="checkout-address-top">
+                                                <div class="checkout-address-badges">
+                                                    <span class="checkout-badge-type checkout-badge-home">
+                                                        <i class="bi bi-house-door-fill"></i> Home
+                                                    </span>
+                                                    <span class="checkout-badge-default">Default</span>
+                                                </div>
+                                                <button type="button" class="checkout-btn-edit" aria-label="Edit address">
+                                                    <i class="bi bi-pencil-fill"></i>
+                                                </button>
                                             </div>
-                                            <div class="address-contact">
-                                                <i class="bi bi-telephone-fill"></i> +91 98765 43210
+                                            <div class="checkout-address-info">
+                                                <div class="checkout-address-name">Kunal Yadav Pandharkar</div>
+                                                <div class="checkout-address-text">
+                                                    123, Marine Drive, Nariman Point, Mumbai, Maharashtra - 400001
+                                                </div>
+                                                <div class="checkout-address-phone">
+                                                    <i class="bi bi-telephone-fill"></i>
+                                                    <span>+91 98765 43210</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </label>
                                 </div>
 
                                 <!-- Address Card 2 -->
-                                <div class="address-card">
-                                    <input type="radio" name="address" id="addr2" class="address-radio">
-                                    <label for="addr2" class="address-label">
-                                        <div class="address-header">
-                                            <div>
-                                                <span class="address-type-badge work">
-                                                    <i class="bi bi-briefcase-fill"></i> Work
-                                                </span>
+                                <div class="checkout-address-card">
+                                    <input type="radio" name="address" id="addr2" class="checkout-address-radio">
+                                    <label for="addr2" class="checkout-address-label">
+                                        <div class="checkout-radio-indicator">
+                                            <div class="checkout-radio-custom">
+                                                <div class="checkout-radio-inner"></div>
                                             </div>
-                                            <button type="button" class="btn-edit"><i class="bi bi-pencil"></i></button>
                                         </div>
-                                        <div class="address-body">
-                                            <div class="address-name">Kunal Yadav Pandharkar</div>
-                                            <div class="address-text">
-                                                Tech Tower, Bandra Kurla Complex<br>
-                                                Mumbai, Maharashtra - 400051
+                                        <div class="checkout-address-content">
+                                            <div class="checkout-address-top">
+                                                <div class="checkout-address-badges">
+                                                    <span class="checkout-badge-type checkout-badge-work">
+                                                        <i class="bi bi-building-fill"></i> Work
+                                                    </span>
+                                                </div>
+                                                <button type="button" class="checkout-btn-edit" aria-label="Edit address">
+                                                    <i class="bi bi-pencil-fill"></i>
+                                                </button>
                                             </div>
-                                            <div class="address-contact">
-                                                <i class="bi bi-telephone-fill"></i> +91 98765 43210
+                                            <div class="checkout-address-info">
+                                                <div class="checkout-address-name">Kunal Yadav Pandharkar</div>
+                                                <div class="checkout-address-text">
+                                                    Tech Tower, Bandra Kurla Complex, Mumbai, Maharashtra - 400051
+                                                </div>
+                                                <div class="checkout-address-phone">
+                                                    <i class="bi bi-telephone-fill"></i>
+                                                    <span>+91 98765 43210</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </label>
                                 </div>
 
                                 <!-- Add New Address Card -->
-                                <div class="address-card add-address" data-bs-toggle="modal"
+                                <div class="checkout-address-card checkout-add-new" data-bs-toggle="modal"
                                     data-bs-target="#addAddressModal">
-                                    <div class="add-address-content">
-                                        <div class="add-address-icon">
-                                            <i class="bi bi-plus-circle"></i>
+                                    <div class="checkout-add-content">
+                                        <div class="checkout-add-icon">
+                                            <i class="bi bi-plus-lg"></i>
                                         </div>
-                                        <div class="add-address-text">Add New Address</div>
+                                        <div class="checkout-add-text">Add New Address</div>
                                     </div>
                                 </div>
 
                             </div>
 
+                            <!-- Continue Button (Mobile Only) -->
+                            <div class="checkout-mobile-action d-lg-none">
+                                <button class="checkout-btn-continue" onclick="continueToSummary()">
+                                    <span>Continue</span>
+                                    <i class="bi bi-arrow-right-circle-fill"></i>
+                                </button>
+                            </div>
 
                         </div>
                     </div>
@@ -163,86 +185,94 @@
                 </div>
 
                 <!-- Right Column - Order Summary -->
-                <div class="col-lg-4" id="summarySection">
+                <div class="col-lg-4 checkout-right-col" id="summarySection">
 
                     <!-- Order Summary Card -->
-                    <div class="order-summary-card">
-                        <div class="summary-header">
-                            <h3 class="summary-title">Order Summary</h3>
-                            <span class="summary-items">2 Items</span>
+                    <div class="checkout-summary-card">
+                        <div class="checkout-summary-header">
+                            <div class="checkout-summary-header-left">
+                                <i class="bi bi-cart-check-fill"></i>
+                                <div>
+                                    <h3 class="checkout-summary-title">Order Summary</h3>
+                                    <p class="checkout-summary-subtitle">2 Items</p>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Products List -->
-                        <div class="summary-products">
-                            <div class="summary-product">
-                                <img src="images/prod1.webp" alt="Product" class="checkout-product-img">
-                                <div class="product-details">
-                                    <div class="product-name">Premium Wireless Headphones</div>
-                                    <div class="product-meta">Qty: 1</div>
+                        <div class="checkout-products-list">
+                            <div class="checkout-product-item">
+                                <div class="checkout-product-img-wrap">
+                                    <img src="images/prod1.webp" alt="Premium Wireless Headphones" class="checkout-product-img">
                                 </div>
-                                <div class="product-price">₹2,999</div>
+                                <div class="checkout-product-details">
+                                    <div class="checkout-product-name">Premium Wireless Headphones</div>
+                                    <div class="checkout-product-qty">Qty: 1</div>
+                                </div>
+                                <div class="checkout-product-price">₹2,999</div>
                             </div>
-                            <div class="summary-product">
-                                <img src="images/prod2.webp" alt="Product" class="checkout-product-img">
-                                <div class="product-details">
-                                    <div class="product-name">Smart Watch Series 7</div>
-                                    <div class="product-meta">Qty: 1</div>
+                            <div class="checkout-product-item">
+                                <div class="checkout-product-img-wrap">
+                                    <img src="images/prod2.webp" alt="Smart Watch Series 7" class="checkout-product-img">
                                 </div>
-                                <div class="product-price">₹12,999</div>
+                                <div class="checkout-product-details">
+                                    <div class="checkout-product-name">Smart Watch Series 7</div>
+                                    <div class="checkout-product-qty">Qty: 1</div>
+                                </div>
+                                <div class="checkout-product-price">₹12,999</div>
                             </div>
                         </div>
 
-                        <hr class="summary-divider">
+                        <div class="checkout-divider"></div>
 
                         <!-- Price Details -->
-                        <div class="price-details">
-                            <div class="price-item">
+                        <div class="checkout-price-details">
+                            <div class="checkout-price-row">
                                 <span>Price (2 items)</span>
                                 <span>₹15,998</span>
                             </div>
-                            <div class="price-item discount">
-                                <span>Discount</span>
-                                <span>−₹1,000</span>
+                            <div class="checkout-price-row checkout-discount-row">
+                                <span><i class="bi bi-tag-fill"></i> Discount</span>
+                                <span class="checkout-discount-amt">−₹1,000</span>
                             </div>
-                            <div class="price-item">
-                                <span>Delivery Charges</span>
-                                <span class="free-text">FREE</span>
-                            </div>
-                            <div class="price-item">
-                                <span>Packaging Fee</span>
-                                <span>₹99</span>
+                            <div class="checkout-price-row">
+                                <span>Delivery</span>
+                                <span class="checkout-free-text">FREE</span>
                             </div>
                         </div>
 
-                        <hr class="summary-divider">
+                        <div class="checkout-divider checkout-divider-bold"></div>
 
                         <!-- Total Amount -->
-                        <div class="total-amount">
-                            <span>Total Amount</span>
-                            <span>₹15,097</span>
+                        <div class="checkout-total-row">
+                            <span class="checkout-total-label">Total</span>
+                            <span class="checkout-total-value">₹15,097</span>
                         </div>
 
                         <!-- Savings Badge -->
-                        <div class="savings-info">
-                            <i class="bi bi-patch-check-fill"></i>
-                            <span>You saved ₹1,000 on this order!</span>
+                        <div class="checkout-savings-badge">
+                            <i class="bi bi-piggy-bank-fill"></i>
+                            <span>You save <strong>₹1,000</strong></span>
                         </div>
 
-                        <!-- Safe & Secure -->
-                        <div class="secure-info">
+                        <!-- Secure Info -->
+                        <div class="checkout-secure-info">
                             <i class="bi bi-shield-fill-check"></i>
                             <div>
-                                <div class="secure-title">Safe & Secure Payments</div>
-                                <div class="secure-text">100% Payment Protection</div>
+                                <div class="checkout-secure-title">100% Secure Payments</div>
+                                <div class="checkout-secure-text">All major cards & UPI accepted</div>
                             </div>
                         </div>
 
-                        <!-- Place Order Button (Desktop Always Visible, Mobile After Address) -->
-                        <div class="summary-action">
-                            <button class="btn btn-success btn-lg w-100 btn-place-order" onclick="placeOrder()">
-                                <i class="bi bi-lock-fill me-2"></i>
+                        <!-- Place Order Button -->
+                        <div class="checkout-action-wrapper">
+                            <button class="checkout-btn-place-order" onclick="placeOrder()">
+                                <i class="bi bi-lock-fill"></i>
                                 <span>Place Order Securely</span>
                             </button>
+                            <div class="checkout-cod-text">
+                                <i class="bi bi-cash-coin"></i> Cash on Delivery available
+                            </div>
                         </div>
                     </div>
 
@@ -441,20 +471,20 @@
         }
 
         // Address Selection - Visual Feedback with Animation
-        document.querySelectorAll('.address-card:not(.add-address)').forEach(card => {
+        document.querySelectorAll('.checkout-address-card:not(.checkout-add-new)').forEach(card => {
             card.addEventListener('click', function () {
                 // Remove animation class from all
-                document.querySelectorAll('.address-card').forEach(c => {
-                    c.classList.remove('selected', 'address-selected-animation');
+                document.querySelectorAll('.checkout-address-card').forEach(c => {
+                    c.classList.remove('checkout-address-selected', 'checkout-address-anim');
                 });
 
                 // Add to current
-                this.classList.add('selected', 'address-selected-animation');
+                this.classList.add('checkout-address-selected', 'checkout-address-anim');
                 this.querySelector('input[type="radio"]').checked = true;
 
                 // Remove animation class after animation completes
                 setTimeout(() => {
-                    this.classList.remove('address-selected-animation');
+                    this.classList.remove('checkout-address-anim');
                 }, 300);
             });
         });

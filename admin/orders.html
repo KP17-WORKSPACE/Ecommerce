@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+
+<body>
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="admin-sidebar-user">
+            <button class="admin-sidebar-close d-lg-none" title="Close Menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="admin-user-avatar">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=146eb4&color=fff&size=48" alt="Admin">
+            </div>
+            <div class="admin-user-info">
+                <div class="admin-user-name">Admin User</div>
+                <div class="admin-user-role">Super Admin</div>
+            </div>
+        </div>
+
+        <nav class="admin-sidebar-nav">
+            <!-- Main Section -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">Main Menu</div>
+                
+                <a href="index.html" class="admin-nav-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <span class="admin-nav-item-text">Dashboard</span>
+                </a>
+
+                <a href="analytics.html" class="admin-nav-item">
+                    <i class="bi bi-graph-up"></i>
+                    <span class="admin-nav-item-text">Analytics</span>
+                </a>
+            </div>
+
+            <!-- E-Commerce Section -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">E-Commerce</div>
+                
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-box-seam"></i>
+                    <span class="admin-nav-item-text">Products</span>
+                    <span class="admin-nav-badge">245</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="products.html" class="admin-submenu-item">All Products</a>
+                    <a href="add-product.html" class="admin-submenu-item">Add New Product</a>
+                    <a href="product-reviews.html" class="admin-submenu-item">Product Reviews</a>
+                    <a href="inventory.html" class="admin-submenu-item">Inventory Management</a>
+                </div>
+
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-grid"></i>
+                    <span class="admin-nav-item-text">Categories</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="categories.html" class="admin-submenu-item">All Categories</a>
+                    <a href="add-category.html" class="admin-submenu-item">Add Category</a>
+                    <a href="subcategories.html" class="admin-submenu-item">Sub Categories</a>
+                </div>
+
+                <a href="brands.html" class="admin-nav-item">
+                    <i class="bi bi-award"></i>
+                    <span class="admin-nav-item-text">Brands</span>
+                </a>
+
+                <div class="admin-nav-item has-submenu open">
+                    <i class="bi bi-bag-check"></i>
+                    <span class="admin-nav-item-text">Orders</span>
+                    <span class="admin-nav-badge admin-badge-warning">12</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu open">
+                    <a href="orders.html" class="admin-submenu-item active">All Orders</a>
+                    <a href="pending-orders.html" class="admin-submenu-item">Pending Orders</a>
+                    <a href="shipped-orders.html" class="admin-submenu-item">Shipped Orders</a>
+                    <a href="delivered-orders.html" class="admin-submenu-item">Delivered Orders</a>
+                    <a href="cancelled-orders.html" class="admin-submenu-item">Cancelled Orders</a>
+                    <a href="refunds.html" class="admin-submenu-item">Refunds & Returns</a>
+                </div>
+            </div>
+
+            <!-- Customer Management -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">Customers</div>
+                
+                <a href="users.html" class="admin-nav-item">
+                    <i class="bi bi-people"></i>
+                    <span class="admin-nav-item-text">All Users</span>
+                </a>
+
+                <a href="customer-reviews.html" class="admin-nav-item">
+                    <i class="bi bi-star"></i>
+                    <span class="admin-nav-item-text">Reviews</span>
+                </a>
+
+                <a href="support-tickets.html" class="admin-nav-item">
+                    <i class="bi bi-headset"></i>
+                    <span class="admin-nav-item-text">Support</span>
+                    <span class="admin-nav-badge admin-badge-danger">3</span>
+                </a>
+            </div>
+
+            <!-- Marketing -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">Marketing</div>
+                
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-images"></i>
+                    <span class="admin-nav-item-text">Banners</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="banners.html" class="admin-submenu-item">All Banners</a>
+                    <a href="add-banner.html" class="admin-submenu-item">Add Banner</a>
+                    <a href="banner-positions.html" class="admin-submenu-item">Positions</a>
+                </div>
+
+                <a href="coupons.html" class="admin-nav-item">
+                    <i class="bi bi-tag"></i>
+                    <span class="admin-nav-item-text">Coupons & Deals</span>
+                </a>
+
+                <a href="email-campaigns.html" class="admin-nav-item">
+                    <i class="bi bi-envelope-paper"></i>
+                    <span class="admin-nav-item-text">Email Campaigns</span>
+                </a>
+            </div>
+
+            <!-- Reports -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">Reports</div>
+                
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span class="admin-nav-item-text">Reports</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="sales-reports.html" class="admin-submenu-item">Sales Reports</a>
+                    <a href="revenue-reports.html" class="admin-submenu-item">Revenue Reports</a>
+                    <a href="product-reports.html" class="admin-submenu-item">Product Reports</a>
+                    <a href="user-reports.html" class="admin-submenu-item">User Reports</a>
+                </div>
+            </div>
+
+            <div class="admin-nav-divider"></div>
+
+            <!-- Settings -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">System</div>
+                
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-gear"></i>
+                    <span class="admin-nav-item-text">Settings</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="general-settings.html" class="admin-submenu-item">General</a>
+                    <a href="company-info.html" class="admin-submenu-item">Company Info</a>
+                    <a href="payment-settings.html" class="admin-submenu-item">Payment</a>
+                    <a href="shipping-settings.html" class="admin-submenu-item">Shipping</a>
+                    <a href="tax-settings.html" class="admin-submenu-item">Tax Config</a>
+                    <a href="email-settings.html" class="admin-submenu-item">Email</a>
+                </div>
+
+                <a href="../index.html" class="admin-nav-item">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span class="admin-nav-item-text">Back to Site</span>
+                </a>
+
+                <a href="login.html" class="admin-nav-item admin-nav-logout">
+                    <i class="bi bi-power"></i>
+                    <span class="admin-nav-item-text">Logout</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Sidebar Overlay -->
+    <div class="admin-sidebar-overlay"></div>
+
+    <!-- Admin Main Content -->
+    <div class="admin-main-wrapper">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="admin-header-left">
+                <button class="admin-menu-toggle" title="Toggle Menu">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="admin-breadcrumb">
+                    <span class="admin-breadcrumb-item">E-Commerce</span>
+                    <i class="bi bi-chevron-right"></i>
+                    <span class="admin-breadcrumb-item">Orders</span>
+                </div>
+            </div>
+
+            <div class="admin-header-right">
+                <div class="admin-header-search">
+                    <i class="bi bi-search"></i>
+                    <input type="search" placeholder="Search orders..." class="admin-search-input">
+                </div>
+
+                <button class="admin-header-icon" title="Notifications">
+                    <i class="bi bi-bell"></i>
+                    <span class="admin-notification-dot"></span>
+                </button>
+
+                <button class="admin-header-icon" title="Messages">
+                    <i class="bi bi-envelope"></i>
+                </button>
+
+                <div class="admin-header-user">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=146eb4&color=fff" alt="Admin" class="admin-header-avatar">
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Content -->
+        <main class="admin-content">
+            <!-- Page Header -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3">
+                <div>
+                    <h1 class="admin-page-title mb-0" style="font-size: 1.25rem; font-weight: 600;">Order Management</h1>
+                    <p class="admin-page-subtitle mb-0" style="font-size: 0.75rem; margin-top: 2px;">Manage and track all customer orders</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="admin-btn admin-btn-outline-secondary admin-btn-sm" onclick="Orders.exportOrders()" style="padding: 0.375rem 0.75rem; font-size: 0.8125rem;">
+                        <i class="bi bi-download" style="font-size: 0.875rem;"></i>
+                        <span class="d-none d-sm-inline">Export</span>
+                    </button>
+                    <button class="admin-btn admin-btn-primary admin-btn-sm" onclick="Orders.printOrders()" style="padding: 0.375rem 0.75rem; font-size: 0.8125rem;">
+                        <i class="bi bi-printer" style="font-size: 0.875rem;"></i>
+                        <span class="d-none d-sm-inline">Print</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row g-2 mb-3">
+                <div class="col-6 col-lg-3">
+                    <div class="admin-stat-card admin-stat-primary" style="padding: 0.75rem;">
+                        <div class="admin-stat-icon" style="width: 2.5rem; height: 2.5rem; font-size: 1.125rem;">
+                            <i class="bi bi-bag-check"></i>
+                        </div>
+                        <div class="admin-stat-content">
+                            <div class="admin-stat-value" style="font-size: 1.125rem; font-weight: 600;">1,284</div>
+                            <div class="admin-stat-label" style="font-size: 0.6875rem;">Total Orders</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="admin-stat-card admin-stat-warning" style="padding: 0.75rem;">
+                        <div class="admin-stat-icon" style="width: 2.5rem; height: 2.5rem; font-size: 1.125rem;">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <div class="admin-stat-content">
+                            <div class="admin-stat-value" style="font-size: 1.125rem; font-weight: 600;">23</div>
+                            <div class="admin-stat-label" style="font-size: 0.6875rem;">Pending</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="admin-stat-card admin-stat-info" style="padding: 0.75rem;">
+                        <div class="admin-stat-icon" style="width: 2.5rem; height: 2.5rem; font-size: 1.125rem;">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <div class="admin-stat-content">
+                            <div class="admin-stat-value" style="font-size: 1.125rem; font-weight: 600;">45</div>
+                            <div class="admin-stat-label" style="font-size: 0.6875rem;">In Transit</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="admin-stat-card admin-stat-success" style="padding: 0.75rem;">
+                        <div class="admin-stat-icon" style="width: 2.5rem; height: 2.5rem; font-size: 1.125rem;">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <div class="admin-stat-content">
+                            <div class="admin-stat-value" style="font-size: 1.125rem; font-weight: 600;">1,216</div>
+                            <div class="admin-stat-label" style="font-size: 0.6875rem;">Delivered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters Card -->
+            <div class="admin-card mb-3" style="box-shadow: 0 1px 2px rgba(0,0,0,0.06);">
+                <div class="admin-card-body" style="padding: 0.875rem;">
+                    <div class="row g-2">
+                        <div class="col-6 col-md-3">
+                            <label class="admin-label" style="font-size: 0.75rem; margin-bottom: 0.25rem; font-weight: 500;">Order Status</label>
+                            <select class="admin-select" id="filterStatus" onchange="Orders.applyFilters()" style="font-size: 0.8125rem; padding: 0.375rem 0.625rem; height: 32px;">
+                                <option value="">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="processing">Processing</option>
+                                <option value="shipped">Shipped</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="cancelled">Cancelled</option>
+                                <option value="refunded">Refunded</option>
+                            </select>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="admin-label" style="font-size: 0.75rem; margin-bottom: 0.25rem; font-weight: 500;">Payment Status</label>
+                            <select class="admin-select" id="filterPayment" onchange="Orders.applyFilters()" style="font-size: 0.8125rem; padding: 0.375rem 0.625rem; height: 32px;">
+                                <option value="">All Payments</option>
+                                <option value="paid">Paid</option>
+                                <option value="pending">Pending</option>
+                                <option value="failed">Failed</option>
+                                <option value="refunded">Refunded</option>
+                            </select>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="admin-label" style="font-size: 0.75rem; margin-bottom: 0.25rem; font-weight: 500;">Date From</label>
+                            <input type="date" class="admin-input" id="filterDateFrom" onchange="Orders.applyFilters()" style="font-size: 0.8125rem; padding: 0.375rem 0.625rem; height: 32px;">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <label class="admin-label" style="font-size: 0.75rem; margin-bottom: 0.25rem; font-weight: 500;">Date To</label>
+                            <input type="date" class="admin-input" id="filterDateTo" onchange="Orders.applyFilters()" style="font-size: 0.8125rem; padding: 0.375rem 0.625rem; height: 32px;">
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 mt-2">
+                        <button class="admin-btn admin-btn-sm admin-btn-primary" onclick="Orders.applyFilters()" style="font-size: 0.75rem; padding: 0.375rem 0.75rem;">
+                            <i class="bi bi-funnel" style="font-size: 0.75rem;"></i> Apply
+                        </button>
+                        <button class="admin-btn admin-btn-sm admin-btn-outline-secondary" onclick="Orders.clearFilters()" style="font-size: 0.75rem; padding: 0.375rem 0.75rem;">
+                            <i class="bi bi-x-lg" style="font-size: 0.75rem;"></i> Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Table Card -->
+            <div class="admin-card" style="box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+                <div class="admin-card-header" style="padding: 0.75rem 1rem; border-bottom: 1px solid #e5e7eb;">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 w-100">
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="checkbox" class="admin-checkbox" id="selectAll" onchange="Orders.toggleSelectAll(this)" style="width: 16px; height: 16px;">
+                            <span class="admin-card-title" style="font-size: 0.875rem; font-weight: 600;">All Orders (1,284)</span>
+                        </div>
+                        <div class="d-flex gap-2" id="bulkActions" style="display: none !important;">
+                            <select class="admin-select admin-select-sm" id="bulkActionSelect" style="font-size: 0.75rem; padding: 0.25rem 0.5rem; height: 28px;">
+                                <option value="">Bulk Actions</option>
+                                <option value="markPaid">Mark as Paid</option>
+                                <option value="markShipped">Mark as Shipped</option>
+                                <option value="markDelivered">Mark as Delivered</option>
+                                <option value="exportSelected">Export Selected</option>
+                                <option value="deleteSelected">Delete Selected</option>
+                            </select>
+                            <button class="admin-btn admin-btn-sm admin-btn-primary" onclick="Orders.applyBulkAction()" style="font-size: 0.75rem; padding: 0.25rem 0.625rem;">Apply</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-card-body p-0">
+                    <div class="admin-table-responsive">
+                        <table class="admin-table" id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th width="40">
+                                        <input type="checkbox" class="admin-checkbox">
+                                    </th>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Products</th>
+                                    <th>Amount</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th width="100">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <tr>
+                                    <td><input type="checkbox" class="admin-checkbox order-checkbox"></td>
+                                    <td><a href="#" class="admin-order-id" onclick="Orders.viewDetails('ORD-2024-1001'); return false;">#ORD-2024-1001</a></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=146eb4&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div class="admin-user-name-sm">Rahul Sharma</div>
+                                                <div class="admin-user-email-sm">rahul.sharma@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-product-count">3 items</span></td>
+                                    <td><strong>₹12,499</strong></td>
+                                    <td><span class="admin-badge admin-badge-success">Paid</span></td>
+                                    <td><span class="admin-badge admin-badge-info">Shipped</span></td>
+                                    <td>Oct 23, 2025</td>
+                                    <td>
+                                        <div class="admin-actions">
+                                            <button class="admin-action-btn" title="View Details" onclick="Orders.viewDetails('ORD-2024-1001')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-action-btn" title="Print Invoice" onclick="Orders.printInvoice('ORD-2024-1001')">
+                                                <i class="bi bi-printer"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="admin-checkbox order-checkbox"></td>
+                                    <td><a href="#" class="admin-order-id" onclick="Orders.viewDetails('ORD-2024-1002'); return false;">#ORD-2024-1002</a></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Priya+Patel&background=146eb4&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div class="admin-user-name-sm">Priya Patel</div>
+                                                <div class="admin-user-email-sm">priya.patel@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-product-count">1 item</span></td>
+                                    <td><strong>₹5,999</strong></td>
+                                    <td><span class="admin-badge admin-badge-warning">Pending</span></td>
+                                    <td><span class="admin-badge admin-badge-warning">Pending</span></td>
+                                    <td>Oct 23, 2025</td>
+                                    <td>
+                                        <div class="admin-actions">
+                                            <button class="admin-action-btn" title="View Details" onclick="Orders.viewDetails('ORD-2024-1002')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-action-btn" title="Print Invoice" onclick="Orders.printInvoice('ORD-2024-1002')">
+                                                <i class="bi bi-printer"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="admin-checkbox order-checkbox"></td>
+                                    <td><a href="#" class="admin-order-id" onclick="Orders.viewDetails('ORD-2024-1003'); return false;">#ORD-2024-1003</a></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Amit+Kumar&background=146eb4&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div class="admin-user-name-sm">Amit Kumar</div>
+                                                <div class="admin-user-email-sm">amit.kumar@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-product-count">5 items</span></td>
+                                    <td><strong>₹24,999</strong></td>
+                                    <td><span class="admin-badge admin-badge-success">Paid</span></td>
+                                    <td><span class="admin-badge admin-badge-success">Delivered</span></td>
+                                    <td>Oct 22, 2025</td>
+                                    <td>
+                                        <div class="admin-actions">
+                                            <button class="admin-action-btn" title="View Details" onclick="Orders.viewDetails('ORD-2024-1003')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-action-btn" title="Print Invoice" onclick="Orders.printInvoice('ORD-2024-1003')">
+                                                <i class="bi bi-printer"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="admin-checkbox order-checkbox"></td>
+                                    <td><a href="#" class="admin-order-id" onclick="Orders.viewDetails('ORD-2024-1004'); return false;">#ORD-2024-1004</a></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Sneha+Reddy&background=146eb4&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div class="admin-user-name-sm">Sneha Reddy</div>
+                                                <div class="admin-user-email-sm">sneha.reddy@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-product-count">2 items</span></td>
+                                    <td><strong>₹8,499</strong></td>
+                                    <td><span class="admin-badge admin-badge-success">Paid</span></td>
+                                    <td><span class="admin-badge admin-badge-primary">Processing</span></td>
+                                    <td>Oct 22, 2025</td>
+                                    <td>
+                                        <div class="admin-actions">
+                                            <button class="admin-action-btn" title="View Details" onclick="Orders.viewDetails('ORD-2024-1004')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-action-btn" title="Print Invoice" onclick="Orders.printInvoice('ORD-2024-1004')">
+                                                <i class="bi bi-printer"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="admin-checkbox order-checkbox"></td>
+                                    <td><a href="#" class="admin-order-id" onclick="Orders.viewDetails('ORD-2024-1005'); return false;">#ORD-2024-1005</a></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Vikram+Singh&background=146eb4&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div class="admin-user-name-sm">Vikram Singh</div>
+                                                <div class="admin-user-email-sm">vikram.singh@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="admin-product-count">4 items</span></td>
+                                    <td><strong>₹18,999</strong></td>
+                                    <td><span class="admin-badge admin-badge-danger">Failed</span></td>
+                                    <td><span class="admin-badge admin-badge-danger">Cancelled</span></td>
+                                    <td>Oct 21, 2025</td>
+                                    <td>
+                                        <div class="admin-actions">
+                                            <button class="admin-action-btn" title="View Details" onclick="Orders.viewDetails('ORD-2024-1005')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-action-btn" title="Print Invoice" onclick="Orders.printInvoice('ORD-2024-1005')">
+                                                <i class="bi bi-printer"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="admin-card-footer">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                        <div class="admin-pagination-info">
+                            Showing <strong>1-15</strong> of <strong>1,284</strong> orders
+                        </div>
+                        <nav>
+                            <ul class="admin-pagination">
+                                <li class="admin-pagination-item disabled">
+                                    <a href="#" class="admin-pagination-link">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li class="admin-pagination-item active">
+                                    <a href="#" class="admin-pagination-link">1</a>
+                                </li>
+                                <li class="admin-pagination-item">
+                                    <a href="#" class="admin-pagination-link">2</a>
+                                </li>
+                                <li class="admin-pagination-item">
+                                    <a href="#" class="admin-pagination-link">3</a>
+                                </li>
+                                <li class="admin-pagination-item">
+                                    <span class="admin-pagination-link">...</span>
+                                </li>
+                                <li class="admin-pagination-item">
+                                    <a href="#" class="admin-pagination-link">86</a>
+                                </li>
+                                <li class="admin-pagination-item">
+                                    <a href="#" class="admin-pagination-link">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title">Order Details</h5>
+                        <p class="mb-0 text-muted" style="font-size: 0.875rem;" id="modalOrderId">#ORD-2024-1001</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <!-- Left Column -->
+                        <div class="col-lg-8">
+                            <!-- Order Items -->
+                            <div class="admin-card mb-4">
+                                <div class="admin-card-header">
+                                    <h6 class="admin-card-title mb-0">Order Items</h6>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="order-item-list">
+                                        <div class="order-item">
+                                            <img src="../images/prod1.webp" alt="Product" class="order-item-img">
+                                            <div class="order-item-details">
+                                                <h6 class="order-item-name">Wireless Bluetooth Headphones</h6>
+                                                <p class="order-item-meta">Color: Black | Size: Standard</p>
+                                                <p class="order-item-sku">SKU: WBH-001-BLK</p>
+                                            </div>
+                                            <div class="order-item-qty">Qty: 1</div>
+                                            <div class="order-item-price">₹4,999</div>
+                                        </div>
+                                        <div class="order-item">
+                                            <img src="../images/prod2.webp" alt="Product" class="order-item-img">
+                                            <div class="order-item-details">
+                                                <h6 class="order-item-name">Smart Watch Pro</h6>
+                                                <p class="order-item-meta">Color: Silver | Band: Leather</p>
+                                                <p class="order-item-sku">SKU: SWP-002-SLV</p>
+                                            </div>
+                                            <div class="order-item-qty">Qty: 1</div>
+                                            <div class="order-item-price">₹6,500</div>
+                                        </div>
+                                        <div class="order-item">
+                                            <img src="../images/prod1.webp" alt="Product" class="order-item-img">
+                                            <div class="order-item-details">
+                                                <h6 class="order-item-name">USB-C Fast Charger</h6>
+                                                <p class="order-item-meta">Type: 65W | Color: White</p>
+                                                <p class="order-item-sku">SKU: UFC-003-WHT</p>
+                                            </div>
+                                            <div class="order-item-qty">Qty: 1</div>
+                                            <div class="order-item-price">₹1,000</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Order Summary -->
+                                    <div class="order-summary mt-4 pt-3 border-top">
+                                        <div class="order-summary-row">
+                                            <span>Subtotal:</span>
+                                            <strong>₹12,499</strong>
+                                        </div>
+                                        <div class="order-summary-row">
+                                            <span>Shipping:</span>
+                                            <strong>₹0</strong>
+                                        </div>
+                                        <div class="order-summary-row">
+                                            <span>Tax (18%):</span>
+                                            <strong>₹2,250</strong>
+                                        </div>
+                                        <div class="order-summary-row">
+                                            <span>Discount:</span>
+                                            <strong class="text-success">-₹500</strong>
+                                        </div>
+                                        <div class="order-summary-row order-summary-total">
+                                            <span>Total:</span>
+                                            <strong>₹14,249</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shipping Information -->
+                            <div class="admin-card mb-4">
+                                <div class="admin-card-header">
+                                    <h6 class="admin-card-title mb-0">Shipping Information</h6>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="admin-label">Full Name</label>
+                                            <p class="mb-0"><strong>Rahul Sharma</strong></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="admin-label">Phone Number</label>
+                                            <p class="mb-0"><strong>+91 98765 43210</strong></p>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="admin-label">Address</label>
+                                            <p class="mb-0">
+                                                A-203, Sunshine Apartments,<br>
+                                                MG Road, Koramangala,<br>
+                                                Bangalore, Karnataka - 560034
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="admin-label">Shipping Method</label>
+                                            <p class="mb-0">Standard Delivery (3-5 days)</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="admin-label">Tracking Number</label>
+                                            <p class="mb-0">
+                                                <a href="#" class="admin-link" onclick="Orders.trackShipment('TRK123456789'); return false;">
+                                                    TRK123456789
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Order Timeline -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h6 class="admin-card-title mb-0">Order Timeline</h6>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="order-timeline">
+                                        <div class="timeline-item timeline-success">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Order Placed</h6>
+                                                <p class="timeline-desc">Your order has been received</p>
+                                                <p class="timeline-time">Oct 23, 2025 at 10:30 AM</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item timeline-success">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Payment Confirmed</h6>
+                                                <p class="timeline-desc">Payment received successfully</p>
+                                                <p class="timeline-time">Oct 23, 2025 at 10:32 AM</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item timeline-success">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Order Processing</h6>
+                                                <p class="timeline-desc">Items are being packed</p>
+                                                <p class="timeline-time">Oct 23, 2025 at 2:15 PM</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item timeline-active">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Shipped</h6>
+                                                <p class="timeline-desc">Order is on the way</p>
+                                                <p class="timeline-time">Oct 23, 2025 at 5:00 PM</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item timeline-pending">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Out for Delivery</h6>
+                                                <p class="timeline-desc">Pending</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item timeline-pending">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Delivered</h6>
+                                                <p class="timeline-desc">Pending</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="col-lg-4">
+                            <!-- Customer Info -->
+                            <div class="admin-card mb-4">
+                                <div class="admin-card-header">
+                                    <h6 class="admin-card-title mb-0">Customer Information</h6>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="text-center mb-3">
+                                        <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=146eb4&color=fff&size=80" 
+                                             alt="Customer" class="rounded-circle mb-2">
+                                        <h6 class="mb-1">Rahul Sharma</h6>
+                                        <p class="text-muted mb-0" style="font-size: 0.875rem;">rahul.sharma@email.com</p>
+                                        <p class="text-muted mb-0" style="font-size: 0.875rem;">+91 98765 43210</p>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <a href="users.html" class="admin-btn admin-btn-sm admin-btn-outline-primary">
+                                            <i class="bi bi-person"></i> View Profile
+                                        </a>
+                                        <button class="admin-btn admin-btn-sm admin-btn-outline-secondary" onclick="Orders.emailCustomer()">
+                                            <i class="bi bi-envelope"></i> Send Email
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Info -->
+                            <div class="admin-card mb-4">
+                                <div class="admin-card-header">
+                                    <h6 class="admin-card-title mb-0">Payment Details</h6>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="info-row">
+                                        <span>Payment Method:</span>
+                                        <strong>UPI</strong>
+                                    </div>
+                                    <div class="info-row">
+                                        <span>Transaction ID:</span>
+                                        <strong>TXN987654321</strong>
+                                    </div>
+                                    <div class="info-row">
+                                        <span>Payment Status:</span>
+                                        <span class="admin-badge admin-badge-success">Paid</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span>Amount Paid:</span>
+                                        <strong>₹14,249</strong>
+                                    </div>
+                                    <div class="info-row">
+                                        <span>Payment Date:</span>
+                                        <span>Oct 23, 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Update Status -->
+                            <div class="admin-card mb-4">
+                                <div class="admin-card-header">
+                                    <h6 class="admin-card-title mb-0">Update Order Status</h6>
+                                </div>
+                                <div class="admin-card-body">
+                                    <form onsubmit="Orders.updateStatus(event)">
+                                        <div class="mb-3">
+                                            <label class="admin-label">Order Status</label>
+                                            <select class="admin-select" required>
+                                                <option value="pending">Pending</option>
+                                                <option value="confirmed">Confirmed</option>
+                                                <option value="processing">Processing</option>
+                                                <option value="shipped" selected>Shipped</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="cancelled">Cancelled</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="admin-label">Notes (Optional)</label>
+                                            <textarea class="admin-input" rows="3" placeholder="Add notes..."></textarea>
+                                        </div>
+                                        <button type="submit" class="admin-btn admin-btn-primary w-100">
+                                            Update Status
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="admin-card">
+                                <div class="admin-card-body">
+                                    <div class="d-grid gap-2">
+                                        <button class="admin-btn admin-btn-outline-primary" onclick="Orders.printInvoice()">
+                                            <i class="bi bi-printer"></i> Print Invoice
+                                        </button>
+                                        <button class="admin-btn admin-btn-outline-secondary" onclick="Orders.downloadInvoice()">
+                                            <i class="bi bi-download"></i> Download PDF
+                                        </button>
+                                        <button class="admin-btn admin-btn-outline-info" onclick="Orders.sendInvoiceEmail()">
+                                            <i class="bi bi-envelope"></i> Email Invoice
+                                        </button>
+                                        <button class="admin-btn admin-btn-outline-danger" onclick="Orders.cancelOrder()">
+                                            <i class="bi bi-x-circle"></i> Cancel Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/admin-script.js"></script>
+    <script>
+        // Orders Management System
+        const Orders = {
+            selectedOrders: new Set(),
+
+            // View order details
+            viewDetails: function(orderId) {
+                console.log('Viewing order:', orderId);
+                document.getElementById('modalOrderId').textContent = orderId;
+                const modal = new bootstrap.Modal(document.getElementById('orderDetailsModal'));
+                modal.show();
+            },
+
+            // Print invoice
+            printInvoice: function(orderId) {
+                console.log('Printing invoice for:', orderId);
+                window.print();
+            },
+
+            // Export orders
+            exportOrders: function() {
+                console.log('Exporting orders...');
+                alert('Exporting orders to CSV...');
+            },
+
+            // Print orders list
+            printOrders: function() {
+                console.log('Printing orders list...');
+                window.print();
+            },
+
+            // Apply filters
+            applyFilters: function() {
+                const status = document.getElementById('filterStatus').value;
+                const payment = document.getElementById('filterPayment').value;
+                const dateFrom = document.getElementById('filterDateFrom').value;
+                const dateTo = document.getElementById('filterDateTo').value;
+
+                console.log('Applying filters:', { status, payment, dateFrom, dateTo });
+                
+                // Filter logic would go here
+                alert('Filters applied successfully!');
+            },
+
+            // Clear filters
+            clearFilters: function() {
+                document.getElementById('filterStatus').value = '';
+                document.getElementById('filterPayment').value = '';
+                document.getElementById('filterDateFrom').value = '';
+                document.getElementById('filterDateTo').value = '';
+                console.log('Filters cleared');
+            },
+
+            // Toggle select all
+            toggleSelectAll: function(checkbox) {
+                const checkboxes = document.querySelectorAll('.order-checkbox');
+                checkboxes.forEach(cb => {
+                    cb.checked = checkbox.checked;
+                    if (checkbox.checked) {
+                        this.selectedOrders.add(cb.closest('tr').querySelector('.admin-order-id').textContent);
+                    } else {
+                        this.selectedOrders.clear();
+                    }
+                });
+                this.updateBulkActionsVisibility();
+            },
+
+            // Update bulk actions visibility
+            updateBulkActionsVisibility: function() {
+                const bulkActions = document.getElementById('bulkActions');
+                if (this.selectedOrders.size > 0) {
+                    bulkActions.style.display = 'flex';
+                } else {
+                    bulkActions.style.display = 'none';
+                }
+            },
+
+            // Apply bulk action
+            applyBulkAction: function() {
+                const action = document.getElementById('bulkActionSelect').value;
+                if (!action) {
+                    alert('Please select an action');
+                    return;
+                }
+
+                console.log('Applying bulk action:', action, 'to orders:', Array.from(this.selectedOrders));
+                alert(`Applying ${action} to ${this.selectedOrders.size} orders`);
+            },
+
+            // Update order status
+            updateStatus: function(event) {
+                event.preventDefault();
+                const form = event.target;
+                const status = form.querySelector('select').value;
+                const notes = form.querySelector('textarea').value;
+
+                console.log('Updating status:', status, 'Notes:', notes);
+                alert('Order status updated successfully!');
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('orderDetailsModal'));
+                modal.hide();
+            },
+
+            // Download invoice
+            downloadInvoice: function() {
+                console.log('Downloading invoice...');
+                alert('Invoice PDF will be downloaded');
+            },
+
+            // Send invoice email
+            sendInvoiceEmail: function() {
+                console.log('Sending invoice email...');
+                alert('Invoice sent to customer email');
+            },
+
+            // Cancel order
+            cancelOrder: function() {
+                if (confirm('Are you sure you want to cancel this order?')) {
+                    console.log('Cancelling order...');
+                    alert('Order cancelled successfully');
+                }
+            },
+
+            // Email customer
+            emailCustomer: function() {
+                console.log('Opening email composer...');
+                alert('Email composer opened');
+            },
+
+            // Track shipment
+            trackShipment: function(trackingNumber) {
+                console.log('Tracking shipment:', trackingNumber);
+                alert('Opening tracking details for: ' + trackingNumber);
+            },
+
+            // Initialize
+            init: function() {
+                // Add event listeners to order checkboxes
+                document.querySelectorAll('.order-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', (e) => {
+                        const orderId = e.target.closest('tr').querySelector('.admin-order-id').textContent;
+                        if (e.target.checked) {
+                            this.selectedOrders.add(orderId);
+                        } else {
+                            this.selectedOrders.delete(orderId);
+                        }
+                        this.updateBulkActionsVisibility();
+                    });
+                });
+
+                console.log('Orders management system initialized');
+            }
+        };
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            Orders.init();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - EBS Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="css/admin-style.css">
+    
+    <style>
+        .user-stats-mini {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-mini-card {
+            background: white;
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-mini-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--admin-primary);
+        }
+
+        .stat-mini-label {
+            font-size: 0.75rem;
+            color: var(--admin-text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .user-filters {
+            background: white;
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-input {
+            padding: 0.625rem 0.875rem;
+            border: 1px solid var(--admin-border);
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+            box-shadow: 0 0 0 3px rgba(20, 110, 180, 0.1);
+        }
+
+        .user-avatar-lg {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--admin-border);
+        }
+
+        .user-detail-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+        .user-detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .user-detail-label {
+            font-weight: 600;
+            color: var(--admin-text-secondary);
+            min-width: 140px;
+        }
+
+        .user-detail-value {
+            color: var(--admin-text-primary);
+        }
+
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-btn-primary {
+            background: var(--admin-primary);
+            color: white;
+        }
+
+        .action-btn-primary:hover {
+            background: #0d5a9e;
+        }
+
+        .action-btn-success {
+            background: var(--admin-success);
+            color: white;
+        }
+
+        .action-btn-success:hover {
+            background: #218838;
+        }
+
+        .action-btn-danger {
+            background: var(--admin-danger);
+            color: white;
+        }
+
+        .action-btn-danger:hover {
+            background: #c82333;
+        }
+
+        .action-btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .action-btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .action-btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.8125rem;
+        }
+
+        .user-order-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .order-stat {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .order-stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--admin-primary);
+        }
+
+        .order-stat-label {
+            font-size: 0.75rem;
+            color: var(--admin-text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .status-toggle {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+
+        .status-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .status-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+
+        .status-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .status-slider {
+            background-color: var(--admin-success);
+        }
+
+        input:checked + .status-slider:before {
+            transform: translateX(24px);
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .chart-container-sm {
+            height: 200px;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 991px) {
+            .user-order-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="admin-sidebar-user">
+            <button class="admin-sidebar-close d-lg-none">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="admin-user-avatar">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=146eb4&color=fff&size=48" alt="Admin User">
+            </div>
+            <div class="admin-user-info">
+                <div class="admin-user-name">Admin User</div>
+                <div class="admin-user-role">Super Admin</div>
+            </div>
+        </div>
+
+        <nav class="admin-sidebar-nav">
+            <!-- Main Section -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">Main Menu</div>
+                
+                <a href="index.html" class="admin-nav-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <span class="admin-nav-item-text">Dashboard</span>
+                </a>
+
+                <a href="analytics.html" class="admin-nav-item">
+                    <i class="bi bi-graph-up"></i>
+                    <span class="admin-nav-item-text">Analytics</span>
+                </a>
+            </div>
+
+            <!-- E-Commerce Section -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">E-Commerce</div>
+                
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-box-seam"></i>
+                    <span class="admin-nav-item-text">Products</span>
+                    <span class="admin-nav-badge">245</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="products.html" class="admin-submenu-item">All Products</a>
+                    <a href="add-product.html" class="admin-submenu-item">Add New Product</a>
+                    <a href="product-reviews.html" class="admin-submenu-item">Product Reviews</a>
+                    <a href="inventory.html" class="admin-submenu-item">Inventory Management</a>
+                </div>
+
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-grid"></i>
+                    <span class="admin-nav-item-text">Categories</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="categories.html" class="admin-submenu-item">All Categories</a>
+                    <a href="add-category.html" class="admin-submenu-item">Add Category</a>
+                    <a href="subcategories.html" class="admin-submenu-item">Sub Categories</a>
+                </div>
+
+                <a href="brands.html" class="admin-nav-item">
+                    <i class="bi bi-award"></i>
+                    <span class="admin-nav-item-text">Brands</span>
+                </a>
+
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-bag-check"></i>
+                    <span class="admin-nav-item-text">Orders</span>
+                    <span class="admin-nav-badge admin-badge-warning">12</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="orders.html" class="admin-submenu-item">All Orders</a>
+                    <a href="pending-orders.html" class="admin-submenu-item">
+                        Pending Orders
+                        <span class="admin-nav-badge admin-badge-warning ms-auto">12</span>
+                    </a>
+                    <a href="shipped-orders.html" class="admin-submenu-item">Shipped Orders</a>
+                    <a href="delivered-orders.html" class="admin-submenu-item">Delivered Orders</a>
+                    <a href="cancelled-orders.html" class="admin-submenu-item">Cancelled Orders</a>
+                    <a href="refunds.html" class="admin-submenu-item">Refunds & Returns</a>
+                </div>
+            </div>
+
+            <!-- Customer Management -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">Customer Management</div>
+                
+                <a href="users.html" class="admin-nav-item active">
+                    <i class="bi bi-people"></i>
+                    <span class="admin-nav-item-text">All Users</span>
+                </a>
+
+                <a href="customer-reviews.html" class="admin-nav-item">
+                    <i class="bi bi-star"></i>
+                    <span class="admin-nav-item-text">Customer Reviews</span>
+                </a>
+
+                <a href="support-tickets.html" class="admin-nav-item">
+                    <i class="bi bi-headset"></i>
+                    <span class="admin-nav-item-text">Support Tickets</span>
+                    <span class="admin-nav-badge admin-badge-danger">3</span>
+                </a>
+            </div>
+
+            <!-- Marketing -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">Marketing</div>
+                
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-images"></i>
+                    <span class="admin-nav-item-text">Banners</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="banners.html" class="admin-submenu-item">All Banners</a>
+                    <a href="add-banner.html" class="admin-submenu-item">Add Banner</a>
+                    <a href="banner-positions.html" class="admin-submenu-item">Banner Positions</a>
+                </div>
+
+                <a href="coupons.html" class="admin-nav-item">
+                    <i class="bi bi-tag"></i>
+                    <span class="admin-nav-item-text">Coupons & Deals</span>
+                </a>
+
+                <a href="email-campaigns.html" class="admin-nav-item">
+                    <i class="bi bi-envelope-paper"></i>
+                    <span class="admin-nav-item-text">Email Campaigns</span>
+                </a>
+            </div>
+
+            <!-- Reports & Analytics -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">Reports</div>
+                
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span class="admin-nav-item-text">Reports</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="sales-reports.html" class="admin-submenu-item">Sales Reports</a>
+                    <a href="revenue-reports.html" class="admin-submenu-item">Revenue Reports</a>
+                    <a href="product-reports.html" class="admin-submenu-item">Product Reports</a>
+                    <a href="user-reports.html" class="admin-submenu-item">User Reports</a>
+                </div>
+            </div>
+
+            <div class="admin-nav-divider"></div>
+
+            <!-- Settings -->
+            <div class="admin-nav-section">
+                <div class="admin-nav-section-title">System</div>
+                
+                <div class="admin-nav-item has-submenu">
+                    <i class="bi bi-gear"></i>
+                    <span class="admin-nav-item-text">Settings</span>
+                    <i class="bi bi-chevron-right admin-nav-arrow"></i>
+                </div>
+                <div class="admin-submenu">
+                    <a href="general-settings.html" class="admin-submenu-item">General Settings</a>
+                    <a href="company-info.html" class="admin-submenu-item">Company Information</a>
+                    <a href="payment-settings.html" class="admin-submenu-item">Payment Settings</a>
+                    <a href="shipping-settings.html" class="admin-submenu-item">Shipping Settings</a>
+                    <a href="tax-settings.html" class="admin-submenu-item">Tax Configuration</a>
+                    <a href="email-settings.html" class="admin-submenu-item">Email Settings</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="admin-sidebar-footer">
+            <a href="../index.html" class="admin-nav-item">
+                <i class="bi bi-box-arrow-left"></i>
+                <span class="admin-nav-item-text">Back to Site</span>
+            </a>
+            <a href="login.html" class="admin-nav-item admin-nav-logout">
+                <i class="bi bi-power"></i>
+                <span class="admin-nav-item-text">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Sidebar Overlay -->
+    <div class="admin-sidebar-overlay" onclick="Admin.closeSidebar()"></div>
+
+    <!-- Main Content -->
+    <div class="admin-main-wrapper">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-header-left">
+                <button class="admin-menu-toggle" onclick="Admin.toggleSidebar()" title="Toggle Menu">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="admin-breadcrumb">
+                    <span class="admin-breadcrumb-item">User Management</span>
+                </div>
+            </div>
+
+            <div class="admin-header-right">
+                <div class="admin-header-search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" class="admin-search-input" placeholder="Search users...">
+                </div>
+                <button class="admin-header-icon" title="Notifications">
+                    <i class="bi bi-bell"></i>
+                    <span class="admin-notification-dot"></span>
+                </button>
+                <button class="admin-header-icon" title="Messages">
+                    <i class="bi bi-envelope"></i>
+                </button>
+                <div class="admin-header-user">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=146eb4&color=fff" alt="Admin" class="admin-header-avatar">
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="admin-content">
+            <!-- Quick Stats -->
+            <div class="user-stats-mini">
+                <div class="stat-mini-card">
+                    <div class="stat-mini-value">2,456</div>
+                    <div class="stat-mini-label">Total Users</div>
+                </div>
+                <div class="stat-mini-card">
+                    <div class="stat-mini-value">1,847</div>
+                    <div class="stat-mini-label">Active Users</div>
+                </div>
+                <div class="stat-mini-card">
+                    <div class="stat-mini-value">245</div>
+                    <div class="stat-mini-label">New This Month</div>
+                </div>
+                <div class="stat-mini-card">
+                    <div class="stat-mini-value">₹8.4L</div>
+                    <div class="stat-mini-label">Avg. Revenue/User</div>
+                </div>
+                <div class="stat-mini-card">
+                    <div class="stat-mini-value">3.2</div>
+                    <div class="stat-mini-label">Avg. Orders/User</div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="user-filters">
+                <div class="filter-grid">
+                    <input type="text" class="filter-input" id="searchUser" placeholder="🔍 Search by name, email, phone...">
+                    <select class="filter-input" id="filterStatus">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="blocked">Blocked</option>
+                    </select>
+                    <select class="filter-input" id="filterRegistration">
+                        <option value="">Registration Date</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="year">This Year</option>
+                    </select>
+                    <select class="filter-input" id="filterRevenue">
+                        <option value="">Revenue Range</option>
+                        <option value="0-10000">₹0 - ₹10,000</option>
+                        <option value="10000-50000">₹10,000 - ₹50,000</option>
+                        <option value="50000-100000">₹50,000 - ₹1,00,000</option>
+                        <option value="100000+">₹1,00,000+</option>
+                    </select>
+                    <select class="filter-input" id="filterOrders">
+                        <option value="">Order Count</option>
+                        <option value="0-5">0-5 Orders</option>
+                        <option value="6-10">6-10 Orders</option>
+                        <option value="11-20">11-20 Orders</option>
+                        <option value="20+">20+ Orders</option>
+                    </select>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                    <button class="action-btn action-btn-primary action-btn-sm">
+                        <i class="bi bi-funnel"></i> Apply Filters
+                    </button>
+                    <button class="action-btn action-btn-secondary action-btn-sm">
+                        <i class="bi bi-x-circle"></i> Clear
+                    </button>
+                    <button class="action-btn action-btn-success action-btn-sm ms-auto">
+                        <i class="bi bi-download"></i> Export Users
+                    </button>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <h2 class="admin-card-title">
+                        <i class="bi bi-people-fill me-2"></i>
+                        All Users
+                    </h2>
+                    <div class="admin-card-actions">
+                        <select class="admin-select-sm" id="bulkAction">
+                            <option value="">Bulk Actions</option>
+                            <option value="activate">Activate Selected</option>
+                            <option value="deactivate">Deactivate Selected</option>
+                            <option value="delete">Delete Selected</option>
+                            <option value="export">Export Selected</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="admin-card-body p-0">
+                    <div class="admin-table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px;">
+                                        <input type="checkbox" id="selectAll">
+                                    </th>
+                                    <th>User</th>
+                                    <th>Email / Phone</th>
+                                    <th>Registration</th>
+                                    <th>Orders</th>
+                                    <th>Revenue</th>
+                                    <th>Last Active</th>
+                                    <th>Status</th>
+                                    <th style="width: 120px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=146eb4&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div style="font-weight: 600;">Rahul Sharma</div>
+                                                <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">ID: #USR-10234</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>rahul.sharma@email.com</div>
+                                        <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">+91 98765 43210</div>
+                                    </td>
+                                    <td>Oct 15, 2025</td>
+                                    <td><strong>28</strong> orders</td>
+                                    <td style="color: var(--admin-primary); font-weight: 700;">₹2,45,890</td>
+                                    <td>2 hours ago</td>
+                                    <td>
+                                        <label class="status-toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="status-slider"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="quick-actions">
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="viewUser(1)" title="View Details">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="editUser(1)" title="Edit User">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="deleteUser(1)" title="Delete User">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Priya+Patel&background=28a745&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div style="font-weight: 600;">Priya Patel</div>
+                                                <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">ID: #USR-10235</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>priya.patel@email.com</div>
+                                        <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">+91 98123 45678</div>
+                                    </td>
+                                    <td>Oct 18, 2025</td>
+                                    <td><strong>15</strong> orders</td>
+                                    <td style="color: var(--admin-primary); font-weight: 700;">₹1,25,450</td>
+                                    <td>5 hours ago</td>
+                                    <td>
+                                        <label class="status-toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="status-slider"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="quick-actions">
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="viewUser(2)" title="View Details">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="editUser(2)" title="Edit User">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="deleteUser(2)" title="Delete User">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Amit+Kumar&background=ffc107&color=000" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div style="font-weight: 600;">Amit Kumar</div>
+                                                <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">ID: #USR-10236</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>amit.kumar@email.com</div>
+                                        <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">+91 99876 54321</div>
+                                    </td>
+                                    <td>Oct 20, 2025</td>
+                                    <td><strong>42</strong> orders</td>
+                                    <td style="color: var(--admin-primary); font-weight: 700;">₹3,78,920</td>
+                                    <td>1 day ago</td>
+                                    <td>
+                                        <label class="status-toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="status-slider"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="quick-actions">
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="viewUser(3)" title="View Details">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="editUser(3)" title="Edit User">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="deleteUser(3)" title="Delete User">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Sneha+Reddy&background=dc3545&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div style="font-weight: 600;">Sneha Reddy</div>
+                                                <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">ID: #USR-10237</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>sneha.reddy@email.com</div>
+                                        <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">+91 97654 32109</div>
+                                    </td>
+                                    <td>Oct 21, 2025</td>
+                                    <td><strong>8</strong> orders</td>
+                                    <td style="color: var(--admin-primary); font-weight: 700;">₹54,670</td>
+                                    <td>3 days ago</td>
+                                    <td>
+                                        <label class="status-toggle">
+                                            <input type="checkbox">
+                                            <span class="status-slider"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="quick-actions">
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="viewUser(4)" title="View Details">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="editUser(4)" title="Edit User">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="deleteUser(4)" title="Delete User">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>
+                                        <div class="admin-user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Vikram+Singh&background=6c757d&color=fff" alt="User" class="admin-user-avatar-sm">
+                                            <div>
+                                                <div style="font-weight: 600;">Vikram Singh</div>
+                                                <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">ID: #USR-10238</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>vikram.singh@email.com</div>
+                                        <div style="font-size: 0.75rem; color: var(--admin-text-secondary);">+91 96543 21098</div>
+                                    </td>
+                                    <td>Oct 22, 2025</td>
+                                    <td><strong>3</strong> orders</td>
+                                    <td style="color: var(--admin-primary); font-weight: 700;">₹18,450</td>
+                                    <td>12 hours ago</td>
+                                    <td>
+                                        <label class="status-toggle">
+                                            <input type="checkbox" checked>
+                                            <span class="status-slider"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="quick-actions">
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="viewUser(5)" title="View Details">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="editUser(5)" title="Edit User">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="admin-header-icon admin-header-icon-sm" onclick="deleteUser(5)" title="Delete User">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="admin-card-body" style="border-top: 1px solid var(--admin-border);">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                        <div style="font-size: 0.875rem; color: var(--admin-text-secondary);">
+                            Showing 1 to 5 of 2,456 users
+                        </div>
+                        <nav>
+                            <ul class="pagination pagination-sm mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                <li class="page-item"><a class="page-link" href="#">492</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- User Details Modal -->
+    <div class="modal fade" id="userDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-person-circle me-2"></i>
+                        User Details
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- User Profile Section -->
+                    <div class="text-center mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&background=146eb4&color=fff&size=80" alt="User" class="user-avatar-lg">
+                        <h4 class="mt-3 mb-1">Rahul Sharma</h4>
+                        <p class="text-muted mb-2">rahul.sharma@email.com</p>
+                        <span class="admin-badge admin-badge-success">Active User</span>
+                    </div>
+
+                    <!-- Order Statistics -->
+                    <div class="user-order-summary">
+                        <div class="order-stat">
+                            <div class="order-stat-value">28</div>
+                            <div class="order-stat-label">Total Orders</div>
+                        </div>
+                        <div class="order-stat">
+                            <div class="order-stat-value">₹2.4L</div>
+                            <div class="order-stat-label">Total Revenue</div>
+                        </div>
+                        <div class="order-stat">
+                            <div class="order-stat-value">₹8,960</div>
+                            <div class="order-stat-label">Avg. Order Value</div>
+                        </div>
+                    </div>
+
+                    <!-- User Information -->
+                    <div class="mt-4">
+                        <h6 class="mb-3"><strong>Personal Information</strong></h6>
+                        <div class="user-detail-row">
+                            <span class="user-detail-label">
+                                <i class="bi bi-person me-2"></i>Full Name
+                            </span>
+                            <span class="user-detail-value">Rahul Sharma</span>
+                        </div>
+                        <div class="user-detail-row">
+                            <span class="user-detail-label">
+                                <i class="bi bi-envelope me-2"></i>Email
+                            </span>
+                            <span class="user-detail-value">rahul.sharma@email.com</span>
+                        </div>
+                        <div class="user-detail-row">
+                            <span class="user-detail-label">
+                                <i class="bi bi-phone me-2"></i>Phone
+                            </span>
+                            <span class="user-detail-value">+91 98765 43210</span>
+                        </div>
+                        <div class="user-detail-row">
+                            <span class="user-detail-label">
+                                <i class="bi bi-calendar me-2"></i>Registration Date
+                            </span>
+                            <span class="user-detail-value">October 15, 2025</span>
+                        </div>
+                        <div class="user-detail-row">
+                            <span class="user-detail-label">
+                                <i class="bi bi-clock me-2"></i>Last Active
+                            </span>
+                            <span class="user-detail-value">2 hours ago</span>
+                        </div>
+                        <div class="user-detail-row">
+                            <span class="user-detail-label">
+                                <i class="bi bi-geo-alt me-2"></i>Location
+                            </span>
+                            <span class="user-detail-value">Mumbai, Maharashtra, India</span>
+                        </div>
+                    </div>
+
+                    <!-- Revenue Chart -->
+                    <div class="mt-4">
+                        <h6 class="mb-3"><strong>Revenue Trend (Last 6 Months)</strong></h6>
+                        <div class="chart-container-sm">
+                            <canvas id="userRevenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Orders -->
+                    <div class="mt-4">
+                        <h6 class="mb-3"><strong>Recent Orders</strong></h6>
+                        <div class="admin-table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="admin-order-id">#ORD-10289</span></td>
+                                        <td>Oct 22, 2025</td>
+                                        <td>₹12,450</td>
+                                        <td><span class="admin-badge admin-badge-success">Delivered</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="admin-order-id">#ORD-10234</span></td>
+                                        <td>Oct 18, 2025</td>
+                                        <td>₹8,900</td>
+                                        <td><span class="admin-badge admin-badge-info">Shipped</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="admin-order-id">#ORD-10156</span></td>
+                                        <td>Oct 15, 2025</td>
+                                        <td>₹15,670</td>
+                                        <td><span class="admin-badge admin-badge-success">Delivered</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn action-btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="action-btn action-btn-primary">
+                        <i class="bi bi-pencil me-2"></i>Edit User
+                    </button>
+                    <button type="button" class="action-btn action-btn-danger">
+                        <i class="bi bi-trash me-2"></i>Delete User
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-pencil-square me-2"></i>
+                        Edit User
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" value="Rahul Sharma" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-control" value="rahul.sharma@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone *</label>
+                            <input type="tel" class="form-control" value="+91 98765 43210" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status *</label>
+                            <select class="form-control" required>
+                                <option value="active" selected>Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="blocked">Blocked</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <textarea class="form-control" rows="3">123 Main Street, Mumbai, Maharashtra, India - 400001</textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn action-btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="action-btn action-btn-primary">
+                        <i class="bi bi-check-lg me-2"></i>Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Admin JS -->
+    <script src="js/admin-script.js"></script>
+
+    <script>
+        // Select All Checkbox
+        document.getElementById('selectAll').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.user-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+
+        // View User Details
+        function viewUser(userId) {
+            const modal = new bootstrap.Modal(document.getElementById('userDetailsModal'));
+            modal.show();
+
+            // Initialize user revenue chart
+            setTimeout(() => {
+                const canvas = document.getElementById('userRevenueChart');
+                if (canvas) {
+                    const ctx = canvas.getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                            datasets: [{
+                                label: 'Revenue',
+                                data: [28000, 35000, 42000, 38000, 45000, 52000],
+                                backgroundColor: 'rgba(20, 110, 180, 0.8)',
+                                borderColor: '#146eb4',
+                                borderWidth: 2,
+                                borderRadius: 6
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    backgroundColor: '#1a1a2e',
+                                    padding: 12,
+                                    cornerRadius: 8,
+                                    callbacks: {
+                                        label: function(context) {
+                                            return '₹' + context.parsed.y.toLocaleString();
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return '₹' + (value / 1000) + 'k';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }, 300);
+        }
+
+        // Edit User
+        function editUser(userId) {
+            const modal = new bootstrap.Modal(document.getElementById('editUserModal'));
+            modal.show();
+        }
+
+        // Delete User
+        function deleteUser(userId) {
+            if (confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+                Admin.showNotification('User deleted successfully', 'success');
+                // Add delete logic here
+            }
+        }
+
+        // Status Toggle
+        document.querySelectorAll('.status-toggle input').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const status = this.checked ? 'active' : 'inactive';
+                Admin.showNotification(`User status changed to ${status}`, 'success');
+            });
+        });
+
+        // Bulk Actions
+        document.getElementById('bulkAction').addEventListener('change', function() {
+            const action = this.value;
+            const checkedBoxes = document.querySelectorAll('.user-checkbox:checked');
+            
+            if (action && checkedBoxes.length > 0) {
+                if (confirm(`Are you sure you want to ${action} ${checkedBoxes.length} selected users?`)) {
+                    Admin.showNotification(`Bulk action "${action}" applied to ${checkedBoxes.length} users`, 'success');
+                    this.value = '';
+                }
+            } else if (action && checkedBoxes.length === 0) {
+                alert('Please select at least one user');
+                this.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
