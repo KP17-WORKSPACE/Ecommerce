@@ -2085,6 +2085,48 @@
             });
         });
     </script>
+    <script>
+        // Link all product cards to product-details page
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a.product-link').forEach(function (el) {
+                el.setAttribute('href', 'product-details.html');
+            });
+        });
+    </script>
+    <script>
+        // Link category items to products page with category query or to all-categories
+        document.addEventListener('DOMContentLoaded', function () {
+            // Helper: convert category text to slug
+            function slugify(text) {
+                return text.trim().toLowerCase()
+                    .replace(/&/g, 'and')
+                    .replace(/[^\w\s-]/g, '')
+                    .replace(/\s+/g, '-');
+            }
+
+            // Desktop category links
+            document.querySelectorAll('a.category-link').forEach(function (el) {
+                if (el.classList.contains('category-link-all')) {
+                    el.setAttribute('href', 'all-categories.html');
+                    return;
+                }
+                var txt = el.querySelector('span')?.textContent || el.textContent || '';
+                var slug = slugify(txt);
+                if (slug) el.setAttribute('href', 'products.html?category=' + encodeURIComponent(slug));
+            });
+
+            // Mobile category items
+            document.querySelectorAll('a.mobile-category-item').forEach(function (el) {
+                var name = el.querySelector('.mobile-category-name')?.textContent || el.textContent || '';
+                var slug = slugify(name);
+                if (slug === 'all') {
+                    el.setAttribute('href', 'all-categories.html');
+                } else if (slug) {
+                    el.setAttribute('href', 'products.html?category=' + encodeURIComponent(slug));
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
